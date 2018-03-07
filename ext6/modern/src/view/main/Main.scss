@@ -1,0 +1,50 @@
+$base-color: dynamic(#4E88BB);
+$neutral-color: dynamic(#4E88BB);
+$blue-background-color: dynamic(#dfe9f6);
+
+.x-toolbar {
+  background-color: $neutral-color !important;
+
+  .x-button {
+    border: 0 !important;
+    -webkit-border-radius: 20px !important;
+    border-radius: 20px !important;
+    background-color: $blue-background-color !important;
+  }
+
+  .x-innerhtml {
+    color: $reverse-color;
+  }
+}
+
+#ext-viewport:after {
+  content: none !important;
+}
+
+.noticeText {
+  font-family: "cursive" !important;
+  font-size: 12px !important;
+  font-weight: normal !important;
+  color: #717185 !important;
+}
+
+.iframeCtn {
+  .x-innerhtml {
+    height: 100% !important;
+  }
+}
+
+.recLabel {
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: #717185;
+
+  :after {
+    content: ': ';
+  }
+}
+
+.recValue {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #ccc;
+}

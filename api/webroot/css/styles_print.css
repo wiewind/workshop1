@@ -1,0 +1,46 @@
+.print_body {
+    margin: 0;
+    border: 0;
+}
+
+.print_body .title {
+    padding: 5px 0;
+    font-weight: bold;;
+    font-size: 20px;
+}
+
+.print_info {
+    color: #666666;
+    border-top: 1px solid #666666;
+    border-bottom: 1px solid #666666;
+}
+
+.print_proj {
+    float: left;
+    padding-right: 10px;
+}
+.print_date {
+    float: right;
+    padding-left: 10px;
+}
+
+.print_info {
+    font-size: 10px;
+}
+
+.print_text {
+    margin: 10px 0 10px 0;
+}
+
+.print_release {
+    /*margin-top: 10px;*/
+
+}
+
+.print_release .title {
+    border-top: 1px solid #666666;
+    font-weight: bold;
+    font-size: 12px;
+    background-color: white;
+    color: black;
+}

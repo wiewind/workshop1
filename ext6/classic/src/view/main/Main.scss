@@ -1,0 +1,77 @@
+$base-color: dynamic(#4E88BB);
+$neutral-color: dynamic(#4E88BB);
+$blue-background-color: dynamic(#dfe9f6);
+
+.x-toolbar-default {
+  background-color: $blue-background-color;
+}
+
+.x-panel-default-outer-border-trbl {
+  border-width: 0px !important;
+}
+
+.x-btn-icon-el-default-toolbar-large {
+  height: 32px;
+}
+
+body.x-border-layout-ct, div.x-border-layout-ct {
+  background-color: #ffffff !important;
+}
+
+.cke_chrome {
+  border: 0 !important;
+}
+.cke_bottom {
+  background: $base-color !important;
+}
+
+
+.noticeText {
+  font-family: "cursive" !important;
+  font-size: 11px !important;
+  font-weight: normal !important;
+  color: #717185 !important;
+}
+
+.windowform {
+  //.x-panel-body-default {
+    background-color: $blue-background-color !important;
+  //}
+}
+
+.x-title-text-default:after {
+  content: '' !important;
+  font-size: 0 !important;
+}
+
+.x-title-text-default-framed:after {
+  content: '' !important;
+  font-size: 0 !important;
+}
+
+.x-tab-bar {
+  .x-unselectable {
+    border: 1px white dashed;
+    border-bottom: 0;
+  }
+}
+
+.track_mause_div {
+  position: absolute;
+  padding: 5px;
+  border: 1px solid #2c6877;
+  border-radius:5px;
+  -moz-border-radius:5px;
+  -webkit-border-radius: 5px;
+  box-shadow: 5px 5px 5px #888888;
+  background-color: #dfdfdf;
+  filter: alpha(opacity=80);
+  -moz-opacity: 0.8;
+  opacity: 0.8;
+  -khtml-opacity: 0.8;
+  z-index: 999999;
+
+  .iconBox {
+    margin-right: 5px;
+  }
+}

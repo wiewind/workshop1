@@ -1,0 +1,28 @@
+.searchContent {
+  padding: 20px !important;
+  line-height: 200% !important;
+  font-size: larger;
+
+  a {
+    margin-right: 6px;
+    color: #325640 !important;
+    text-decoration: none !important;
+  }
+  a:active {
+    color: #325640 !important;
+  }
+  a:hover {
+    color: #cc0000 !important;
+  }
+  a:visited {
+    color: #325640 !important;
+  }
+}
+
+.searchMenuItem {
+  margin: 10px;
+  border: 2px dotted cornflowerblue;
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: large;
+}

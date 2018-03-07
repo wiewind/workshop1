@@ -1,0 +1,40 @@
+.searchmenubox {
+  //width: 100%;
+  font-size: larger;
+
+  a {
+    clear: both;
+    float: left;
+    color: #325640 !important;
+    text-decoration: none !important;
+    width: 100%;
+    padding: 5px 0 5px 20px;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  a:hover {
+    background-color: #e6e6e6;
+  }
+}
+
+.searchContent {
+  padding: 20px !important;
+  line-height: 200% !important;
+  font-size: larger;
+
+  a {
+    margin-right: 10px;
+    color: #325640 !important;
+    text-decoration: none !important;
+  }
+  a:active {
+    color: #325640 !important;
+  }
+  a:hover {
+    color: #cc0000 !important;
+  }
+  a:visited {
+    color: #325640 !important;
+  }
+}

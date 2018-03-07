@@ -1,0 +1,35 @@
+.wws-li {
+  margin-bottom: 20px;
+
+  .wws-li-lb {
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+
+  .wws-li-v {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #cccccc;
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+.wws-li2 {
+  display: table-row;
+
+  .wws-li2-lb {
+    //clear: left;
+    //float: left;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    font-size: 12px;
+    display: table-cell;
+  }
+
+  .wws-li2-v {
+    padding-bottom: 10px;
+    display: table-cell;
+    //clear: right;
+    //float: right;
+  }
+}

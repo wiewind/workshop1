@@ -1,0 +1,1628 @@
+msgid "New APPS"
+msgstr "Neue APPS"
+
+msgid "Public"
+msgstr "Publik"
+
+msgid "Empty"
+msgstr "Leer"
+
+msgid "File [%s] is duplicate."
+msgstr "Die Datei [%s] ist duplizierte."
+
+msgid "Error by upload [%s]."
+msgstr "Fehler bei [%s] Hochladen."
+
+msgid "Missing parent node"
+msgstr "Es fehlt den übergeordneten Knoten."
+
+msgid "Folder [%s] is duplicate."
+msgstr "Der Ordner [%s] ist dupliziert."
+
+msgid "This folder does not exist."
+msgstr "Der Ordner existiert nicht."
+
+msgid "This file does not exist."
+msgstr "Diese Datei existiert nicht."
+
+msgid "Nothing found"
+msgstr "Es wird nichts gefunden."
+
+msgid "The Folder kann not move into itself or its subfolder"
+msgstr "Der Ordner darf nicht in seinen self oder seinen Unterordner schieben"
+
+msgid "A folder must be selected."
+msgstr "Ein Ordner muss ausgewählt werden."
+
+msgid "Job"
+msgstr "Arbeitstelle"
+
+msgid "Company"
+msgstr "Firma"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "ID"
+msgstr ""
+
+msgid "Attachment"
+msgstr "Anhang"
+
+msgid "You have no right to browse this site."
+msgstr "Sie haben keine recht diese webseite zu browsen."
+
+msgid "Error by set Folder [%s]."
+msgstr "Fehler bei Erstellung des Ordners [%s]."
+
+msgid "Error by delete Folder [%s]."
+msgstr "Fehler beim Löschen des Ordners [%s]."
+
+msgid "Error by delete File [%s]."
+msgstr "Fehler beim Löschen der Datei [%s]."
+
+msgid "email applied"
+msgstr "per Email bewerbt"
+
+msgid "tele applied"
+msgstr "telefonisch bewerbt"
+
+msgid "post applied"
+msgstr "per Post bewerbt"
+
+msgid "tele interview"
+msgstr "telefonische Vollstellungsgespräch"
+
+msgid "interview"
+msgstr "Vollstellungsgespräch"
+
+msgid "offered"
+msgstr "Vertrag erhalten"
+
+msgid "reject"
+msgstr "abgelehnt"
+
+msgid "indifferent"
+msgstr "uninteressant"
+
+msgid "new job"
+msgstr "Neu Job"
+
+msgid "loading layout"
+msgstr "lade Layout"
+
+msgid "loading core libraries"
+msgstr "lade kerne Bibliotheken "
+
+msgid "loading surport libraries"
+msgstr "lade Unterstützungsbibliotheken "
+
+msgid "loading modules"
+msgstr "lade Modules"
+
+msgid "Project"
+msgstr "Projekte"
+
+msgid "Release"
+msgstr "Release"
+
+msgid "Submit"
+msgstr "Submit"
+
+msgid "Close"
+msgstr "Schließen"
+
+msgid "Please wait..."
+msgstr "Bitte warten..."
+
+msgid "Failure"
+msgstr "Misserfolg"
+
+msgid "server error"
+msgstr "Serverfehler"
+
+msgid "Useful Sites"
+msgstr "Website"
+
+msgid "Worknotes"
+msgstr "Notizen"
+
+msgid "Filemanagement"
+msgstr "FileSYS"
+
+msgid "Jobapplications"
+msgstr "JobSYS"
+
+msgid "DB Management"
+msgstr "DB-Verwaltung "
+
+msgid "User Management"
+msgstr "Benutzerverwaltung"
+
+msgid "Customer Management"
+msgstr "Kundenmanagement"
+
+msgid "Test"
+msgstr "Test"
+
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "Language"
+msgstr "Sprache"
+
+msgid "User"
+msgstr "Benutzer"
+
+msgid "Customer"
+msgstr "Customer"
+
+msgid "Info"
+msgstr "Info"
+
+msgid "Logout"
+msgstr "Abmelden"
+
+msgid "The page will automatically turn to the Home"
+msgstr "Die Seite will automatisch zum Home kehren"
+
+msgid "Error"
+msgstr "Fehler"
+
+msgid "Setting Failure"
+msgstr "Einstellung untergelegen"
+
+msgid "Search"
+msgstr "Suche"
+
+msgid "Tables"
+msgstr "Tabellen"
+
+msgid "This database is empty."
+msgstr "Die Datenbank ist leer."
+
+msgid "Delete"
+msgstr "Löschen"
+
+msgid "Delete File"
+msgstr "Datei löschen"
+
+msgid "Are you sure you want to delete the record?"
+msgstr "Wollen Sie wirklich den Rekord löschen?"
+
+msgid "Success"
+msgstr "Erfolgt"
+
+msgid "This record is deleted"
+msgstr "Der Rekord ist gelöscht."
+
+msgid "Resource"
+msgstr "Resource"
+
+msgid "This table is empty."
+msgstr "Diese Tabelle ist leer."
+
+msgid "New"
+msgstr "Neu"
+
+msgid "ID of new record is %s"
+msgstr "ID des neuen Rekordes lautet %s"
+
+msgid "Root"
+msgstr "Stammverzeichnis"
+
+msgid "Undefinied"
+msgstr "Undefinierte"
+
+msgid "File is deleted."
+msgstr "Die Datei ist gelöscht."
+
+msgid "Folder [%s] is deleted."
+msgstr "Der Ordner [%s] ist gelöscht."
+
+msgid "The selected records are deleted."
+msgstr "Die ausgewählte Rekorde sind gelöscht."
+
+msgid "Please enter your search text"
+msgstr "Bitte geben Sie Ihren Suchtext ein."
+
+msgid "File is invalidate."
+msgstr "Die Datei ist ungültig."
+
+msgid "Folder is invalidate."
+msgstr "Der Ordner ist ungültig."
+
+msgid "Uploading your file(s)..."
+msgstr "Ihre Dateien werden hochgeladen..."
+
+msgid "Upload Files to [%s]"
+msgstr "Datei-Hochladen auf [%s]"
+
+msgid "Files"
+msgstr "Dateien"
+
+msgid "Select Files"
+msgstr "Dateien auswählen"
+
+msgid "This File ist not allowed type to upload."
+msgstr "Der Dateityp ist nicht erlaubt zu hochladen."
+
+msgid "This File ist too large."
+msgstr "Die Datei ist zu groß."
+
+msgid "The limit is %s."
+msgstr "Das Limit ist %s ."
+
+msgid "File"
+msgstr "Datei"
+
+msgid "Size"
+msgstr "Größe"
+
+msgid "Files are saved."
+msgstr "Die Dateien sind gespeichert."
+
+msgid "Add Folder to [%s]"
+msgstr "Neuer Ordner auf [%s]"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Folder is saved."
+msgstr "Der Ordner ist gespeichert."
+
+msgid "This folder is empty."
+msgstr "Der Ordner ist leer."
+
+msgid "Actions"
+msgstr "Aktionen"
+
+msgid "One Level Up"
+msgstr "Übergeordneter Ordner"
+
+msgid "New Folder"
+msgstr "Neuer Ordner"
+
+msgid "Upload"
+msgstr "Hochladen"
+
+msgid "Rename"
+msgstr "Umbenennen"
+
+msgid "Move"
+msgstr "Verschieben"
+
+msgid "Modified"
+msgstr "Geändert am"
+
+msgid "Modified by"
+msgstr "Geändert von"
+
+msgid "Delete Folder"
+msgstr "Ordner löschen"
+
+msgid "Are you sure you want to delete the selected records?"
+msgstr "Wollen Sie wirklich die ausgewählte Rekorde löschen?"
+
+msgid "move the items..."
+msgstr "Die Elemente werden verschoben..."
+
+msgid "Items bave been moved."
+msgstr "Die Elemente sind breits verschoben."
+
+msgid "Documents"
+msgstr "Dokumenten"
+
+msgid "Refresh"
+msgstr "Aktualisiern"
+
+msgid "Path"
+msgstr "Pfad"
+
+msgid "no"
+msgstr "nein"
+
+msgid "yes"
+msgstr "ja"
+
+msgid "Created"
+msgstr "Erzeugt am"
+
+msgid "Open"
+msgstr "Öffnen"
+
+msgid "Are you sure you want to delete the file?"
+msgstr "Wollen Sie wirklich die Datei löschen?"
+
+msgid "Are you sure you want to delete the folder?"
+msgstr "Wollen Sie wirklich den Ordner löschen?"
+
+msgid "Current name"
+msgstr "aktueller Namen"
+
+msgid "New name"
+msgstr "neuer Name"
+
+msgid "Rename success."
+msgstr "Umbenennung erfolgt."
+
+msgid "search with [%s], "
+msgstr "mit [%s] suchen"
+
+msgid "found: %s."
+msgstr "gefunden: %s"
+
+msgid "Description"
+msgstr "Beschreibung"
+
+msgid "Created by"
+msgstr "Erzeugt von"
+
+msgid "Given field does not exists within the store-model"
+msgstr "Das eingegebene Feld ist nicht im Store-Model"
+
+msgid "Default Send"
+msgstr "Default Send"
+
+msgid "Select File"
+msgstr "Datei auswählen"
+
+msgid "Attachment is saved."
+msgstr "Anhäng ist gepeichert"
+
+msgid "Attachments"
+msgstr "Anhänge"
+
+msgid "There ist not attachments."
+msgstr "Es gibt keine Anhänge."
+
+msgid "Please select an attachment!"
+msgstr "Bitte wählen Sie einen Anhang aus!"
+
+msgid "Delete Job"
+msgstr "Arbeitstelle löschen"
+
+msgid "Are you sure you want to delete the Attachment?"
+msgstr "Sind Sie sicher, die Arbeitstelle zu löschen?"
+
+msgid "Attachment was deleted."
+msgstr "Der Anhang war gelöscht."
+
+msgid "New Job"
+msgstr "Neue Arbeitstelle"
+
+msgid "Job Information"
+msgstr "Arbeitsinformation"
+
+msgid "Contact Person"
+msgstr "Ansprechpartner"
+
+msgid "Postcode"
+msgstr "PLZ"
+
+msgid "Town"
+msgstr "Ort"
+
+msgid "Street"
+msgstr "Straße"
+
+msgid "Telephone"
+msgstr "Telephone"
+
+msgid "Fax"
+msgstr "Fax"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Comment"
+msgstr "Anmerkung"
+
+msgid "Job saved."
+msgstr "Die Stelle ist gespeichert."
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Notice"
+msgstr "Notiz"
+
+msgid "Add"
+msgstr "Hinzufügen"
+
+msgid "Delete Status"
+msgstr "Status löschen"
+
+msgid "Are you sure you want to delete the status?"
+msgstr "Sind Sie sicher, den Status zu löschen?"
+
+msgid "Job Status"
+msgstr "Status der Arbeitstelle"
+
+msgid "Please select a status"
+msgstr "Bitte wählen Sie einen Status aus"
+
+msgid "Status is saved."
+msgstr "Der Status ist gespeichert"
+
+msgid "Jobs"
+msgstr "Arbeitstellen"
+
+msgid "There ist not jobs."
+msgstr "Es gibt keine Stelle."
+
+msgid "Please select a Job!"
+msgstr "Bitte wählen Sie eine Stelle aus!"
+
+msgid "Send Mail"
+msgstr "Email schicken"
+
+msgid "This mail was send"
+msgstr "Die Email war breits abgesended"
+
+msgid "The mail applied was gone."
+msgstr "Die Bewerbung war abgelaufen."
+
+msgid "Mail sended."
+msgstr "Die Mail wurde abgesendet."
+
+msgid "Are you sure you want to delete the job?"
+msgstr "Sind Sie sicher, die Arbeitsstelle zu löschen?"
+
+msgid "Job deleted."
+msgstr "die Arbeitsstelle wurde gelöscht."
+
+msgid "Tools"
+msgstr "Werkzeuge"
+
+msgid "Mailsetting"
+msgstr "Maileinstellung"
+
+msgid "Contact"
+msgstr "Kontakt"
+
+msgid "your email"
+msgstr "Ihre Email"
+
+msgid "Message of Email"
+msgstr "Die Nachrichten aus der Email"
+
+msgid "Mailsetting saved."
+msgstr "Die Einstellung der Email wurde gespeichert."
+
+msgid "Orderer Browser"
+msgstr "Ordner Browser"
+
+msgid "Server is too busy."
+msgstr "Server ist ausgelastet."
+
+msgid "show date list"
+msgstr "zeige Datumliste"
+
+msgid "Delete Worknote"
+msgstr "Arbeitsnotiz löschen"
+
+msgid "Are you sure you want to delete the worknote?"
+msgstr "Wollen Sie wirklich die Arbeitsnotiz löschen?"
+
+msgid "Print"
+msgstr "Druck"
+
+msgid "You have not set any projects."
+msgstr "Sie haben noch keine Projekte eingelegt."
+
+msgid "Delete Project"
+msgstr "Projekt löschen"
+
+msgid "Are you sure you want to delete the project?"
+msgstr "Wollen Sie wirklich das Project löschen?"
+
+msgid "This operation can not be completed."
+msgstr "Das Prozess kann nicht durchführen."
+
+msgid "No files waiting Release."
+msgstr "Nichts zum Release"
+
+msgid "released"
+msgstr "released"
+
+msgid "not released"
+msgstr "nicht released"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgid "Successfully saved"
+msgstr "Speichern erfolgreich"
+
+msgid "Save failed"
+msgstr "Speichern gescheitert"
+
+msgid "Add Project"
+msgstr "Projekte hinzufügen"
+
+msgid "Project Name"
+msgstr "Projektename"
+
+msgid "Add File"
+msgstr "Datei hinzufügen"
+
+msgid "Filename"
+msgstr "Dateiname"
+
+msgid "Committed"
+msgstr "Committed"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "There are not worknotes"
+msgstr "Es gibt keine Notizen"
+
+msgid "no worknotes"
+msgstr "keine Arbeitsnotizen"
+
+msgid "show date tree"
+msgstr "zeige Datumbaum"
+
+msgid "Reset"
+msgstr "Zurück"
+
+msgid "Home"
+msgstr "Startseite"
+
+msgid "My Projects"
+msgstr "Meine Projekte"
+
+msgid "New Worknotes"
+msgstr "Neue Arbeitsnotizen"
+
+msgid "There are currently no notes"
+msgstr "Es gibt zurzeit keine Notizen"
+
+msgid "Search Worknotes"
+msgstr "Arbeitsnotizen suchen"
+
+msgid "Start Date"
+msgstr "Anfangsdatum"
+
+msgid "End Date"
+msgstr "Endedatum"
+
+msgid "Contents"
+msgstr "Inhalte"
+
+msgid "Wait for Release?"
+msgstr "Wartet auf Release?"
+
+msgid "All Release (include committed)"
+msgstr "Alle Release (include ausgeführt)"
+
+msgid "New Worknote"
+msgstr "neue Arbeitsnotiz"
+
+msgid "Address"
+msgstr "Adresse"
+
+msgid "edit"
+msgstr "Bearbeit"
+
+msgid "wait for me..."
+msgstr "Bitte warten Sie..."
+
+msgid "Public folder and private folder can not move to each other"
+msgstr "Das pulike Verzeichnisse darf nicht in einem private Verzeichnis schieben, andersrum geht auch nicht."
+
+msgid "new Filename"
+msgstr "neuer Dateiname"
+
+msgid "new Foldername"
+msgstr "Neuer Verzeichnisname"
+
+msgid "End"
+msgstr "Ende"
+
+msgid "cancel"
+msgstr "Abbrechen"
+
+msgid "project"
+msgstr "Projekt"
+
+msgid "has Release to commit"
+msgstr "Es gibt Release zu ausführen"
+
+msgid "delete"
+msgstr "löschen"
+
+msgid "delete file"
+msgstr "Datei löschen"
+
+msgid "new Worknotes"
+msgstr "Neue Arbeitsnotizen"
+
+msgid "empty"
+msgstr "leer"
+
+msgid "date"
+msgstr "Datum"
+
+msgid "created"
+msgstr "erzeugt am"
+
+msgid "modified"
+msgstr "geändert am"
+
+msgid "save"
+msgstr "speichern"
+
+msgid "not saved"
+msgstr "nicht gespeichert"
+
+msgid "Server does not respond"
+msgstr "Der Server kann nicht reagieren"
+
+msgid "add file"
+msgstr "Datei hinzufügen"
+
+msgid "new Notes"
+msgstr "neue Notizen"
+
+msgid "open"
+msgstr "Öffnen"
+
+msgid "File: %s"
+msgstr "Datei：%s"
+
+msgid "Folder: %s"
+msgstr "Verzeichnis：%s"
+
+msgid "public"
+msgstr "Publik"
+
+msgid "description"
+msgstr "Beschreibung"
+
+msgid "size"
+msgstr "Größe"
+
+msgid "path"
+msgstr "Pfad"
+
+msgid "new folder"
+msgstr "neues Verzeichnis"
+
+msgid "Path is invalidate."
+msgstr "Der Pfad ist ungültig."
+
+msgid "start"
+msgstr "von"
+
+msgid "end"
+msgstr "bis"
+
+msgid "has Release to commit"
+msgstr "Es gibt Release zu ausführen"
+
+msgid "old Name"
+msgstr "alter Name"
+
+msgid "Unknown"
+msgstr "Unbekannt"
+
+msgid "expand"
+msgstr "aufklappen"
+
+msgid "collapse"
+msgstr "zuklappen"
+
+msgid "Details"
+msgstr "Details"
+
+msgid "has not committed Release"
+msgstr "nichts zu Release"
+
+msgid "no saved"
+msgstr "nicht gespeichert"
+
+msgid "Passkey"
+msgstr "Passkey"
+
+msgid "Username"
+msgstr "Benutzername"
+
+msgid "Password"
+msgstr "Passwort"
+
+msgid "repeated"
+msgstr "wiederholt"
+
+msgid "New Passkey"
+msgstr "Neu Passkey"
+
+msgid "Password and repeated password are not identical!"
+msgstr "Beide eingegebene Passworte sind ungleich!"
+
+msgid "Passkey has been saved!"
+msgstr "Passkey ist gespeichert!"
+
+msgid "Delete Passkey"
+msgstr "Löschen Passkey"
+
+msgid "A Passkey has been deleted."
+msgstr "Eine Passkey ist gelöscht."
+
+msgid "Copy Username"
+msgstr "Benutzername Kopieren"
+
+msgid "Copy Password"
+msgstr "Passwort Kopieren"
+
+msgid "Group"
+msgstr "Gruppe"
+
+msgid "Are you sure you want to delete the group?"
+msgstr "Sind Sie sicher, die Gruppe zu löschen?"
+
+msgid "New Group"
+msgstr "Neue Gruppe"
+
+msgid "New Key"
+msgstr "Neuer Schlüssel"
+
+msgid "A Passkey must be moved into a group."
+msgstr "Ein Schlüssel muss in eine Gruppe verschoben werden."
+
+msgid "A Passkey has been moved."
+msgstr "Ein Schlüssel wurde geschoben."
+
+msgid "The group was removed."
+msgstr "Die Gruppe wurde entfernt."
+
+msgid "Open Url"
+msgstr "Url Öffnen"
+
+msgid "Previewer"
+msgstr "Vorschau"
+
+msgid "File Previewer"
+msgstr "Datei Vorschau"
+
+msgid "Download File"
+msgstr "Datei Herunterladen"
+
+msgid "Are you sure you want to delete the key?"
+msgstr "Sind Sie sicher, den Schlüssel zu löschen?"
+
+msgid "Fullscreen"
+msgstr "Vollbild"
+
+msgid "Fullscreen Exit"
+msgstr "Vollbild beenden"
+
+msgid "There is not preview for this file, but you can download it."
+msgstr "Es gibt keine Vorschau für diese Datei, aber Sie können die Herunterladen."
+
+msgid "Are you sure you want to move the key?"
+msgstr "Sind Sie sicher, den Schlüssel zu verschieben?"
+
+msgid "Are you sure you want to move the Group?"
+msgstr "Sind Sie sicher, die Gruppe zu verschieben?"
+
+msgid "Clone"
+msgstr "Klon"
+
+msgid "Clone success!"
+msgstr "Klon Erfolg!"
+
+msgid "This passkey could not be cloned."
+msgstr "Dieser Passkey konnte nicht geklont werden."
+
+msgid "Change Password"
+msgstr "Passwort Ändern"
+
+msgid "new password"
+msgstr "Neues Kennwort"
+
+msgid "min. length of password: 6"
+msgstr "Das Kennwort soll min. 6 stellig sein."
+
+msgid "Failure of the login, please try again."
+msgstr "Fehler bei der Anmeldung, bitte versuchen Sie es noch einmal."
+
+msgid "Bye %s, you have successfully logged out!"
+msgstr "Tschüss %s, Sie haben sich erfolgreich abgemeldet!"
+
+msgid "This user has not module to view."
+msgstr "Dieser Benutzer hat keine Module zu sehen."
+
+msgid "False username!"
+msgstr "Falsch Benutzername!"
+
+msgid "Reset Your Password"
+msgstr "Passwort Zurücksetzen"
+
+msgid "This url is expired!"
+msgstr "Diese URL ist abgelaufen!"
+
+msgid "New Password"
+msgstr "Neues Passwort"
+
+msgid "The new password was sent to your email address!"
+msgstr "Das neue Kennwort wurde an Ihre E-Mail-Adresse gesendet!"
+
+msgid "Failure by resetting password!"
+msgstr "Fehler beim Zurücksetzen des Kennworts!"
+
+msgid "Username is not exist, please try again."
+msgstr "Benutzername existiert nicht, bitte versuchen Sie es erneut."
+
+msgid "Invalid password, please try again."
+msgstr "Ungültiges Passwort, bitte versuchen Sie es noch mal."
+
+msgid "Please give me your username:"
+msgstr "Bitte geben Sie mir Ihren Benutzername:"
+
+msgid "Please enter your username"
+msgstr "Bitte geben Sie Ihren Benutzername ein"
+
+msgid "An email was sent to your email address!"
+msgstr "Eine E-Mail wurde an Ihre E-Mail-Adresse gesendet!"
+
+msgid "Login"
+msgstr "Anmelden"
+
+msgid "Forgot Your Password?"
+msgstr "Haben Sie Ihr Passwort vergessen?"
+
+msgid "Please enter your username."
+msgstr "Bitte geben Sie Ihren Benutzername ein."
+
+msgid "Please enter your password."
+msgstr "Bitte geben Sie Ihr Passwort ein."
+
+msgid "Please enter your new password:"
+msgstr "Bitte geben Sie Ihr neues Passwort ein:"
+
+msgid "return to login"
+msgstr "Zurück zur Anmeldung"
+
+msgid "View"
+msgstr "Gesicht"
+
+msgid "All"
+msgstr "Alle"
+
+msgid "Activate"
+msgstr "Aktivieren"
+
+msgid "Block"
+msgstr "Sperren"
+
+msgid "Active"
+msgstr "Aktiv"
+
+msgid "Inactive"
+msgstr "Inaktiv"
+
+msgid "You are using the system assigned password, please change to your private password."
+msgstr "Sie verwenden das System zugewiesene Passwort, bitte ändern Sie es zu Ihrem privaten Passwort."
+
+msgid "The page will automatically jump to the login page after %d seconds..."
+msgstr "Die Seite springt automatisch nach %d Sekunden zur Anmeldeseite..."
+
+msgid "The user has no modules!"
+msgstr "Der Benutzer hat noch keine Module!"
+
+msgid "The information of user was not complete!"
+msgstr "Die Benutzerdaten waren noch nicht vollständig!"
+
+msgid "The user does not exist."
+msgstr "Der Benutzer existiert nicht."
+
+msgid "Delete Customer"
+msgstr "Kunde löschen"
+
+msgid "Are you sure you want to delete the customer?"
+msgstr "Möchten Sie den Kunden wirklich löschen?"
+
+msgid "The customer was removed."
+msgstr "Der Kunde wurde gelöscht."
+
+msgid "Delete User"
+msgstr "Benutzer löschen"
+
+msgid "Are you sure you want to delete the user?"
+msgstr "Möchten Sie den Benutzer wirklich löschen?"
+
+msgid "The user was removed."
+msgstr "Der Benutzer wurde gelöscht."
+
+msgid "The user is active!"
+msgstr "Der Benutzer ist aktiv!"
+
+msgid "The user is blocked!"
+msgstr "Der Benutzer ist gesperrt!"
+
+msgid "New Customer"
+msgstr "Neuer Kunde"
+
+msgid "Edit Customer"
+msgstr "Kunde bearbeiten"
+
+msgid "Please select a customer!"
+msgstr "Bitte wählen Sie einen Kunden aus!"
+
+msgid "Customer List"
+msgstr "Kundenliste"
+
+msgid "User List of %s"
+msgstr "Benutzerliste von %s"
+
+msgid "Name of Customer"
+msgstr "Kundenname"
+
+msgid "The customer has been saved!"
+msgstr "Der Kunde wurde gespeichert!"
+
+msgid "New User"
+msgstr "Neuer Benutzer"
+
+msgid "Edit User"
+msgstr "Benutzer bearbeiten"
+
+msgid "Generals"
+msgstr "Allgemeine"
+
+msgid "Modules"
+msgstr "Module"
+
+msgid "Name of User"
+msgstr "Name des Benutzers"
+
+msgid "The user has been saved!"
+msgstr "Der Benutzer wurde gespeichert!"
+
+msgid "active"
+msgstr "aktiv"
+
+msgid "blocked"
+msgstr "gesperrt"
+
+msgid "An active user can not be deleted, please block the user first!"
+msgstr "Ein aktiver Benutzer kann nicht gelöscht werden, bitte zuerst den Benutzer sperren!"
+
+msgid "Passkey can not be searched without searching text."
+msgstr "Ohne Suchetext kann Passkey nicht gesucht werden."
+
+msgid "You can not see this group."
+msgstr "Sie dürfen diese Gruppe nicht ansehen."
+
+msgid "The new name is equal to the old."
+msgstr "Der neue name ist gleich wie der alte."
+
+msgid "Delete Group"
+msgstr "Gruppe löschen"
+
+msgid "Move Passkey"
+msgstr "Passkey ziehen"
+
+msgid "Group has been saved."
+msgstr "Gruppe ist gespeichert."
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Please enter your text!"
+msgstr "Bitte geben Sie den Text ein!"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Please select a user!"
+msgstr "Bitte wählen Sie einen Benutzer aus!"
+
+msgid "WeChat Name"
+msgstr "WeChat Name"
+
+msgid "Change Username"
+msgstr "Benutzername Ändern"
+
+msgid "The username has been changed!"
+msgstr "Der Benutzername hat sich schon geändert!"
+
+msgid "Old Username"
+msgstr "Alter Benutzername"
+
+msgid "New Username"
+msgstr "Neuer Benutzername"
+
+msgid "You can not upload to the root!"
+msgstr "Sie können nicht zum Stammverzeichnis hochgeladen werden!"
+
+msgid "The folder can not be renamed!"
+msgstr "Der Ordner kann nicht umbenannt werden!"
+
+msgid "The file can not be renamed!"
+msgstr "Die Datei kann nicht umbenannt werden!"
+
+msgid "The file can not be moved to the root!"
+msgstr "Die Datei kann nicht in das Stammverzeichnis verschoben werden!"
+
+msgid "Warning"
+msgstr "Warnung"
+
+msgid "Copy to clipboard failed!"
+msgstr "Kopieren in die Zwischenablage fehlgeschlagen!"
+
+msgid "Upload failed!"
+msgstr "Upload fehlgeschlagen!"
+
+msgid "Rename failed!"
+msgstr "Umbenennen fehlgeschlagen!"
+
+msgid "Folder creation failed!"
+msgstr "Ordnererstellung fehlgeschlagen!"
+
+msgid "The parent folder [%s] is not exist."
+msgstr "Der übergeordnete Ordner [%s] ist nicht vorhanden."
+
+msgid "Backup"
+msgstr "Backup"
+
+msgid "The Backup of '%s' is failed!"
+msgstr "Das Backup von '%s' ist fehlgeschlagen!"
+
+msgid "Backup success."
+msgstr "Backup Erfolg."
+
+msgid "Start"
+msgstr "Start"
+
+msgid "Start Backup"
+msgstr "Anfang mit Backup"
+
+msgid "Are you sure you want to start to backup?"
+msgstr "Sind Sie sicher, dass Sie ein Backup starten möchten?"
+
+msgid "Are you sure you want to detete the backup?"
+msgstr "Sind Sie sicher, dass Sie das Backup löschen möchten?"
+
+msgid "Backup deleted."
+msgstr "Backup wurd gelöscht."
+
+msgid "Previous Backups"
+msgstr "Vorherige Backups"
+
+msgid "Please select a backup!"
+msgstr "Bitte wählen Sie ein Backup!"
+
+msgid "No Backups"
+msgstr "keine Backups"
+
+msgid "Edit"
+msgstr "Bearbeit"
+
+msgid "Nothing Found"
+msgstr "Nichts gefunden"
+
+msgid "Sum"
+msgstr "Summe"
+
+msgid "loading..."
+msgstr "laden……"
+
+msgid "Addressbook"
+msgstr "Adressbuch"
+
+msgid "Person List"
+msgstr "Personenliste"
+
+msgid "New Person"
+msgstr "Neu Person"
+
+msgid "Person Information"
+msgstr "Person Information"
+
+msgid "Other Name"
+msgstr "Anderer Name"
+
+msgid "Birthday"
+msgstr "Geburtstag"
+
+msgid "Pin Yin"
+msgstr "Pin Yin"
+
+msgid "Number"
+msgstr "Nummer"
+
+msgid "Are you sure you want to delete the person?"
+msgstr "Wollen Sie wirklich den Person löschen?"
+
+msgid "Copy URL"
+msgstr "URL kopieren"
+
+msgid "The link has already expired."
+msgstr "Der Link ist bereits abgelaufen."
+
+msgid "Forward"
+msgstr "Weiterleiten"
+
+msgid "Email Address"
+msgstr "Email Adresse"
+
+msgid "Send"
+msgstr "Senden"
+
+msgid "The email has already been sent out."
+msgstr "Die Email ist breits verschickt."
+
+msgid "Files from wiewind.com"
+msgstr "Dateien aus wiewind.com"
+
+msgid "Salutation"
+msgstr "Anrede"
+
+msgid "Language of Mail"
+msgstr "Sprache der Mail"
+
+msgid "Time Limit"
+msgstr "Frist"
+
+msgid "days"
+msgstr "Tage"
+
+msgid "year"
+msgstr "Jahr"
+
+msgid "no limit"
+msgstr "unbefristet"
+
+msgid "file(s)"
+msgstr "Datai(en)"
+
+msgid "Undo"
+msgstr "Schiben"
+
+msgid "Redo"
+msgstr "Wiederholen"
+
+msgid "Undo Move"
+msgstr "zurückziehen"
+
+msgid "Redo Move"
+msgstr "noch mal ziehen"
+
+msgid "School Timetable"
+msgstr "Stundenplan"
+
+msgid "Monday"
+msgstr "Montag"
+
+msgid "Tuesday"
+msgstr "Dienstag"
+
+msgid "Wednesday"
+msgstr "Mittwoch"
+
+msgid "Thursday"
+msgstr "Donnerstag"
+
+msgid "Friday"
+msgstr "Freitag"
+
+msgid "add a new course"
+msgstr "ein neues Kurs hinzufügen"
+
+msgid "add a new teacher"
+msgstr "ein(e) neue(n) Lehrer(in) hinzufügen"
+
+msgid "add a new room"
+msgstr "einen neuen Raum hinzufügen"
+
+msgid "No Course"
+msgstr "kein Kurs"
+
+msgid "Period"
+msgstr "Periode"
+
+msgid "singly"
+msgstr "einmalig"
+
+msgid "daily"
+msgstr "täglich"
+
+msgid "weekly"
+msgstr "wöchentlich"
+
+msgid "tow-weeks"
+msgstr "je 2 Wochen"
+
+msgid "Name of Person"
+msgstr "Name"
+
+msgid "Sex"
+msgstr "Geschlecht"
+
+msgid "No Course This Week"
+msgstr "Es findet an dieser Woche nicht statt."
+
+msgid "Coursetimes"
+msgstr "Uhrzeit"
+
+msgid "Courses"
+msgstr "Kurse"
+
+msgid "Teachers"
+msgstr "Lehrer(innen)"
+
+msgid "Rooms"
+msgstr "Räume"
+
+msgid "Coursetime"
+msgstr "Uhrzeit"
+
+msgid "Course"
+msgstr "Kurs"
+
+msgid "Teacher"
+msgstr "Lehrer(in)"
+
+msgid "Room"
+msgstr "Raum"
+
+msgid "First Date"
+msgstr "erster Tag"
+
+msgid "Are you sure you want to delete the plan?"
+msgstr "Sind Sie sicher den Plan zu löschen"
+
+msgid "Delete Plan"
+msgstr "Plan Löschen"
+
+msgid "Teacher (default)"
+msgstr "Leher(in) (default)"
+
+msgid "Room (default)"
+msgstr "Raum (default)"
+
+msgid "Delete Course"
+msgstr "Kurs Löschen"
+
+msgid "Are you sure you want to delete the course?"
+msgstr "Sind Sie sicher den Kurs zu löschen?"
+
+msgid "count every week"
+msgstr "Anzahl pro Woche"
+
+msgid "List of Courses"
+msgstr "Kurseliste"
+
+msgid "List of Coursetimes"
+msgstr "Uhrzeitliste"
+
+msgid "Time"
+msgstr "Uhrzeit"
+
+msgid "add a new coursetime"
+msgstr "neue Uhrzeit einfügen"
+
+msgid "Delete Coursetime"
+msgstr "Uhrzeit Löschen"
+
+msgid "Are you sure you want to delete the coursetime?"
+msgstr "Sind Sie sicher die Uhrzeit zu löschen?"
+
+msgid "List of Rooms"
+msgstr "Räumeliste"
+
+msgid "Delete Room"
+msgstr "Raum Löschen"
+
+msgid "Are you sure you want to delete the room?"
+msgstr "Sind Sie sicher den Raum zu löschen?"
+
+msgid "List of Teachers"
+msgstr "Lehrerliste"
+
+msgid "Count Courses"
+msgstr "Anzahl der Kurse"
+
+msgid "Delete Teacher"
+msgstr "Lehrer Löschen"
+
+msgid "Are you sure you want to delete the teacher?"
+msgstr "Sind Sie sicher den Lehrer oder die Lehrerin zu löschen?"
+
+msgid "Firstname"
+msgstr "Vorname"
+
+msgid "Lastname"
+msgstr "Nachname"
+
+msgid "Coursetime has been saved!"
+msgstr "Uhrzeit ist gespeichert!"
+
+msgid "Course has been saved!"
+msgstr "Der Kurs ist gespeichert!"
+
+msgid "Teacher has been saved!"
+msgstr "Der Lehrer Oder die Lehrerin ist gespeichert!"
+
+msgid "Room has been saved!"
+msgstr "Der Raum ist gespeichert!"
+
+msgid "Plan has been saved!"
+msgstr "Der Plan ist gespeichert!"
+
+msgid "Coursetime is deleted!"
+msgstr "Uhrzeit ist gelöscht!"
+
+msgid "Course is deleted!"
+msgstr "Der Kurs ist gelöscht!"
+
+msgid "Teacher is deleted!"
+msgstr "Der Lehrer Oder die Lehrerin ist gelöscht!"
+
+msgid "Room is deleted!"
+msgstr "Der Raum ist gelöscht!"
+
+msgid "Plan is deleted!"
+msgstr "Der Plan ist gelöscht!"
+
+msgid "Semester"
+msgstr "Semester"
+
+msgid "Spring Term"
+msgstr "Frühlingssemester"
+
+msgid "Summer Term"
+msgstr "Sommersemester"
+
+msgid "Fall Term"
+msgstr "Herbstsemester"
+
+msgid "Winter Term"
+msgstr "Wintersemester"
+
+msgid "Please select a semester"
+msgstr "Bitte wählen Sie ein Semester aus"
+
+msgid "Class"
+msgstr "Klass"
+
+msgid "List of Classes"
+msgstr "Klassenliste"
+
+msgid "Set Default"
+msgstr "Default Setzen"
+
+msgid "add a new Class"
+msgstr "ein neues Klass einfügen"
+
+msgid "Delete Class"
+msgstr "Klass Löschen"
+
+msgid "Are you sure you want to delete the class?"
+msgstr "Sind Sie sicher das Klass zu löschen?"
+
+msgid "Class is deleted!"
+msgstr "Klass ist gelöscht!"
+
+msgid "Class has been saved!"
+msgstr "Klass ist gespeichert!"
+
+msgid "List of Children"
+msgstr "Kinderliste"
+
+msgid "Girl"
+msgstr "Mädchen"
+
+msgid "Boy"
+msgstr "Junge"
+
+msgid "Handy"
+msgstr "Handy"
+
+msgid "add a new child"
+msgstr "ein neues Kind einfügen"
+
+msgid "Delete Child"
+msgstr "Kind Löschen"
+
+msgid "Are you sure you want to delete the child?"
+msgstr "Sind Sie sicher das Kind zu löschen?"
+
+msgid "Child is deleted!"
+msgstr "Kind ist gelöscht!"
+
+msgid "Child"
+msgstr "Kind"
+
+msgid "add a new telephone"
+msgstr "ein neue Telephonenumme einfügen"
+
+msgid "add a new mobile number"
+msgstr "ein neue Handynummer einfügen"
+
+msgid "add a new Address"
+msgstr "ein neue Adresse einfügen"
+
+msgid "delete the telephone"
+msgstr "Telephonenummer Löschen"
+
+msgid "delete the mobilephone"
+msgstr "Handynummer Löschen"
+
+msgid "delete the address"
+msgstr "Adresse Löschen"
+
+msgid "Child has been saved!"
+msgstr "Kind ist gespeichert!"
+
+msgid "Ms. %s"
+msgstr "Frau %s"
+
+msgid "Mr. %s"
+msgstr "Herr %s"
+
+msgid "Are you sure you want to delete the Page?"
+msgstr "Möchten Sie die Seite wirklich löschen?"
+
+msgid "Page is deleted!"
+msgstr "Seite ist gelöscht!"
+
+msgid "Side"
+msgstr "Seite"
+
+msgid "right side"
+msgstr "richte Seite"
+
+msgid "left side"
+msgstr "linke Seite"
+
+msgid "Sort"
+msgstr "Sortieren"
+
+msgid "Publish"
+msgstr "Veröffentlichen"
+
+msgid "The request was invalid or cannot be otherwise served."
+msgstr "Die Anfrage war ungültig oder kann nicht anderweitig bedient werden."
+
+msgid "The server was denied this request."
+msgstr "Der Server wurde diese Anfrage abgelehnt."
+
+msgid "The request is invalid or the resource does not exists."
+msgstr "Die Anfrage ist ungültig oder die Ressource existiert nicht."
+
+msgid "Authentication credentials were missing or incorrect."
+msgstr "Authentifizierungsdaten fehlten oder waren falsch."
+
+msgid "The server is currently busy. Please try again later."
+msgstr "Der Server ist derzeit beschäftigt. Bitte versuche es später erneut."
+
+msgid "Your session has expired. Please login again."
+msgstr "Deine Session ist abgelaufen. Bitte melden Sie sich erneut an."
+
+msgid "Another session is already running."
+msgstr "Eine andere Session läuft bereits."
+
+msgid "Your input is not valid."
+msgstr "Ihre Eingabe ist nicht gültig."
+
+msgid "This file name is already in use."
+msgstr "Dieser Dateiname wird bereits verwendet."
+
+msgid "This folder name is already in use."
+msgstr "Dieser Ordnername wird bereits verwendet."
+
+msgid "An unknown error has occurred."
+msgstr "Ein unbekannter Fehler ist aufgetreten.。"
+
+msgid "Hello %s, an email was sent to your email address!"
+msgstr "Hallo %s，eine E-Mail wurde an Ihre E-Mail-Adresse gesendet!"
+
+msgid "Keep me logged in"
+msgstr "Angemeldet bleiben"
+
+msgid "Welcome %s!"
+msgstr "Herzlich willkommen, %s！"
+
+msgid "Categories"
+msgstr "Kategorien"
+
+msgid "Parent directory"
+msgstr "Höheres Verzeichnis"
+
+msgid "Share"
+msgstr "Freigabe"
+
+msgid "NO PREVIEW FOR THIS FILE, PLEASE DOWNLOUD!"
+msgstr "KEINE VORSCHAU FÜR DIESE DATEI, BITTE DOWNLOUD!"
+
+msgid "Worklist"
+msgstr "Arbeitsliste"
+
+msgid "Successfully added to worklist!"
+msgstr "Es ist erfolgreich, die Datei(en) in der Arbeitsliste hinzufügen!"
+
+msgid "Are you sure you want to remove the selected files from worklist?"
+msgstr "Sind Sie sicher, die ausgewählte Dateien aus der Arbeitsliste zu entfernen?"
+
+msgid "Successfully removed from worklist!"
+msgstr "Es ist erfolgreich, die Datei(en) aus der Arbeitsliste entfernen!"
+
+msgid "Remove from worklist"
+msgstr "Aus der Arbeitsliste entfernen"
+
+msgid "There are not files in worklist."
+msgstr "Es gibt keine Dateien in der Arbeitsliste."
+
+msgid "Update"
+msgstr "Aktualisierung"
+
+msgid "User profile"
+msgstr "Benutzerprofil"
+
+msgid "load more..."
+msgstr "Lade weitere..."
+
+msgid "Go to refresh..."
+msgstr "Zum Aktualisieren runterziehen..."
+
+msgid "Start refresh!"
+msgstr "Aktualisierung starten!"
+
+msgid "Last refresh:"
+msgstr "Letzte Aktualisierung:"
+
+msgid "finished"
+msgstr "fertig"
+
+msgid "Select"
+msgstr "Auswählen"
+
+msgid "hour"
+msgstr "Stunde"
+
+msgid "minute"
+msgstr "Minute"
+
+msgid "The time in this field must be equal to or later than {0}"
+msgstr "Die Zeit muss gleich oder später als {0}"
+
+msgid "The time in this field must be equal to or earlier than {0}"
+msgstr "Die Zeit muss gleich oder früher als {0}"
+
+msgid "Hotlinks"
+msgstr "Hotlinks"
+
+msgid "Google"
+msgstr "Google"
+
+msgid "Beidu"
+msgstr "Beidu"
+
+msgid "Choose language"
+msgstr "Sprache"
+
+msgid "Choose engine"
+msgstr "Suchmaschine"
+
+msgid "select..."
+msgstr "auswählen..."
+
+msgid "This list is empty."
+msgstr "Die Liste ist leer."
+
+msgid "No More Records"
+msgstr "keine Rekorde mehr"
+
+msgid "Modules"
+msgstr "Module"

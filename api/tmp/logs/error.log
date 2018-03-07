@@ -1,0 +1,980 @@
+2018-02-28 10:50:49 Error: Fatal Error (4): syntax error, unexpected ')', expecting ']' in [C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php, line 47]
+2018-02-28 10:50:49 Error: [FatalErrorException] syntax error, unexpected ')', expecting ']'
+Request URL: /apps/workshop1/api/system/json/keeplive
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\project\\php\\...', 47)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\project\\php\\...', 47, Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\project\\php\\...', 47, Array)
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-02-28 10:51:49 Error: Fatal Error (4): syntax error, unexpected ')', expecting ']' in [C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php, line 47]
+2018-02-28 10:51:49 Error: [FatalErrorException] syntax error, unexpected ')', expecting ']'
+Request URL: /apps/workshop1/api/system/json/keeplive
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\project\\php\\...', 47)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\project\\php\\...', 47, Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\project\\php\\...', 47, Array)
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-02-28 10:52:49 Error: Fatal Error (4): syntax error, unexpected ')', expecting ']' in [C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php, line 47]
+2018-02-28 10:52:49 Error: [FatalErrorException] syntax error, unexpected ')', expecting ']'
+Request URL: /apps/workshop1/api/system/json/keeplive
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\project\\php\\...', 47)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\project\\php\\...', 47, Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\project\\php\\...', 47, Array)
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-02-28 12:38:39 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1519817919197
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-02-28 13:00:25 Error: [MissingControllerException] Controller class PasskeyController could not be found.
+Exception Attributes: array (
+  'class' => 'PasskeyController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/passkey/json/getGroupData
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-02-28 16:57:54 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1519833474203
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-01 10:33:09 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1519896788984
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-01 13:03:32 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1519905812288
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-01 13:05:49 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1519905947953
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-02 08:38:42 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1519976317798
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-02 11:40:44 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1519987243560
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-02 11:41:09 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1519987243560
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-02 11:41:09 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/ga.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 11:41:09 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/wiewindtools.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 11:41:27 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1519987286812
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-02 12:41:45 Error: Fatal Error (1): Call to undefined function __m() in [C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php, line 165]
+2018-03-02 12:41:45 Error: [FatalErrorException] Call to undefined function __m()
+Request URL: /apps/workshop1/api/system/initApp?_dc=1519990904522
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\\project\\php\\...', 165)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\\project\\php\\...', 165, Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\\project\\php\\...', 165, Array)
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-03-02 12:41:51 Error: Fatal Error (1): Call to undefined function __m() in [C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php, line 165]
+2018-03-02 12:41:51 Error: [FatalErrorException] Call to undefined function __m()
+Request URL: /apps/workshop1/api/system/initApp?_dc=1519990911448
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\\project\\php\\...', 165)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\\project\\php\\...', 165, Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\\project\\php\\...', 165, Array)
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-03-02 12:41:59 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1519990911448
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-02 12:41:59 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/wiewindtools.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 12:41:59 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/ga.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 12:41:59 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/wiewindtools.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 12:42:04 Error: Fatal Error (1): Call to undefined function __m() in [C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php, line 165]
+2018-03-02 12:42:04 Error: [FatalErrorException] Call to undefined function __m()
+Request URL: /apps/workshop1/api/system/initApp?_dc=1519990911448
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\\project\\php\\...', 165)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\\project\\php\\...', 165, Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\\project\\php\\...', 165, Array)
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-03-02 12:42:04 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/ga.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+#1 {main}
+2018-03-02 12:42:05 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/wiewindtools.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 12:42:08 Error: Fatal Error (1): Call to undefined function __m() in [C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php, line 165]
+2018-03-02 12:42:08 Error: [FatalErrorException] Call to undefined function __m()
+Request URL: /apps/workshop1/api/system/initApp?_dc=1519990911448
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\\project\\php\\...', 165)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\\project\\php\\...', 165, Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\\project\\php\\...', 165, Array)
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-03-02 12:42:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/ga.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 12:42:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/wiewindtools.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 12:42:09 Error: Fatal Error (1): Call to undefined function __m() in [C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php, line 165]
+2018-03-02 12:42:09 Error: [FatalErrorException] Call to undefined function __m()
+Request URL: /apps/workshop1/api/system/initApp?_dc=1519990911448
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\\project\\php\\...', 165)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\\project\\php\\...', 165, Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\\project\\php\\...', 165, Array)
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-03-02 12:42:09 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/ga.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 12:42:09 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/wiewindtools.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 12:42:10 Error: Fatal Error (1): Call to undefined function __m() in [C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php, line 165]
+2018-03-02 12:42:10 Error: [FatalErrorException] Call to undefined function __m()
+Request URL: /apps/workshop1/api/system/initApp?_dc=1519990911448
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\\project\\php\\...', 165)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\\project\\php\\...', 165, Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\\project\\php\\...', 165, Array)
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-03-02 12:42:10 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/ga.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 12:42:10 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/wiewindtools.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 12:42:11 Error: Fatal Error (1): Call to undefined function __m() in [C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php, line 165]
+2018-03-02 12:42:11 Error: [FatalErrorException] Call to undefined function __m()
+Request URL: /apps/workshop1/api/system/initApp?_dc=1519990911448
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\\project\\php\\...', 165)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\\project\\php\\...', 165, Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\\project\\php\\...', 165, Array)
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-03-02 12:42:11 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/ga.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 12:42:11 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/wiewindtools.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 12:43:51 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1519991031355
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-02 12:46:05 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1519987243560
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-02 12:46:05 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/ga.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 12:46:05 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/wiewindtools.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 12:46:06 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/wiewindtools.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 12:46:08 Error: Fatal Error (1): Call to undefined function __modules() in [C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php, line 165]
+2018-03-02 12:46:08 Error: [FatalErrorException] Call to undefined function __modules()
+Request URL: /apps/workshop1/api/system/initApp?_dc=1519987243560
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\\project\\php\\...', 165)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\\project\\php\\...', 165, Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\\project\\php\\...', 165, Array)
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-03-02 12:46:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/wiewindtools.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 12:46:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/ga.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 12:46:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/wiewindtools.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 12:46:19 Error: Fatal Error (1): Call to undefined function _modules() in [C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php, line 165]
+2018-03-02 12:46:19 Error: [FatalErrorException] Call to undefined function _modules()
+Request URL: /apps/workshop1/api/system/initApp?_dc=1519987243560
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\\project\\php\\...', 165)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\\project\\php\\...', 165, Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\\project\\php\\...', 165, Array)
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-03-02 12:46:19 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/wiewindtools.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 12:46:19 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/ga.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 12:46:19 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/wiewindtools.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 12:48:29 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1519987243560
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-02 12:48:29 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/wiewindtools.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 12:48:29 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/ga.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 12:48:29 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/js/wiewindtools.js
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 12:48:38 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1519991318603
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-02 12:51:35 Error: Fatal Error (1): Call to undefined function __m() in [C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\PasskeysController.php, line 101]
+2018-03-02 12:51:35 Error: [FatalErrorException] Call to undefined function __m()
+Request URL: /apps/workshop1/api/passkeys/json/getGroupMembers?_dc=1519991495203
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\\project\\php\\...', 101)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\\project\\php\\...', 101, Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\\project\\php\\...', 101, Array)
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-03-02 12:54:41 Error: [MissingControllerException] Controller class PasskeyController could not be found.
+Exception Attributes: array (
+  'class' => 'PasskeyController',
+  'plugin' => NULL,
+)
+Request URL: /apps/workshop1/api/passkey/json/getGroupData
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-03-02 14:24:55 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1519997094804
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-02 14:25:02 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1519997102211
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-02 16:47:30 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1520005649473
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-02 16:47:36 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1520005656466
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-05 11:44:01 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1520246640215
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-05 11:44:52 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1520246692115
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-05 12:24:40 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1520249079921
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-05 12:49:09 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1520250548944
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-05 13:17:39 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1520252258597
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-06 08:33:07 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1520321587118
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-06 13:05:50 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1520337949204
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-06 13:56:49 Error: Fatal Error (4): syntax error, unexpected ',' in [C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\AddressbookController.php, line 114]
+2018-03-06 13:56:49 Error: [FatalErrorException] syntax error, unexpected ','
+Request URL: /apps/workshop1/api/addressbook/json/savePerson
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\project\\php\\...', 114)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\project\\php\\...', 114, Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\project\\php\\...', 114, Array)
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-03-06 16:06:22 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1520348782025
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-06 16:13:48 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1520349227865
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-06 16:14:11 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1520349250530
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-07 08:40:02 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1520408401975
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-07 08:50:22 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1520409022284
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-07 10:43:45 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1520415824016
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-07 11:04:06 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1520417045311
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-07 11:05:00 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1520417098858
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-03-07 11:56:09 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1520420168465
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
