@@ -91,7 +91,6 @@ class FilemanagementController extends AppController {
                 });
                 $res = array_merge($res, $temp);
             }
-
         }
         return $res;
     }
@@ -426,11 +425,11 @@ class FilemanagementController extends AppController {
                 'FilemanagementFile.deleted' => 0
             ];
             if (!$extern) {
-                $conditions['FilemanagementFolder.customer_id'] = array($this->customer_id, 0);
+                $conditions['FilemanagementFolder.customer_id'] = [$this->customer_id, 0];
             }
-            $file = $this->FilemanagementFile->find('first', array(
+            $file = $this->FilemanagementFile->find('first', [
                 'conditions' => $conditions
-            ));
+            ]);
 
             if ($file) {
                 $savefile = $this->__getFileRoot().'/'.$file['FilemanagementFolder']['path'].'/'.$file['FilemanagementFile']['name'];

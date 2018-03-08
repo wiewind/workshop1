@@ -34,10 +34,14 @@ Ext.define('WWS.view.school.SchoolPanelController', {
     },
 
     onClickClass: function () {
-        
+        console.log('onClickClass');
     },
 
-    onSelectSemester: function (combo) {
-        
+    onSelectSemester: function (combo, record) {
+        RR = record;
+        VM = this.getViewModel();
+        this.getViewModel().setData({
+            semester: record.getData()
+        });
     }
 });

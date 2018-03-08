@@ -15,7 +15,8 @@ class LoginController extends AppController
     );
 
     public function dologin() {
-        if ($this->Login->checkLogin()) {
+        if ($this->logged) {
+            $this->logged = false;
             $this->Login->logout();
         }
 
@@ -28,8 +29,21 @@ class LoginController extends AppController
         if (!$userData) {
             throw new Exception(__('Failure of the login, please try again.'));
         }
-        $this->MyCookie->write('keepLogged', $this->request->data['keepLogged']);
-        $this->MyCookie->write('username', $username);
+
+
+        $this->logged = true;
+        $this->user_id = intval($this->MySession->read('user.id'));
+        $this->set('user_id', $this->user_id);
+        $this->customer_id = intval($this->MySession->read('customer.id'));
+        $this->set('customer_id', $this->customer_id);
+
+        $keepLogged = isset($this->request->data['keepLogged']) && $this->request->data['keepLogged']==='true';
+        if ($keepLogged) {
+            $this->MyCookie->write('keepLogged', 1);
+            $this->MyCookie->write('username', $username);
+        } else {
+            $this->MyCookie->delete('keepLogged');
+        }
 
         $result['user'] = $this->MySession->read('user');
 
@@ -45,8 +59,8 @@ class LoginController extends AppController
         return $result;
     }
 
-    public function doLogout () {
-        if ($this->Login->checkLogin()) {
+    public function dologout () {
+        if ($this->logged) {
             $this->Login->logout();
         }
     }

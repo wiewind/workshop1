@@ -10,7 +10,7 @@ App::uses('Component', 'Controller');
 
 class LoginComponent extends Component {
 
-    var $components = array('MySession', 'MyCookie', 'Cookie', 'Auth');
+    var $components = array('MySession', 'MyCookie', 'Auth');
 
     public function checkLoginData ($username, $password) {
         $userModel = ClassRegistry::init('User');
@@ -91,8 +91,24 @@ class LoginComponent extends Component {
         return false;
     }
 
+    public function checkCookieKeepLogged () {
+        if ($this->MyCookie->check('keepLogged') && intval($this->MyCookie->read('keepLogged')) === 1 && $this->MyCookie->check('username')) {
+            return true;
+        }
+        return false;
+    }
+
     public function checkLogin () {
-        return $this->MySession->check('user.id');
+        $return = $this->MySession->check('user.id');
+        if (!$return) {
+            if ($this->checkCookieKeepLogged()) {
+                $username = $this->MyCookie->read('username');
+                $this->loginOnlyWithUsername($username);
+                $this->MySession->write('loginFromCookie', true);
+                $return = true;
+            }
+        }
+        return $return;
     }
 
     public function logout () {

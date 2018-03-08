@@ -25,17 +25,7 @@ Class SystemController extends AppController {
         // NOTICE: To be safe, we don`t cache here regarding IE9 issue
         $this->disableCache();
 
-        $logged = $this->Login->checkLogin();
-        if (!$logged) {
-            if ($this->MyCookie->check('keepLogged') && intval($this->MyCookie->read('keepLogged')) === 1 && $this->MyCookie->check('username')) {
-                $username = $this->MyCookie->read('username');
-                $this->Login->loginOnlyWithUsername($username);
-                $logged = true;
-                $this->MySession->write('loginFromCookie', true);
-            }
-        }
-
-        if ($logged) {
+        if ($this->logged) {
             $username = $this->MySession->read('user.username');
             $userModel = ClassRegistry::init('User');
             $userModel->bindModel([
@@ -130,7 +120,7 @@ Class SystemController extends AppController {
         }
         $this->MySession->writeConfig('modules', $systemsModules);
 
-        $user_id = $this->Login->checkLogin() ? $this->MySession->read('user.id') : 0;
+        $user_id = $this->logged ? $this->MySession->read('user.id') : 0;
         $userModules = $this->Module->getUserModules($user_id, false);
         $this->MySession->write('userModules', $userModules);
         $userMobileModules = $this->Module->getUserModules($user_id, false, true);
@@ -180,8 +170,7 @@ Class SystemController extends AppController {
     }
 
     public function keeplive () {
-        if (!$this->Login->checkLogin()) {
-            $this->MySession->delete();
+        if (!$this->logged) {
             ErrorCode::throwExceptionCode(ErrorCode::ErrorCodeSessionTimeout);
         }
         return true;

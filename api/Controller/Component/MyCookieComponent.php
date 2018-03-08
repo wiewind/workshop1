@@ -23,11 +23,7 @@ class MyCookieComponent extends Component
     public function write($path, $value)
     {
         $path = GlbF::getAppName() . $path;
-        $this->Cookie->delete($path);
-        if ($value !== null) {
-            // expires in 100 days
-            $this->Cookie->write($path, $value, true, 3600*24*100);
-        }
+        $this->Cookie->write($path, $value, false, '3 Months');
     }
 
     public function delete($path = '')
@@ -36,6 +32,7 @@ class MyCookieComponent extends Component
     }
 
     public function destory () {
-        $this->Cookie->destroy();
+        $this->delete('keepLogged');
+        $this->delete('username');
     }
 }

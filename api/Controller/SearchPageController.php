@@ -19,7 +19,7 @@ class SearchPageController extends AppController {
     ];
 
     public function getMenus () {
-        $user_id = ($this->Login->checkLogin()) ? $this->MySession->read('user.id') : 0;
+        $user_id = ($this->logged) ? $this->MySession->read('user.id') : 0;
 
         $data = $this->SearchPage->find('all', [
             'fields' => 'id, title',
@@ -36,7 +36,7 @@ class SearchPageController extends AppController {
     }
 
     public function getContent () {
-        $user_id = ($this->Login->checkLogin()) ? $this->MySession->read('user.id') : 0;
+        $user_id = ($this->logged) ? $this->MySession->read('user.id') : 0;
         $id = $this->request->data['id'];
         if ($id > 0) {
             $data = $this->SearchPage->find('first', [

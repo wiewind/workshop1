@@ -40,6 +40,7 @@ class AppController extends Controller {
         'MySession',
         "Session",
         'MyCookie',
+        'Cookie',
         'Paginator'
     );
 
@@ -61,12 +62,15 @@ class AppController extends Controller {
         'filemanagement/getfile'
     );
 
+    public $logged = false;
+
     function beforeFilter () {
 //        if (Configure::read('system.brand') === 'live') {
 //            Configure::write('debug', 0);
 //        }
 
-        if ($this->MySession->check('user')) {
+        if ($this->Login->checkLogin()) {
+            $this->logged = true;
             $this->user_id = intval($this->MySession->read('user.id'));
             $this->set('user_id', $this->user_id);
             $this->customer_id = intval($this->MySession->read('customer.id'));
@@ -102,16 +106,16 @@ class AppController extends Controller {
 
 
     function checkLogin () {
-        if (!$this->Login->checkLogin()) {
+        if (!$this->logged) {
             ErrorCode::throwExceptionCode(ErrorCode::ErrorCodeUserDenied);
         }
     }
 
     function afterFilter() {
-        if ($this->Login->checkLogin()) {
+        if ($this->logged) {
             // save Event
             if ($this->isEvent()) {
-                $user_id = $this->MySession->read('user.id');
+                $user_id = $this->user_id;
                 $this->UserEvent->save(array(
                     'user_id' => $user_id,
                     'event' => $this->request->url,
@@ -125,8 +129,8 @@ class AppController extends Controller {
             }
 
             // reset cookie
-            if ($this->MyCookie->check('keepLogged') && intval($this->MyCookie->read('keepLogged')) === 1 ) {
-                $this->MyCookie->write('keepLogged', 1);
+            if ($this->Login->checkCookieKeepLogged()) {
+                $this->MyCookie->write('keepLogged', $this->MyCookie->read('keepLogged'));
                 $this->MyCookie->write('username', $this->MySession->read('user.username'));
             }
         }
@@ -135,11 +139,14 @@ class AppController extends Controller {
     }
 
     private function isEvent () {
+        if (!$this->logged) return false;
+
         $action = strtolower($this->request->params['action']);
-        $toSaveAction = array('dologin', 'logout', 'save', 'delete', 'search', 'set');
+        $toSaveAction = array('login', 'logout', 'save', 'delete', 'search', 'set');
         foreach ($toSaveAction as $aAction) {
             if (strpos($action, $aAction) !== false) return true;
         }
+
         return false;
     }
 
@@ -207,7 +214,6 @@ class AppController extends Controller {
                 $r = call_user_func_array(array($this, $fn_name), $args);
                 if (is_array($r) && isset($r['data'])) $result = array_merge($result, $r);
                 else $result['data'] = $r;
-
                 $dataSource->commit();
             } catch (Exception $e) {
                 $dataSource->rollback();

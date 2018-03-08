@@ -1240,7 +1240,7 @@ msgstr "每日"
 msgid "weekly"
 msgstr "每周"
 
-msgid "tow-weeks"
+msgid "two-weeks"
 msgstr "每两周"
 
 msgid "Name of Person"

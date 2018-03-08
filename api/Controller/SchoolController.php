@@ -402,7 +402,7 @@ class SchoolController extends AppController {
                 if ($d['SchoolPlan']) {
                     $count = 0;
                     foreach ($d['SchoolPlan'] as $p) {
-                        if ($p['period'] === 'tow-weeks') {
+                        if ($p['period'] === 'two-weeks') {
                             $count += 0.5;
                         } else {
                             $count++;

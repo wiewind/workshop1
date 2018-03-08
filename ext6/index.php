@@ -5,17 +5,6 @@ if (strpos($_SERVER['HTTP_HOST'], 'local') === false && (!isset($_SERVER['HTTPS'
 
 require_once '../api/Config/config_default.php';
 
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $config['system']['projUrl'] . '/api/system/json/getVersion');
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-curl_setopt($ch, CURLOPT_TIMEOUT, 5);
-$data = curl_exec($ch);
-$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-curl_close($ch);
-
-$initVersion = json_decode($data)->data;
-
 ?><!DOCTYPE HTML>
 <html manifest="">
 <head>
@@ -31,7 +20,7 @@ $initVersion = json_decode($data)->data;
     <meta name="description" content="<?= $config['system']['name'] ?>"/>
     <meta name="keywords" content="<?= $config['system']['name'] ?>"/>
     <meta name="publisher" content="<?= $config['system']['author'] ?>"/>
-    <meta name="copyright" content="<?= $config['system']['author'] . ', ' . $initVersion->year ?>"/>
+    <meta name="copyright" content="<?= $config['system']['author'] ?>"/>
     <meta http-equiv="expires" content="0"/>
     <link rel="shortcut icon" href="<?= $config['system']['image']['logo'] ?>" >
 
@@ -114,7 +103,7 @@ $initVersion = json_decode($data)->data;
         <img style="margin-left: 10px;" src="<?= $config['system']['image']['path'] ?>/logo_mit_schriftung.png" width="300" />
         <br />
         <img src="<?= $config['system']['image']['path'] ?>/loading.gif" />
-        <?= 'Version ' . $initVersion->number . ' &copy; ' . $config['system']['author'] . ' ' . $initVersion->year ?>
+        <?= $config['system']['author'] ?>
     </div>
 </div>
 </body>

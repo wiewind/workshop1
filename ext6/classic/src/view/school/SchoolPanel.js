@@ -29,13 +29,19 @@ Ext.define ('WWS.view.school.SchoolPanel', {
             margin: '0 20 0 0'
         },
         {
-            xtype: 'triggerfield',
+            xtype: 'textfield',
             name: 'class_name',
             emptyText : T.__("Unknown"),
             editable: false,
-            onTriggerClick: 'onClickClass',
             bind: {
                 value: '{class.name}'
+            },
+            triggers: {
+                search: {
+                    cls: 'x-form-trigger',
+                    tooltip: Glb.btnSetting.searchText,
+                    handler: 'onClickClass'
+                }
             }
         },
         {
@@ -57,7 +63,7 @@ Ext.define ('WWS.view.school.SchoolPanel', {
             triggerAction: 'all',
             emptyText: T.__("Please select a semester"),
             listeners: {
-                change: 'onSelectSemester'
+                select: 'onSelectSemester'
             }
         },
         {

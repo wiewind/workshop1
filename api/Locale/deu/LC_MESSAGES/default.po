@@ -1240,7 +1240,7 @@ msgstr "täglich"
 msgid "weekly"
 msgstr "wöchentlich"
 
-msgid "tow-weeks"
+msgid "two-weeks"
 msgstr "je 2 Wochen"
 
 msgid "Name of Person"

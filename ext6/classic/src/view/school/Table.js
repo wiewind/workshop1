@@ -76,7 +76,7 @@ Ext.define ('WWW.view.school.Table', {
         for (var d=1; d<6; d++) {
             var cellDate = Ext.Date.format(new Date(+lastSundayDate + d * timestampOfDay), APP.formatting['date_format']);
             weekdayPanels.push({
-                title: '<div style="width: 100%; text-align: center;">' + SchoolConfig.weekdays[d-1] + '<br />' + cellDate + '</div>',
+                title: '<div style="width: 100%; text-align: center;">' + SCF.config.weekdays[d-1] + '<br />' + cellDate + '</div>',
                 flex: 1
             });
         }
