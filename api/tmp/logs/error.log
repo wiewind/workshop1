@@ -978,3 +978,20 @@ Stack Trace:
 #11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
 #12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #13 {main}
+2018-03-07 14:44:35 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_id' cannot be null
+Request URL: /apps/workshop1/api/system/initApp?_dc=1520430275239
+Stack Trace:
+#0 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(472): PDOStatement->execute(Array)
+#1 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(438): DboSource->_execute('INSERT INTO `wi...', Array)
+#2 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Datasource\DboSource.php(1092): DboSource->execute('INSERT INTO `wi...')
+#3 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1942): DboSource->create(Object(AppModel), Array, Array)
+#4 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Model\Model.php(1760): Model->_doSave(Array, Array)
+#5 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(160): Model->save(Array)
+#6 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(140): SystemController->__setPasskeyRoot(NULL)
+#7 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\Controller\SystemController.php(63): SystemController->__setModules()
+#8 [internal function]: SystemController->initApp()
+#9 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(SystemController), Array)
+#10 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\project\php\TestSys\wiewind_com\apps\lib\cake\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SystemController), Object(CakeRequest))
+#12 C:\project\php\TestSys\wiewind_com\apps\workshop1\api\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}

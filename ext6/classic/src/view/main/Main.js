@@ -29,6 +29,7 @@ Ext.define('WWS.view.main.Main', {
         'WWS.view.filemanagement.FilemanagementPanel',
         'WWS.view.passkey.PasskeyPanel',
         'WWS.view.addressbook.AddressbookPanel',
+        'WWS.view.school.SchoolPanel',
 
         'WWS.view.setting.LoginWindow',
         'WWS.view.setting.ForgotPasswordWindow',
