@@ -287,5 +287,13 @@ var Wiewind = {
             }
             a.click();
         }
+    },
+
+    detectOrient: function () {
+        var mql = window.matchMedia("(orientation: portrait)");
+        if(mql.matches) {
+            return 'portrait'; // 竖屏
+        }
+        return 'landscape'; // 横屏
     }
 };

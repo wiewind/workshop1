@@ -38,8 +38,6 @@ Ext.define('WWS.view.school.SchoolPanelController', {
     },
 
     onSelectSemester: function (combo, record) {
-        RR = record;
-        VM = this.getViewModel();
         this.getViewModel().setData({
             semester: record.getData()
         });

@@ -22,8 +22,14 @@ Ext.define('WWS.view.worknotes.Detail', {
                 xtype: 'toolbar',
                 docked: 'top',
                 title: T.__('loading...'),
-                showAnimation: 'fade',
-                hideAnimation: 'fadeOut',
+                showAnimation: {
+                    type: 'slide',
+                    direction: 'down'
+                },
+                hideAnimation: {
+                    type: 'slideOut',
+                    direction: 'up'
+                },
                 hidden: true,
                 items: [
                     {
@@ -37,8 +43,14 @@ Ext.define('WWS.view.worknotes.Detail', {
                 itemId: 'detailHeader',
                 cls: 'fm_path',
                 padding: '5 10 0 10',
-                showAnimation: 'fade',
-                hideAnimation: 'fadeOut',
+                showAnimation: {
+                    type: 'slide',
+                    direction: 'down'
+                },
+                hideAnimation: {
+                    type: 'slideOut',
+                    direction: 'up'
+                },
                 hidden: true,
                 bind: {
                     html: '<div><b>{title}</b></div><div class="noticeText">'+
@@ -48,13 +60,19 @@ Ext.define('WWS.view.worknotes.Detail', {
             {
                 xtype: 'component',
                 itemId: 'arrowCt',
-                cls: 'fm_path',
+                // cls: 'fm_path',
                 style: 'text-align: center;',
                 height: 16,
                 margin: 0,
                 padding: 0,
-                showAnimation: 'fade',
-                hideAnimation: 'fadeOut',
+                showAnimation: {
+                    type: 'slide',
+                    direction: 'down'
+                },
+                hideAnimation: {
+                    type: 'slideOut',
+                    direction: 'up'
+                },
                 html: '<img src="' + Cake.image.path + '/arrow_down.png" onclick="FMF.showDetailTitle(\'worknotesdetail\')" />'
             },
             {
@@ -69,8 +87,14 @@ Ext.define('WWS.view.worknotes.Detail', {
                 itemId: 'detailFooter',
                 cls: 'fm_path',
                 padding: '5 10',
-                showAnimation: 'fade',
-                hideAnimation: 'fadeOut',
+                showAnimation: {
+                    type: 'slide',
+                    direction: 'up'
+                },
+                hideAnimation: {
+                    type: 'slideOut',
+                    direction: 'down'
+                },
                 hidden: true,
                 bind: {
                     html: '<div class="noticeText rightFloat">' + T.__('modified') + ': {displayModified}' + '</div>'
