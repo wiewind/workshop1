@@ -210,7 +210,7 @@ Ext.define('WWS.view.filemanagement.Functions', {
                     },
                     success: function(response, options){
                         FMF.refreshAll();
-                        ABox.success(Wiewind.String.sprintf(T.__("Folder [%s] is deleted."), FMF.displayPath(data.path)));
+                        ABox.success(Wiewind.String.sprintf(T.__("The folder [%s] has been deleted."), FMF.displayPath(data.path)));
                     }
                 });
             }
@@ -246,7 +246,7 @@ Ext.define('WWS.view.filemanagement.Functions', {
                     },
                     success: function(response, options){
                         FMF.refreshAll();
-                        ABox.success(T.__("File is deleted."));
+                        ABox.success(T.__("The file has been deleted."));
                     }
                 });
             }

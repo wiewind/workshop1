@@ -196,7 +196,7 @@ msgstr "Wollen Sie wirklich den Rekord löschen?"
 msgid "Success"
 msgstr "Erfolgt"
 
-msgid "This record is deleted"
+msgid "This record has been deleted"
 msgstr "Der Rekord ist gelöscht."
 
 msgid "Resource"
@@ -217,10 +217,10 @@ msgstr "Stammverzeichnis"
 msgid "Undefinied"
 msgstr "Undefinierte"
 
-msgid "File is deleted."
+msgid "The file has been deleted."
 msgstr "Die Datei ist gelöscht."
 
-msgid "Folder [%s] is deleted."
+msgid "The folder [%s] has been deleted."
 msgstr "Der Ordner [%s] ist gelöscht."
 
 msgid "The selected records are deleted."
@@ -1345,34 +1345,34 @@ msgstr "Vorname"
 msgid "Lastname"
 msgstr "Nachname"
 
-msgid "Coursetime has been saved!"
+msgid "The coursetime has been saved!"
 msgstr "Uhrzeit ist gespeichert!"
 
-msgid "Course has been saved!"
+msgid "The course has been saved!"
 msgstr "Der Kurs ist gespeichert!"
 
-msgid "Teacher has been saved!"
+msgid "The teacher has been saved!"
 msgstr "Der Lehrer Oder die Lehrerin ist gespeichert!"
 
-msgid "Room has been saved!"
+msgid "The room has been saved!"
 msgstr "Der Raum ist gespeichert!"
 
-msgid "Plan has been saved!"
+msgid "The plan has been saved!"
 msgstr "Der Plan ist gespeichert!"
 
-msgid "Coursetime is deleted!"
+msgid "The coursetime has been deleted!"
 msgstr "Uhrzeit ist gelöscht!"
 
-msgid "Course is deleted!"
+msgid "The course has been deleted!"
 msgstr "Der Kurs ist gelöscht!"
 
-msgid "Teacher is deleted!"
+msgid "The teacher has been deleted!"
 msgstr "Der Lehrer Oder die Lehrerin ist gelöscht!"
 
-msgid "Room is deleted!"
+msgid "The room has been deleted!"
 msgstr "Der Raum ist gelöscht!"
 
-msgid "Plan is deleted!"
+msgid "The plan has been deleted!"
 msgstr "Der Plan ist gelöscht!"
 
 msgid "Semester"
@@ -1411,7 +1411,7 @@ msgstr "Klass Löschen"
 msgid "Are you sure you want to delete the class?"
 msgstr "Sind Sie sicher das Klass zu löschen?"
 
-msgid "Class is deleted!"
+msgid "Class has been deleted!"
 msgstr "Klass ist gelöscht!"
 
 msgid "Class has been saved!"
@@ -1438,7 +1438,7 @@ msgstr "Kind Löschen"
 msgid "Are you sure you want to delete the child?"
 msgstr "Sind Sie sicher das Kind zu löschen?"
 
-msgid "Child is deleted!"
+msgid "The child has been deleted!"
 msgstr "Kind ist gelöscht!"
 
 msgid "Child"
@@ -1474,7 +1474,7 @@ msgstr "Herr %s"
 msgid "Are you sure you want to delete the Page?"
 msgstr "Möchten Sie die Seite wirklich löschen?"
 
-msgid "Page is deleted!"
+msgid "The page has been deleted!"
 msgstr "Seite ist gelöscht!"
 
 msgid "Side"
@@ -1626,3 +1626,18 @@ msgstr "keine Rekorde mehr"
 
 msgid "Modules"
 msgstr "Module"
+
+msgid "The person does not exist."
+msgstr "Der Person ist nicht existiert."
+
+msgid "The person list is empty."
+msgstr "Die Personenliste ist leer."
+
+msgid "The record has been saved."
+msgstr "Der Rekord ist gespeichert."
+
+msgid "The person has been saved."
+msgstr "Der Person ist gespeichert."
+
+msgid "The default class kann not be deleted!"
+msgstr "Die Standardklasse darf nicht gelöscht werden!"

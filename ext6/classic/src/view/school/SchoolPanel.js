@@ -6,6 +6,13 @@ Ext.define ('WWS.view.school.SchoolPanel', {
     xtype: 'schoolpanel',
 
     requires: [
+        'WWS.view.school.Functions',
+        'WWW.view.school.Table',
+        'WWW.view.school.child.Grid',
+
+        'WWS.view.school.class.EditWindow',
+        'WWS.view.school.class.GridWindow',
+
         'WWS.view.school.SchoolPanelController',
         'WWS.view.school.SchoolPanelViewModel'
     ],
@@ -17,38 +24,31 @@ Ext.define ('WWS.view.school.SchoolPanel', {
     config: {
         title: T.__("School Timetable"),
         icon: Cake.image.path + '/board/school16.png',
-        layout: 'border',
         margin: '1 0 0 0',
-        closable: true
+        closable: true,
+        // tabBarHeaderPosition: 0
     },
 
     tbar: [
-        {
-            xtype: 'label',
-            text: T.__("Class") + ':',
-            margin: '0 20 0 0'
-        },
+        T.__("Class") + ':',
         {
             xtype: 'textfield',
             name: 'class_name',
             emptyText : T.__("Unknown"),
             editable: false,
+            margin: '0 50 0 0',
             bind: {
                 value: '{class.name}'
             },
             triggers: {
-                search: {
+                select: {
                     cls: 'x-form-trigger',
                     tooltip: Glb.btnSetting.searchText,
-                    handler: 'onClickClass'
+                    handler: 'onClickSelectClass'
                 }
             }
         },
-        {
-            xtype: 'label',
-            text: T.__("Semester") + ':',
-            margin: '0 20 0 50'
-        },
+        T.__("Semester") + ':',
         {
             xtype: 'combobox',
             name: 'semester_id',
@@ -62,6 +62,7 @@ Ext.define ('WWS.view.school.SchoolPanel', {
             editable: false,
             triggerAction: 'all',
             emptyText: T.__("Please select a semester"),
+            margin: '0 10 0 0',
             listeners: {
                 select: 'onSelectSemester'
             }
@@ -69,10 +70,28 @@ Ext.define ('WWS.view.school.SchoolPanel', {
         {
             xtype: 'component',
             name: 'semester_date',
-            margin: '0 0 0 20',
             bind: {
                 html: '{displaySemesterDate}'
             }
         }
-    ]
+    ],
+
+    initComponent: function () {
+        var vm = this.getViewModel();
+        this.items = [
+            // {
+            //     xtype: 'schooltable',
+            //     viewModel: {
+            //         parent: vm
+            //     }
+            // },
+            {
+                xtype: 'schoolchildgrid',
+                viewModel: {
+                    parent: vm
+                }
+            }
+        ];
+        this.callParent();
+    }
 });

@@ -8,7 +8,6 @@ Ext.define('WWS.view.school.SchoolPanelViewModel', {
 
     data: {
         class: {},
-
         semester: {}
     },
 

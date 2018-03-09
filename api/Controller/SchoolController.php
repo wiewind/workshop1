@@ -188,15 +188,15 @@ class SchoolController extends AppController {
             'user_id' => $user_id
         ];
 
-        if (isset($this->request->query['searchText'])) {
+        if (isset($this->request->data['searchText'])) {
             $conditions['or'] = [
-                'SchoolTeacher.lastname like "%' . $this->request->query['searchText'] . '%"',
-                'SchoolTeacher.firstname like "%' . $this->request->query['searchText'] . '%"',
-                'SchoolTeacher.telephone like "%' . $this->request->query['searchText'] . '%"',
-                'SchoolTeacher.email like "%' . $this->request->query['searchText'] . '%"',
-                'SchoolTeacher.fax like "%' . $this->request->query['searchText'] . '%"',
-                'SchoolTeacher.address like "%' . $this->request->query['searchText'] . '%"',
-                'SchoolTeacher.description like "%' . $this->request->query['searchText'] . '%"'
+                'SchoolTeacher.lastname like "%' . $this->request->data['searchText'] . '%"',
+                'SchoolTeacher.firstname like "%' . $this->request->data['searchText'] . '%"',
+                'SchoolTeacher.telephone like "%' . $this->request->data['searchText'] . '%"',
+                'SchoolTeacher.email like "%' . $this->request->data['searchText'] . '%"',
+                'SchoolTeacher.fax like "%' . $this->request->data['searchText'] . '%"',
+                'SchoolTeacher.address like "%' . $this->request->data['searchText'] . '%"',
+                'SchoolTeacher.description like "%' . $this->request->data['searchText'] . '%"'
             ];
         }
 
@@ -218,8 +218,8 @@ class SchoolController extends AppController {
                 'SchoolTeacher.lastname',
                 'SchoolTeacher.firstname'
             ],
-            'limit' => $this->request->query['limit'],
-            'page' => $this->request->query['page']
+            'limit' => $this->request->data['limit'],
+            'page' => $this->request->data['page']
         ]);
         if ($data) {
             foreach ($data as $key => $d) {
@@ -292,11 +292,11 @@ class SchoolController extends AppController {
             'user_id' => $user_id
         ];
 
-        if (isset($this->request->query['searchText'])) {
+        if (isset($this->request->data['searchText'])) {
             $conditions['or'] = [
-                'SchoolRoom.name like "%' . $this->request->query['searchText'] . '%"',
-                'SchoolRoom.telephone like "%' . $this->request->query['searchText'] . '%"',
-                'SchoolRoom.description like "%' . $this->request->query['searchText'] . '%"'
+                'SchoolRoom.name like "%' . $this->request->data['searchText'] . '%"',
+                'SchoolRoom.telephone like "%' . $this->request->data['searchText'] . '%"',
+                'SchoolRoom.description like "%' . $this->request->data['searchText'] . '%"'
             ];
         }
         $result['total'] = $this->SchoolRoom->find('count', [
@@ -307,8 +307,8 @@ class SchoolController extends AppController {
             'order' => [
                 'SchoolRoom.name'
             ],
-            'limit' => $this->request->query['limit'],
-            'page' => $this->request->query['page']
+            'limit' => $this->request->data['limit'],
+            'page' => $this->request->data['page']
         ]);
         return $result;
     }
@@ -366,13 +366,13 @@ class SchoolController extends AppController {
             'SchoolCourse.user_id' => $user_id
         ];
 
-        if (isset($this->request->query['searchText'])) {
+        if (isset($this->request->data['searchText'])) {
             $conditions['or'] = [
-                'SchoolCourse.name like "%' . $this->request->query['searchText'] . '%"',
-                'DefaultTeacher.lastname like "%' . $this->request->query['searchText'] . '%"',
-                'DefaultTeacher.firstname like "%' . $this->request->query['searchText'] . '%"',
-                'DefaultRoom.name like "%' . $this->request->query['searchText'] . '%"',
-                'SchoolCourse.description like "%' . $this->request->query['searchText'] . '%"'
+                'SchoolCourse.name like "%' . $this->request->data['searchText'] . '%"',
+                'DefaultTeacher.lastname like "%' . $this->request->data['searchText'] . '%"',
+                'DefaultTeacher.firstname like "%' . $this->request->data['searchText'] . '%"',
+                'DefaultRoom.name like "%' . $this->request->data['searchText'] . '%"',
+                'SchoolCourse.description like "%' . $this->request->data['searchText'] . '%"'
             ];
         }
 
@@ -393,8 +393,8 @@ class SchoolController extends AppController {
             'order' => [
                 'SchoolCourse.name'
             ],
-            'limit' => $this->request->query['limit'],
-            'page' => $this->request->query['page']
+            'limit' => $this->request->data['limit'],
+            'page' => $this->request->data['page']
         ]);
 
         if ($data) {
@@ -468,8 +468,8 @@ class SchoolController extends AppController {
         $this->checkLogin();
         $data = $this->SchoolCoursetime->find('all', [
             'conditions' => [
-                'class_id' => $this->request->query['class_id'],
-                'semester_id' => $this->request->query['semester_id']
+                'class_id' => $this->request->data['class_id'],
+                'semester_id' => $this->request->data['semester_id']
             ],
             'order' => [
                 'SchoolCoursetime.start',
@@ -525,10 +525,10 @@ class SchoolController extends AppController {
         $conditions = [
             'SchoolClass.user_id' => $user_id
         ];
-        if (isset($this->request->query['searchText'])) {
+        if (isset($this->request->data['searchText'])) {
             $conditions['or'] = [
-                'SchoolClass.name like "%' . $this->request->query['searchText'] . '%"',
-                'SchoolClass.description like "%' . $this->request->query['searchText'] . '%"'
+                'SchoolClass.name like "%' . $this->request->data['searchText'] . '%"',
+                'SchoolClass.description like "%' . $this->request->data['searchText'] . '%"'
             ];
         }
         $result['total'] = $this->SchoolClass->find('count', [
@@ -584,9 +584,13 @@ class SchoolController extends AppController {
         );
     }
 
-    function loadClass ($class_id) {
+    function loadClass () {
         $this->checkLogin();
+        $class_id = $this->request->data['class_id'];
         $data = $this->SchoolClass->findById($class_id);
+        if ($data) {
+            $data = $data['SchoolClass'];
+        }
         return $data;
     }
 
@@ -626,14 +630,57 @@ class SchoolController extends AppController {
 
     function getChildren () {
         $this->checkLogin();
-        $class_id = $this->request->query['class_id'];
+        $class_id = $this->request->data['class_id'];
         $conditions = [
             'SchoolChild.class_id' => $class_id,
             'SchoolChild.deleted' => 0
         ];
 
+        $joins = [
+            [
+                'table' => Inflector::tableize('WspSchoolChildrenTelephone'),
+                'alias' => 'SchoolChildrenTelephone',
+                'conditions' => array(
+                    'SchoolChild.id = SchoolChildrenTelephone.child_id'
+                ),
+                'type' => 'left'
+            ],
+            [
+                'table' => Inflector::tableize('WspSchoolChildrenMobilephone'),
+                'alias' => 'SchoolChildrenMobilephone',
+                'conditions' => array(
+                    'SchoolChild.id = SchoolChildrenMobilephone.child_id'
+                ),
+                'type' => 'left'
+            ],
+            [
+                'table' => Inflector::tableize('WspSchoolChildrenAddress'),
+                'alias' => 'SchoolChildrenAddress',
+                'conditions' => array(
+                    'SchoolChild.id = SchoolChildrenAddress.child_id'
+                ),
+                'type' => 'left'
+            ]
+        ];
+
+        $group = 'SchoolChild.id';
+
+        if (isset($this->request->data['searchText'])) {
+            $conditions['or'] = [
+                'SchoolChild.lastname like "%' . $this->request->data['searchText'] . '%"',
+                'SchoolChild.firstname like "%' . $this->request->data['searchText'] . '%"',
+//                'GROUP_CONCAT(telephones.number) like "%' . $this->request->data['searchText'] . '%"',
+//                'GROUP_CONCAT(mobilephones.number) like "%' . $this->request->data['searchText'] . '%"',
+//                'GROUP_CONCAT(addresses.address) like "%' . $this->request->data['searchText'] . '%"'
+            ];
+
+//            $group .= ' having GROUP_CONCAT(SchoolChildrenAddress.address) like "%' . $this->request->data['searchText'] . '%"';
+        }
+
         $result['total'] = $this->SchoolChild->find('count', [
-            'conditions' => $conditions
+            'conditions' => $conditions,
+            'joins' => $joins,
+            'group' => $group
         ]);
         $data = $this->SchoolChild->find('all', [
             'conditions' => $conditions,
@@ -641,9 +688,13 @@ class SchoolController extends AppController {
                 'SchoolChild.lastname',
                 'SchoolChild.firstname'
             ],
-            'limit' => $this->request->query['limit'],
-            'page' => $this->request->query['page']
+            'joins' => $joins,
+            'group' => $group,
+            'limit' => $this->request->data['limit'],
+            'page' => $this->request->data['page']
         ]);
+
+        return $data;
 
         foreach ($data as $d) {
             $d['SchoolChild']['telephones'] = $d['telephones'];

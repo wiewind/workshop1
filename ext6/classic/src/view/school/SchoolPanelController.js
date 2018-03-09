@@ -16,25 +16,33 @@ Ext.define('WWS.view.school.SchoolPanelController', {
                     ABox.warning(
                         T.__("Your have not class, please add a new class into system."),
                         function () {
-                            // SchoolFn.openClassWindow(0, function (data) {
-                            //     SchoolFn.setDefaultClass(data.id, function () {
-                            //         me.updateConfig(data, res.data.SchoolSemester);
-                            //     });
-                            // });
+                            SCF.openEditClassWindow(0, function (data) {
+                                SCF.setDefaultClass(data.id, function () {
+                                    vm.setData({
+                                        class: data,
+                                        semester: res.data.SchoolSemester
+                                    });
+                                });
+                            });
                         }
                     );
-                    return;
+                } else {
+                    vm.setData({
+                        class: res.data.SchoolClass,
+                        semester: res.data.SchoolSemester
+                    });
                 }
-                vm.setData({
-                    class: res.data.SchoolClass,
-                    semester: res.data.SchoolSemester
-                });
             }
         });
     },
 
-    onClickClass: function () {
-        console.log('onClickClass');
+    onClickSelectClass: function () {
+        var vm = this.getViewModel();
+        SCF.openClassGridWindow(true, function (data) {
+            vm.setData({
+                class: data
+            });
+        });
     },
 
     onSelectSemester: function (combo, record) {

@@ -23,7 +23,7 @@ Ext.define('WWS.view.search.ContentController', {
                     id: id
                 },
                 success: function (response, options) {
-                    ABox.success(T.__("Page is deleted!"), function () {
+                    ABox.success(T.__("The page has been deleted!"), function () {
                         SHF.refreshMenu(true);
                     });
                 }

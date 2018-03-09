@@ -15,6 +15,7 @@ Ext.define('WWS.view.main.Main', {
         'WWS.ux.Ckeditor',
         'WWS.ux.ClearCombo',
         'WWS.ux.ClearDate',
+        'WWS.ux.SearchText',
         'WWS.ux.MultiFileField',
         'WWS.ux.MusterForm',
         'WWS.ux.MusterFormWindow',
