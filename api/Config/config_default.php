@@ -19,6 +19,8 @@ $config['system']['path'] = 'apps/workshop';
 $config['system']['api']['dirname']         = 'api';
 $config['system']['app']['dirname']         = 'ext6';
 $config['system']['resources']['dirname']   = 'resources';
+$config['system']['cdata']['dirname']       = '__data__';
+$config['system']['tmp']['dirname']            = '__tmp__';
 
 $config['system']['image']['dirname'] = 'img';
 $config['system']['image']['logoFile'] = 'logo_22_16.png';
@@ -43,6 +45,8 @@ $config['system']['filemanagement']['allowView'] = [
 
 
 $config['system']['jobattachment']['dirname'] = 'jobattachment';
+
+$config['system']['school']['dirname'] = 'school_photos';
 
 
 $config['system']['backup']['path'] = '/_backups';

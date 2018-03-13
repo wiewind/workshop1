@@ -43,7 +43,7 @@ class FilemanagementFile extends AppModel {
         GlbF::mkDir($dir);
 
         do {
-            $filename = $dir.'/'.GlbF::getRandString();
+            $filename = $dir.'/'.GlbF::getRandomStr();
         } while (is_file($filename));
 
         return $filename;

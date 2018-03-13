@@ -19,6 +19,8 @@ Ext.define('WWS.view.main.Main', {
         'WWS.ux.MultiFileField',
         'WWS.ux.MusterForm',
         'WWS.ux.MusterFormWindow',
+        'WWS.ux.PhotoField',
+        'WWS.ux.UploadPhotoWindow',
 
         'WWS.view.main.MainController',
         'WWS.view.main.MainModel',

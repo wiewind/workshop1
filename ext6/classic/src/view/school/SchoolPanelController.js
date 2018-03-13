@@ -37,17 +37,32 @@ Ext.define('WWS.view.school.SchoolPanelController', {
     },
 
     onClickSelectClass: function () {
-        var vm = this.getViewModel();
+        var view = this.getView(),
+            vm = this.getViewModel();
         SCF.openClassGridWindow(true, function (data) {
             vm.setData({
                 class: data
             });
+
+            view.down('schoolchildgrid').getStore().reload();
         });
     },
 
-    onSelectSemester: function (combo, record) {
-        this.getViewModel().setData({
-            semester: record.getData()
+    // onSelectSemester: function (combo, record) {
+    //     this.getViewModel().setData({
+    //         semester: record.getData()
+    //     });
+    // }
+
+    onClickSelectSemester: function () {
+        var view = this.getView(),
+            vm = this.getViewModel();
+        SCF.openSemesterGridWindow(vm.get('semester.id'), function (data) {
+            vm.setData({
+                semester: data
+            });
+
+            // view.down('schoolchildgrid').getStore().reload();
         });
     }
 });

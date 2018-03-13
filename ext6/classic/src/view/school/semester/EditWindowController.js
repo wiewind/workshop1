@@ -1,18 +1,18 @@
 /**
  * Created by benying.zou on 09.03.2018.
  */
-Ext.define('WWS.view.school.class.EditWindowController', {
+Ext.define('WWS.view.school.semester.EditWindowController', {
     extend: 'WWS.ux.MusterFormWindowController',
-    alias: 'controller.schoolclasseditwindow',
+    alias: 'controller.schoolsemestereditwindow',
 
     init: function () {
         var vm = this.getViewModel(),
-            class_id = vm.get('id');
-        if (class_id > 0) {
+            semester_id = vm.get('id');
+        if (semester_id > 0) {
             Glb.Ajax({
-                url: Cake.api.path + '/school/json/loadClass',
+                url: Cake.api.path + '/school/json/loadSemester',
                 params: {
-                    class_id: class_id
+                    semester_id: semester_id
                 },
                 success: function (response, options) {
                     var resp = Ext.decode(response.responseText);
@@ -27,10 +27,12 @@ Ext.define('WWS.view.school.class.EditWindowController', {
             res = Ext.decode(action.response.responseText),
             values = view.down('form').getValues();
         if (view.callback) {
-            values['id'] = res.class_id;
+            if (values['id'] == 0) {
+                values['id'] = res.id;
+            }
             view.callback(values);
         }
-        ABox.success(T.__("The class has been saved!"));
+        ABox.success(T.__("The semester has been saved!"));
         view.close();
     }
 });

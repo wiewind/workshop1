@@ -1,7 +1,7 @@
 /**
  * Created by benying.zou on 09.03.2018.
  */
-Ext.define ('WWW.view.school.child.Grid', {
+Ext.define ('WWS.view.school.child.Grid', {
     extend: 'Ext.grid.Panel',
     xtype: 'schoolchildgrid',
 
@@ -24,15 +24,21 @@ Ext.define ('WWW.view.school.child.Grid', {
         scrollable: true,
         multiSelect: false
     },
+    emptyText: T.__("Empty"),
 
     columns: [
         {
-            width: 30,
-            dataIndex: 'sex',
-            renderer: function(v) {
-                var icon = (v === 'f') ? 'girl.png' : 'boy.png';
-                var title = (v === 'f') ? T.__("Girl") : T.__("Boy");
-                return '<img src="' + Cake.image.path+'/' + icon + '" title="' + title + '" />';
+            width: 100,
+            resizable: false,
+            dataIndex: 'photo',
+            renderer: function(v, meta, rec) {
+                var sex = rec.get('sex'),
+                    icon = (sex === 'f') ? 'girl.png' : 'boy.png',
+                    title = (sex === 'f') ? T.__("Girl") : T.__("Boy");
+                if (v) {
+                    return '<img src="' + Cake.api.path + '/school/showPhoto/'+rec.get('id')+'/80?_v=' + btoa(Date.now()) + '" alt="' + title + '" />'
+                }
+                return '<img src="' + Cake.image.path+'/' + icon + '" title="' + title + '" alt="' + title + '" />';
             }
         },
         {
@@ -90,9 +96,9 @@ Ext.define ('WWW.view.school.child.Grid', {
             }
         },
         {
-            text: T.__("Handy"),
+            text: T.__("Email"),
             flex: 1,
-            dataIndex: 'mobiles',
+            dataIndex: 'emails',
             renderer: function(v) {
                 var data = Ext.decode(v);
                 var res = '';
@@ -101,7 +107,7 @@ Ext.define ('WWW.view.school.child.Grid', {
                     if (!Ext.isEmpty(d['type'])) {
                         res += d['type'] + ': ';
                     }
-                    res += d['number'] + '</div>'
+                    res += d['email'] + '</div>'
                 });
 
                 return res;

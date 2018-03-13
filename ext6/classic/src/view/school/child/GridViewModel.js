@@ -26,11 +26,5 @@ Ext.define('WWS.view.school.child.GridViewModel', {
                 }
             }
         }
-    },
-
-    formulas: {
-        displaySemesterDate: function (get) {
-            return Glb.Date.displayDateFromString(get('semester.start')) + ' - ' + Glb.Date.displayDateFromString(get('semester.end'));
-        }
     }
 });

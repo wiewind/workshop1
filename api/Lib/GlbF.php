@@ -70,14 +70,6 @@ class GlbF {
         return Configure::read('system.version');
     }
 
-    public static function getRandomStr ($degree, $onlyZiffer = true) {
-        $str = '';
-        for ($i=0; $i<$degree; $i++) {
-            $str .= rand(0, 9);
-        }
-        return $str;
-    }
-
     public static function getWeekdayname ($weekday, $willshotname=false, $lang='cn') {
         if ($weekday > 6) $weekday = $weekday % 7;
         if ($lang == 'cn') {
@@ -145,8 +137,17 @@ class GlbF {
         return array(substr($filename, 0, $pos), strtolower(substr($filename, $pos+1)));
     }
 
-    public static function getRandString ($length = 10) {
-        $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+-_*()[]#~|@?.:,;";
+    public static function getRandomZifferStr ($length = 10) {
+        $str = '';
+        for ($i=0; $i<$length; $i++) {
+            $str .= rand(0, 9);
+        }
+        return $str;
+    }
+
+    public static function getRandomStr ($length = 10, $onlyZiffer=false) {
+        if ($onlyZiffer) return GlbF::getRandomZifferStr($length);
+        $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+-_=!*';
         $str = '';
         for ( $i = 0; $i < $length; $i++ ) {
             $str .= $chars[mt_rand(0, strlen($chars) - 1)];

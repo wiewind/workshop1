@@ -19,11 +19,11 @@ class SchoolController extends AppController {
 
         'SchoolChild',
         'SchoolChildrenTelephone',
-        'SchoolChildrenMobilephone',
+        'SchoolChildrenEmail',
         'SchoolChildrenAddress'
     );
 
-    private function __getCurrentSemester ($semester_id=0) {
+    function getCurrentSemester ($semester_id=0) {
         if ($semester_id) {
             $semester = $this->SchoolSemester->findById($semester_id);
         } else {
@@ -97,7 +97,7 @@ class SchoolController extends AppController {
         if (isset($this->request->data['semester_id'])) {
             $semester_id = $this->request->data['semester_id'];
         } else {
-            $semester = $this->__getCurrentSemester();
+            $semester = $this->getCurrentSemester();
             if ($semester) {
                 $semester_id = $semester['id'];
             }
@@ -282,7 +282,24 @@ class SchoolController extends AppController {
 
     function deleteTeacher () {
         $this->checkLogin();
-        $this->SchoolTeacher->delete($this->request->data['teacher_id']);
+        $teacher_id = $this->request->data['teacher_id'];
+        $this->SchoolPlan->updateAll(
+            [
+                'SchoolPlan.teacher_id' => 0
+            ],
+            [
+                'SchoolPlan.teacher_id' => $teacher_id
+            ]
+        );
+        $this->SchoolCourse->updateAll(
+            [
+                'SchoolCourse.default_teacher_id' => 0
+            ],
+            [
+                'SchoolCourse.default_teacher_id' => $teacher_id
+            ]
+        );
+        $this->SchoolTeacher->delete($teacher_id);
     }
 
     function getRooms () {
@@ -356,6 +373,23 @@ class SchoolController extends AppController {
 
     function deleteRoom () {
         $this->checkLogin();
+        $room_id = $this->request->data['room_id'];
+        $this->SchoolPlan->updateAll(
+            [
+                'SchoolPlan.room_id' => 0
+            ],
+            [
+                'SchoolPlan.room_id' => $room_id
+            ]
+        );
+        $this->SchoolCourse->updateAll(
+            [
+                'SchoolCourse.default_room_id' => 0
+            ],
+            [
+                'SchoolCourse.default_room_id' => $room_id
+            ]
+        );
         $this->SchoolRoom->delete($this->request->data['room_id']);
     }
 
@@ -461,7 +495,11 @@ class SchoolController extends AppController {
 
     function deleteCourse () {
         $this->checkLogin();
-        $this->SchoolCourse->delete($this->request->data['course_id']);
+        $course_id = $this->request->data['course_id'];
+        $this->SchoolPlan->deleteAll([
+            'SchoolPlan.course_id' => $course_id
+        ]);
+        $this->SchoolCourse->delete($course_id);
     }
 
     function getCoursetimes () {
@@ -516,7 +554,11 @@ class SchoolController extends AppController {
 
     function deleteCoursetime () {
         $this->checkLogin();
-        $this->SchoolCoursetime->delete($this->request->data['coursetime_id']);
+        $coursetime_id = $this->request->data['coursetime_id'];
+        $this->SchoolPlan->deleteAll([
+            'SchoolPlan.coursetime_id' => $coursetime_id
+        ]);
+        $this->SchoolCoursetime->delete($coursetime_id);
     }
 
     function getClasses () {
@@ -546,7 +588,7 @@ class SchoolController extends AppController {
     function getDefaultData () {
         $this->checkLogin();
         $data['SchoolClass'] = $this->__getDefaultClass();
-        $data['SchoolSemester'] = $this->__getCurrentSemester();
+        $data['SchoolSemester'] = $this->getCurrentSemester();
         return $data;
     }
 
@@ -625,7 +667,28 @@ class SchoolController extends AppController {
 
     function deleteClass() {
         $this->checkLogin();
-        $this->SchoolClass->delete($this->request->data['class_id']);
+        $class_id = $this->request->data['class_id'];
+        $data = $this->SchoolChild->find('all', [
+            'fields' => 'SchoolChild.id',
+            'conditions' => [
+                'SchoolChild.class_id' => $class_id
+            ]
+        ]);
+        $child_ids = Set::Extract('/SchoolChild/id', $data);
+
+        $this->SchoolChildrenTelephone->deleteAll([
+            'SchoolChildrenTelephone.child_id' => $child_ids
+        ]);
+        $this->SchoolChildrenEmail->deleteAll([
+            'SchoolChildrenEmail.child_id' => $child_ids
+        ]);
+        $this->SchoolChildrenAddress->deleteAll([
+            'SchoolChildrenAddress.child_id' => $child_ids
+        ]);
+        $this->SchoolChild->deleteAll([
+            'SchoolChild.id' => $child_ids
+        ]);
+        $this->SchoolClass->delete($class_id);
     }
 
     function getChildren () {
@@ -635,6 +698,8 @@ class SchoolController extends AppController {
             'SchoolChild.class_id' => $class_id,
             'SchoolChild.deleted' => 0
         ];
+
+//        $this->SchoolChild->unbindModelAll(false);
 
         $joins = [
             [
@@ -646,10 +711,10 @@ class SchoolController extends AppController {
                 'type' => 'left'
             ],
             [
-                'table' => Inflector::tableize('WspSchoolChildrenMobilephone'),
-                'alias' => 'SchoolChildrenMobilephone',
+                'table' => Inflector::tableize('WspSchoolChildrenEmail'),
+                'alias' => 'SchoolChildrenEmail',
                 'conditions' => array(
-                    'SchoolChild.id = SchoolChildrenMobilephone.child_id'
+                    'SchoolChild.id = SchoolChildrenEmail.child_id'
                 ),
                 'type' => 'left'
             ],
@@ -669,12 +734,10 @@ class SchoolController extends AppController {
             $conditions['or'] = [
                 'SchoolChild.lastname like "%' . $this->request->data['searchText'] . '%"',
                 'SchoolChild.firstname like "%' . $this->request->data['searchText'] . '%"',
-//                'GROUP_CONCAT(telephones.number) like "%' . $this->request->data['searchText'] . '%"',
-//                'GROUP_CONCAT(mobilephones.number) like "%' . $this->request->data['searchText'] . '%"',
-//                'GROUP_CONCAT(addresses.address) like "%' . $this->request->data['searchText'] . '%"'
+                'SchoolChildrenTelephone.number like "%' . $this->request->data['searchText'] . '%"',
+                'SchoolChildrenEmail.email like "%' . $this->request->data['searchText'] . '%"',
+                'SchoolChildrenAddress.address like "%' . $this->request->data['searchText'] . '%"'
             ];
-
-//            $group .= ' having GROUP_CONCAT(SchoolChildrenAddress.address) like "%' . $this->request->data['searchText'] . '%"';
         }
 
         $result['total'] = $this->SchoolChild->find('count', [
@@ -694,13 +757,12 @@ class SchoolController extends AppController {
             'page' => $this->request->data['page']
         ]);
 
-        return $data;
-
+        $result['data'] = [];
         foreach ($data as $d) {
             $d['SchoolChild']['telephones'] = $d['telephones'];
             unset($d['telephones']);
-            $d['SchoolChild']['mobilephones'] = $d['mobilephones'];
-            unset($d['mobilephones']);
+            $d['SchoolChild']['emails'] = $d['emails'];
+            unset($d['emails']);
             $d['SchoolChild']['addresses'] = $d['addresses'];
             unset($d['addresses']);
 
@@ -709,9 +771,17 @@ class SchoolController extends AppController {
         return $result;
     }
 
-    function loadChild ($child_id) {
+    function loadChild () {
         $this->checkLogin();
+        $child_id = $this->request->data['child_id'];
         $data = $this->SchoolChild->findById($child_id);
+
+        if ($data) {
+            $data['SchoolChild']['telephones'] = $data['telephones'];
+            $data['SchoolChild']['emails'] = $data['emails'];
+            $data['SchoolChild']['addresses'] = $data['addresses'];
+            $data = $data['SchoolChild'];
+        }
         return $data;
     }
 
@@ -721,13 +791,14 @@ class SchoolController extends AppController {
         $saveData = [];
         if ($data) {
             $saveData = $data;
+            unset($saveData['new_photo']);
             if ($data['id'] == 0) {
                 unset($saveData['id']);
-            }
-            if (!isset($saveData['id'])) {
                 $saveData['created_by'] = $this->user_id;
+                $this->SchoolChild->create();
             }
             $saveData['modified_by'] = $this->user_id;
+
             foreach ($saveData as $k => $v) {
                 if ($v == '') {
                     $saveData[$k] = null;
@@ -737,6 +808,29 @@ class SchoolController extends AppController {
 
             $newId = ($data['id'] > 0) ? $data['id'] : $this->SchoolChild->getLastInsertID();
 
+            //photo
+            if ($data['new_photo']) {
+                $tmpPath = $_SERVER['DOCUMENT_ROOT'] . Configure::read('system.tmp.path');
+                $tempFile = $tmpPath . '/' . $data['new_photo'];
+                if (is_file($tempFile)) {
+                    $savePath = $_SERVER['DOCUMENT_ROOT'] . Configure::read('system.school.root') . '/' . $saveData['class_id'] . '/' . $saveData['id'];
+                    GlbF::moveDir($savePath);
+                    GlbF::mkDir($savePath);
+                    do {
+                        $sufix = GlbF::getFileSuffix($data['new_photo']);
+                        $saveName = GlbF::getRandomStr(20) . '.' . $sufix;
+                        $saveFile = $savePath . '/' . $saveName;
+                    } while (is_file($saveFile));
+
+                    if (!@rename($tempFile, $saveFile)) {
+                        ErrorCode::throwException(sprintf(__('Error by upload [%s].'), $data['new_photo']), ErrorCode::ErrorCodeServerInternal);
+                    }
+                    $this->SchoolChild->save([
+                        'id' => $newId,
+                        'photo' => $saveName
+                    ]);
+                }
+            }
 
             // save telephone
             $this->SchoolChildrenTelephone->deleteAll([
@@ -756,21 +850,21 @@ class SchoolController extends AppController {
                 }
             }
 
-            // save mobile
-            $this->SchoolChildrenMobilephone->deleteAll([
+            // save email
+            $this->SchoolChildrenEmail->deleteAll([
                 'child_id' => $newId
             ]);
-            for ($i=0; $i<count($data['mobile_content']); $i++) {
-                if ($data['mobile_content'][$i]) {
+            for ($i=0; $i<count($data['email_content']); $i++) {
+                if ($data['email_content'][$i]) {
                     $addData = [
                         'child_id' => $newId,
-                        'number' => $data['mobile_content'][$i]
+                        'email' => $data['email_content'][$i]
                     ];
-                    if ($data['mobile_type'][$i]) {
-                        $addData['type'] = $data['mobile_type'][$i];
+                    if ($data['email_type'][$i]) {
+                        $addData['type'] = $data['email_type'][$i];
                     }
-                    $this->SchoolChildrenMobilephone->create();
-                    $this->SchoolChildrenMobilephone->save($addData);
+                    $this->SchoolChildrenEmail->create();
+                    $this->SchoolChildrenEmail->save($addData);
                 }
             }
             // save address
@@ -798,7 +892,23 @@ class SchoolController extends AppController {
 
     function deleteChild () {
         $this->checkLogin();
-        $this->SchoolChild->delete($this->request->data['child_id']);
+        $childId = $this->request->data['child_id'];
+        $childData = $this->SchoolChild->findById($childId);
+        if ($childData) {
+            $this->SchoolChildrenTelephone->deleteAll([
+                'child_id' => $childId
+            ]);
+            $this->SchoolChildrenEmail->deleteAll([
+                'child_id' => $childId
+            ]);
+            $this->SchoolChildrenAddress->deleteAll([
+                'child_id' => $childId
+            ]);
+            $this->SchoolChild->delete($childId);
+
+            $path = $_SERVER['DOCUMENT_ROOT'] . Configure::read('system.school.root') . '/' . $childData['SchoolChild']['class_id'] . '/' . $childId;
+            GlbF::moveDir($path);
+        }
     }
 
     function getSemesters () {
@@ -809,5 +919,95 @@ class SchoolController extends AppController {
             ]
         ]);
         return $data;
+    }
+
+    function loadSemester () {
+        $this->checkLogin();
+        $semester_id = $this->request->data['semester_id'];
+        $data = $this->SchoolSemester->findById($semester_id);
+        if ($data) {
+            $data = $data['SchoolSemester'];
+        }
+        return $data;
+    }
+
+    function saveSemester () {
+        $this->checkLogin();
+        $data = $this->request->data;
+        $saveData = [];
+        if ($data) {
+            $saveData = $data;
+            if ($data['id'] == 0) {
+                unset($saveData['id']);
+            }
+            if (!isset($saveData['id'])) {
+                $saveData['created_by'] = $this->user_id;
+                $this->SchoolClass->create();
+            }
+            $saveData['modified_by'] = $this->user_id;
+            foreach ($saveData as $k => $v) {
+                if ($v == '') {
+                    $saveData[$k] = null;
+                }
+            }
+            $this->SchoolSemester->save($saveData);
+
+            $newId = ($data['id'] > 0) ? $data['id'] : $this->SchoolSemester->getLastInsertID();
+
+            $saveData['class_id'] = $newId;
+        }
+        return $saveData;
+    }
+
+    function deleteSemester() {
+        $this->checkLogin();
+        $semester_id = $this->request->data['semester_id'];
+
+        $data = $this->SchoolCoursetime->find('all', [
+            'fields' => 'SchoolCoursetime.id',
+            'conditions' => [
+                'SchoolCoursetime.semester_id' => $semester_id
+            ]
+        ]);
+        $coursetime_ids = Set::Extract('/SchoolCoursetime/id', $data);
+
+        $this->SchoolPlan->deleteAll([
+            'SchoolPlan.coursetime_id' => $coursetime_ids
+        ]);
+        $this->SchoolSemester->delete($semester_id);
+    }
+
+    function showPhoto ($child_id, $w=0, $h=0) {
+        $this->checkLogin();
+
+        $this->layout = null;
+
+        $photo = '';
+        $data = $this->SchoolChild->find('first', [
+            'conditions' => [
+                'id' => $child_id
+            ]
+        ]);
+        if ($data) {
+            $photo = $_SERVER['DOCUMENT_ROOT'] . Configure::read('system.school.root') . '/' . $data['SchoolChild']['class_id'] . '/' . $data['SchoolChild']['id'] . '/' . $data['SchoolChild']['photo'];
+        }
+
+        $this->set('photo', $photo);
+        $this->set('newW', intval($w));
+        $this->set('newH', intval($h));
+        $this->set('noPic', 'nophoto.png');
+        $this->render('/Images/show_picture');
+    }
+
+    function showTmpPhoto ($tmpname, $w=0, $h=0) {
+        $this->checkLogin();
+
+        $this->layout = null;
+
+        $this->set('tmpphoto', $tmpname);
+        $this->set('newW', intval($w));
+        $this->set('newH', intval($h));
+        $this->set('noPic', 'nophoto.png');
+        $this->render('/Images/show_picture');
     }
 }

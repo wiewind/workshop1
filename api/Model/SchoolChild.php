@@ -13,8 +13,8 @@ class SchoolChild extends AppModel {
             'foreignKey' => 'child_id'
         ),
 
-        'mobilephones' => array(
-            'className' => 'SchoolChildrenMobilephone',
+        'emails' => array(
+            'className' => 'SchoolChildrenEmail',
             'foreignKey' => 'child_id'
         ),
 

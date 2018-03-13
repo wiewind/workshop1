@@ -11,13 +11,15 @@ Ext.define('WWS.model.SchoolChild', {
         {name: 'firstname', mapping: 'SchoolChild.firstname', type: 'string'},
         {name: 'sex', mapping: 'SchoolChild.sex', type: 'string'},
         {name: 'birthday', mapping: 'SchoolChild.birthday', type: 'date', dateFormat: 'Y-m-d'},
+        {name: 'photo', mapping: 'SchoolChild.photo', type: 'string'},
+        {name: 'notice', mapping: 'SchoolChild.notice', type: 'string'},
         {name: 'addresses', mapping: 'SchoolChild.addresses', type: 'string', convert: function(v) {
             return Ext.encode(v);
         }},
         {name: 'telephones', mapping: 'SchoolChild.telephones', type: 'string', convert: function(v) {
             return Ext.encode(v);
         }},
-        {name: 'mobiles', mapping: 'SchoolChild.mobilephones', type: 'string', convert: function(v) {
+        {name: 'emails', mapping: 'SchoolChild.emails', type: 'string', convert: function(v) {
             return Ext.encode(v);
         }}
     ]

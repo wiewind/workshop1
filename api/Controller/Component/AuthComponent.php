@@ -51,7 +51,7 @@ Class AuthComponent extends Component {
     }
 
     public function makeTempPassword ($userdata) {
-        $psw = GlbF::getRandString(8);
+        $psw = GlbF::getRandomStr(8);
 
         $userModel = ClassRegistry::init('User');
         $userModel->save(array(

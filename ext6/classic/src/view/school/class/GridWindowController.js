@@ -5,36 +5,6 @@ Ext.define('WWS.view.school.class.GridWindowController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.schoolclassgridwindow',
 
-    init: function () {
-        var vm = this.getViewModel(),
-            class_id = vm.get('id');
-        if (class_id > 0) {
-            Glb.Ajax({
-                url: Cake.api.path + '/school/json/loadClass',
-                params: {
-                    id: class_id
-                },
-                success: function (response, options) {
-                    var resp = Ext.decode(response.responseText);
-                    vm.setData(resp.data);
-                }
-            });
-        }
-    },
-
-    submitSuccess: function (form, action) {
-        var view = this.getView(),
-            res = Ext.decode(action.response.responseText),
-            values = view.down('form').getValues();
-        if (view.callback) {
-            values['id'] = res.class_id;
-            view.callback(values);
-        }
-        ABox.success(T,__("Class has been saved!"));
-        view.close();
-    },
-
-
     onClickCancel: function (field) {
         field.setValue('');
         this.onClickSearch(field);
@@ -117,7 +87,7 @@ Ext.define('WWS.view.school.class.GridWindowController', {
                 T.__("Are you sure you want to delete the class?"),
                 function (btn) {
                     Glb.Ajax({
-                        url: Cake.api.path + '/school/json/deleteClass',
+                        url: Cake.api.path + '/school/transjson/deleteClass',
                         params: {
                             class_id: record[0].get('id')
                         },

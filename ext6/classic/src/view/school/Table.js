@@ -1,7 +1,7 @@
 /**
  * Created by benying.zou on 07.03.2018.
  */
-Ext.define ('WWW.view.school.Table', {
+Ext.define ('WWS.view.school.Table', {
     extend: 'Ext.panel.Panel',
     xtype: 'schooltable',
 

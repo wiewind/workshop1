@@ -11,6 +11,9 @@ Ext.define ('WWS.ux.MusterFormWindowController', {
     },
 
     onClose: function () {
+        this.beforeclose();
         this.closeView();
-    }
+    },
+
+    beforeclose: function () {}
 });

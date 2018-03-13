@@ -13,4 +13,4 @@ $config['system']['path'] = 'apps/workshop1';
 
 
 $config['system']['filemanagement']['dirname'] = '../../workshop/webroot/fmroot';
-$config['system']['jobattachment']['root']  = '../../workshop/webroot/jobattachment';
+$config['system']['jobattachment']['dirname']  = '../../workshop/webroot/jobattachment';

@@ -34,18 +34,22 @@ Ext.define('WWS.view.school.child.GridController', {
     },
 
     onClickNew: function () {
-        var view = this.getView();
-        SCF.openEditChildWindow(0, function () {
+        var view = this.getView(),
+            vm = this.getViewModel();
+        SCF.openEditChildWindow(0, vm.get('class.id'), function () {
             view.getStore().reload();
         });
     },
 
     onClickEdit: function () {
         var view = this.getView(),
+            vm = this.getViewModel(),
             record = view.getSelection();
         if (record.length > 0) {
             record = record[0];
-            SCF.openEditChildWindow(record.get('id'));
+            SCF.openEditChildWindow(record.get('id'), vm.get('class.id'), function () {
+                view.getStore().reload()
+            });
         }
     },
 
@@ -57,12 +61,12 @@ Ext.define('WWS.view.school.child.GridController', {
                 T.__("Are you sure you want to delete the child?"),
                 function (btn) {
                     Glb.Ajax({
-                        url: Cake.api.path + '/school/json/deleteChild',
+                        url: Cake.api.path + '/school/transjson/deleteChild',
                         params: {
-                            class_id: record[0].get('id')
+                            child_id: record[0].get('id')
                         },
                         success: function(response){
-                            var store = grid.getStore();
+                            var store = view.getStore();
                             store.reload();
                             ABox.success(T.__("The child has been deleted!"));
                         }

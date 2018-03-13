@@ -7,11 +7,16 @@ Ext.define ('WWS.view.school.SchoolPanel', {
 
     requires: [
         'WWS.view.school.Functions',
-        'WWW.view.school.Table',
-        'WWW.view.school.child.Grid',
+        'WWS.view.school.Table',
 
-        'WWS.view.school.class.EditWindow',
+        'WWS.view.school.child.Grid',
+        'WWS.view.school.child.EditWindow',
+
         'WWS.view.school.class.GridWindow',
+        'WWS.view.school.class.EditWindow',
+
+        'WWS.view.school.semester.GridWindow',
+        'WWS.view.school.semester.EditWindow',
 
         'WWS.view.school.SchoolPanelController',
         'WWS.view.school.SchoolPanelViewModel'
@@ -25,8 +30,7 @@ Ext.define ('WWS.view.school.SchoolPanel', {
         title: T.__("School Timetable"),
         icon: Cake.image.path + '/board/school16.png',
         margin: '1 0 0 0',
-        closable: true,
-        // tabBarHeaderPosition: 0
+        closable: true
     },
 
     tbar: [
@@ -43,28 +47,27 @@ Ext.define ('WWS.view.school.SchoolPanel', {
             triggers: {
                 select: {
                     cls: 'x-form-trigger',
-                    tooltip: Glb.btnSetting.searchText,
+                    tooltip: T.__('Select'),
                     handler: 'onClickSelectClass'
                 }
             }
         },
         T.__("Semester") + ':',
         {
-            xtype: 'combobox',
-            name: 'semester_id',
-            bind: {
-                store: '{semesterStore}',
-                value: '{semester.id}'
-            },
-            displayField: 'name',
-            valueField: 'id',
-            queryMode: 'local',
+            xtype: 'textfield',
+            name: 'semester_name',
+            emptyText : T.__("Unknown"),
             editable: false,
-            triggerAction: 'all',
-            emptyText: T.__("Please select a semester"),
             margin: '0 10 0 0',
-            listeners: {
-                select: 'onSelectSemester'
+            bind: {
+                value: '{displaySemesterName}'
+            },
+            triggers: {
+                select: {
+                    cls: 'x-form-trigger',
+                    tooltip: T.__('Select'),
+                    handler: 'onClickSelectSemester'
+                }
             }
         },
         {

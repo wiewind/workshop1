@@ -20,7 +20,8 @@ Ext.define('WWS.ux.MusterFormWindow', {
         minHeight: 100,
         modal: true,
         bodyBorder: 0,
-        autoShow: true
+        autoShow: true,
+        closeToolText: T.__('Close')
     },
 
     setting: Glb.formSetting,
@@ -86,5 +87,9 @@ Ext.define('WWS.ux.MusterFormWindow', {
                 handler: 'onClose'
             }
         ];
+    },
+
+    listeners: {
+        beforeclose: 'beforeclose'
     }
 });

@@ -72,7 +72,7 @@ class LoginController extends AppController
     }
 
     protected function _makeUserActionUrl ($userId, $action) {
-        $actioncode = GlbF::getRandomStr(30);
+        $actioncode = GlbF::getRandomZifferStr(30);
         $userModel = ClassRegistry::init('User');
         $userModel->save(array(
             'id' => $userId,

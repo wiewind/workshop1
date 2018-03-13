@@ -51,7 +51,7 @@ Ext.define('WWS.view.filemanagement.window.FileUploadWindow', {
                     padding: 5,
                     width: '100%',
                     allowBlank: false,
-                    buttonText: T.__("Select Files"),
+                    buttonText: T.__("Select Files")+'...',
                     vtype: 'fileTypeAndSize',
                     afterFileChange: function (files) {
                         me.getController().afterFileChange(files);
