@@ -138,7 +138,7 @@ Ext.define('WWS.view.school.plan.TableCellController', {
                         id: vm.get('id')
                     },
                     success: function(response){
-                        ABox.success(T.__("Plan is deleted!"));
+                        ABox.success(T.__("The plan has been deleted!"));
                         SCF.tableRefresh();
                     }
                 });

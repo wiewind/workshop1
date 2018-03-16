@@ -119,7 +119,7 @@ Ext.define('WWS.view.school.plan.TableController', {
                     xtype: 'panel',
                     layout: 'vbox',
                     itemId: 'planCt_' + i,
-                    padding: '10 0 10 0',
+                    padding: '5 10 15 10',
                     style: {
                         borderRight: '1px solid #ccc',
                         backgroundColor: bgColor

@@ -26,7 +26,6 @@ Ext.define ('WWS.view.school.plan.TableCell', {
             html: '{displayCellContent}'
         },
         header: false,
-        margin: '0 10',
         bodyPadding: 10,
         layout: 'fit',
         defaults: {

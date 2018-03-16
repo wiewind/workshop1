@@ -1641,3 +1641,21 @@ msgstr "Der Person ist gespeichert."
 
 msgid "The default class kann not be deleted!"
 msgstr "Die Standardklasse darf nicht gelöscht werden!"
+
+msgid "Weekday"
+msgstr "Wochentag"
+
+msgid "Please select..."
+msgstr "Bitte auswählen..."
+
+msgid "New Plan"
+msgstr "Neuer Plan"
+
+msgid "Time Plan"
+msgstr "Zeitplan"
+
+msgid "Plan"
+msgstr "Plan"
+
+msgid "client error"
+msgstr "Klientfehler"

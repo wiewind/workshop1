@@ -1649,16 +1649,16 @@ msgid "Please select..."
 msgstr "请选择..."
 
 msgid "New Plan"
-msgstr "新建课程计划"
+msgstr "新建计划"
 
-msgid ""
-msgstr ""
+msgid "Time Plan"
+msgstr "课程表"
 
-msgid ""
-msgstr ""
+msgid "Plan"
+msgstr "计划"
 
-msgid ""
-msgstr ""
+msgid "client error"
+msgstr "客户端错误"
 
 msgid ""
 msgstr ""
