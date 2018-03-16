@@ -5,54 +5,46 @@ Ext.define('WWS.view.school.Functions', {
     singleton: true,
     alternateClassName: ['SCF'],
 
-    config: {
-        class: [],
-        semester: [],
-
-        weekdays: [T.__("Monday"), T.__("Tuesday"), T.__("Wednesday"), T.__("Thursday"), T.__("Friday")],
-        coursePeriods: [
-            {name: T.__("weekly"), value: 'weekly'},
-            {name: T.__("two-weeks"), value: 'two-weeks'}
-        ],
-        cellHeight: 100
-    },
-
     openClassGridWindow: function (selectable, callbackFn) {
+        callbackFn = callbackFn || function () {};
         Ext.create('WWS.view.school.class.GridWindow', {
             viewModel: {
                 data: {
                     selectable: selectable
                 }
             },
-            callback: callbackFn
+            callbackFn: callbackFn
         });
     },
 
-    openEditClassWindow: function (class_id, callbackFn) {
+    openEditClassWindow: function (id, callbackFn) {
+        callbackFn = callbackFn || function () {};
         Ext.create('WWS.view.school.class.EditWindow', {
             viewModel: {
                 data: {
-                    id: class_id
+                    id: id
                 }
             },
-            callback: callbackFn
+            callbackFn: callbackFn
         });
     },
 
-    setDefaultClass: function (class_id, callback) {
-        callback = callback || function () {};
+    setDefaultClass: function (class_id, callbackFn) {
+        callbackFn = callbackFn || function () {};
+        callbackFn = callbackFn || function () {};
         Glb.Ajax({
             url: Cake.api.path + '/school/json/setDefaultClass',
             params: {
                 class_id: class_id
             },
             success: function(response){
-                callback();
+                callbackFn();
             }
         });
     },
 
     openEditChildWindow: function (child_id, class_id, callbackFn) {
+        callbackFn = callbackFn || function () {};
         Ext.create('WWS.view.school.child.EditWindow', {
             viewModel: {
                 data: {
@@ -60,26 +52,28 @@ Ext.define('WWS.view.school.Functions', {
                     class_id: class_id
                 }
             },
-            callback: callbackFn
+            callbackFn: callbackFn
         });
     },
 
 
     openSemesterGridWindow: function (selectedSemesterId, callbackFn) {
+        callbackFn = callbackFn || function () {};
         Ext.create('WWS.view.school.semester.GridWindow', {
             selectedSemesterId: selectedSemesterId,
-            callback: callbackFn
+            callbackFn: callbackFn
         });
     },
 
-    openEditSemesterWindow: function (semester_id, callbackFn) {
+    openEditSemesterWindow: function (id, callbackFn) {
+        callbackFn = callbackFn || function () {};
         Ext.create('WWS.view.school.semester.EditWindow', {
             viewModel: {
                 data: {
-                    id: semester_id
+                    id: id
                 }
             },
-            callback: callbackFn
+            callbackFn: callbackFn
         });
     },
 
@@ -105,6 +99,126 @@ Ext.define('WWS.view.school.Functions', {
                     }
                 }
             });
+        }
+    },
+
+    openTeacherGridWindow: function (selectable, callbackFn) {
+        selectable = selectable || false;
+        callbackFn = callbackFn || function () {};
+        Ext.create('WWS.view.school.teacher.GridWindow', {
+            viewModel: {
+                data: {
+                    selectable: selectable
+                }
+            },
+            callbackFn: callbackFn
+        });
+    },
+
+    openEditTeacherWindow: function (teacher_id, callbackFn) {
+        callbackFn = callbackFn || function () {};
+        Ext.create('WWS.view.school.teacher.EditWindow', {
+            viewModel: {
+                data: {
+                    id: teacher_id
+                }
+            },
+            callbackFn: callbackFn
+        });
+    },
+
+    openRoomGridWindow: function (selectable, callbackFn) {
+        selectable = selectable || false;
+        callbackFn = callbackFn || function () {};
+        Ext.create('WWS.view.school.room.GridWindow', {
+            viewModel: {
+                data: {
+                    selectable: selectable
+                }
+            },
+            callbackFn: callbackFn
+        });
+    },
+
+    openEditRoomWindow: function (room_id, callbackFn) {
+        callbackFn = callbackFn || function () {};
+        Ext.create('WWS.view.school.room.EditWindow', {
+            viewModel: {
+                data: {
+                    id: room_id
+                }
+            },
+            callbackFn: callbackFn
+        });
+    },
+
+    openCourseGridWindow: function (selectable, callbackFn) {
+        selectable = selectable || false;
+        callbackFn = callbackFn || function () {};
+        Ext.create('WWS.view.school.course.GridWindow', {
+            viewModel: {
+                data: {
+                    selectable: selectable
+                }
+            },
+            callbackFn: callbackFn
+        });
+    },
+
+    openEditCourseWindow: function (id, callbackFn) {
+        callbackFn = callbackFn || function () {};
+        Ext.create('WWS.view.school.course.EditWindow', {
+            viewModel: {
+                data: {
+                    id: id
+                }
+            },
+            callbackFn: callbackFn
+        });
+    },
+
+    openEditPlanWindow: function (id, callbackFn) {
+        callbackFn = callbackFn || function () {};
+
+        var schoolpanel = Ext.ComponentQuery.query('schoolpanel')[0];
+        var data = {};
+        if (typeof id === 'object') {
+            data = id;
+        } else {
+            data.id = id;
+        }
+
+
+        Ext.create('WWS.view.school.plan.EditWindow', {
+            viewModel: {
+                parent: schoolpanel.getViewModel(),
+                data: data
+            },
+            callbackFn: callbackFn
+        });
+    },
+
+    tableRefresh: function () {
+        var table = Ext.ComponentQuery.query('schoolplantable');
+        if (table) {
+            table = table[0];
+            table.getController().drawPanel();
+        }
+    },
+
+    scaleOneMinute: 3,
+    timeToScale: function (time) {
+        var arr = time.split(':');
+        return arr[0] * SCF.scaleOneMinute * 60 + arr[1] * SCF.scaleOneMinute;
+    },
+    
+    refreshCell: function (cellId) {
+        var table = Ext.ComponentQuery.query('schoolplantable');
+        if (table) {
+            var cell = table[0].down('[itemsId="planCell_' + cellId + '"]');
+            if (cell) {
+                cell.getController().onClickRefresh();
+            }
         }
     }
 });

@@ -10,6 +10,7 @@ Ext.define('WWS.utils.Global', {
         submitIconCls: 'x-fa fa-check',
         deleteText: T.__("Delete"),
         deleteIconCls: 'x-fa fa-remove',
+        deleteIconCls2: 'x-fa fa-trash',
         cancelText: T.__("Cancel"),
         cancelIconCls: 'x-fa fa-ban',
         saveText: T.__("Save"),
@@ -47,6 +48,12 @@ Ext.define('WWS.utils.Global', {
         submitEmptyText: false,
         clientValidation: true
     },
+
+    weekdays: [T.__("Monday"), T.__("Tuesday"), T.__("Wednesday"), T.__("Thursday"), T.__("Friday")],
+    coursePeriods: [
+        {name: T.__("weekly"), value: 'weekly'},
+        {name: T.__("two-weeks"), value: 'two-weeks'}
+    ],
 
     Ajax: function (config) {
         var options = {
@@ -257,5 +264,30 @@ Ext.define('WWS.utils.Global', {
                 path: rec.get('PasskeyGroup.path')
             });
         }
+    },
+
+    FirstnameAtFirst: true,
+    LastnameAtFirst: false,
+    displayPersonName: function (lastname, firstname, sex, firstnameAtFirst) {
+        lastname = lastname || '';
+        firstname = firstname || '';
+        sex = sex || '';
+        firstnameAtFirst = firstnameAtFirst || Wiewind.FirstnameAtFirst;
+        var name = '';
+        if (firstname == '') {
+            name = lastname;
+        } else if (lastname == '') {
+            name = firstname;
+        } else if (firstnameAtFirst) {
+            name = firstname + ' ' + lastname;
+        } else {
+            name = lastname + ', ' + firstname;
+        }
+        if (sex === 'f') {
+            name = Wiewind.String.sprintf(T.__("Ms. %s"), name);
+        } else if (sex === 'm') {
+            name = Wiewind.String.sprintf(T.__("Mr. %s"), name);
+        }
+        return name;
     }
 });

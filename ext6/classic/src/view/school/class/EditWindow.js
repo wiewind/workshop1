@@ -19,8 +19,8 @@ Ext.define ('WWS.view.school.class.EditWindow', {
     },
 
     config: {
-        iconCls: 'x-fa fa-slideshare',
         title: T.__("Class"),
+        iconCls: 'x-fa fa-slideshare',
         width: 400
     },
 
@@ -50,6 +50,10 @@ Ext.define ('WWS.view.school.class.EditWindow', {
                 allowBlank: false,
                 bind: {
                     value: '{name}'
+                },
+                listeners: {
+                    specialkey: 'submitOnEnter',
+                    afterrender: 'fieldFocus'
                 }
             },
             {
@@ -63,5 +67,5 @@ Ext.define ('WWS.view.school.class.EditWindow', {
         ];
     },
 
-    callback: function (data) {}
+    callbackFn: function (data) {}
 });

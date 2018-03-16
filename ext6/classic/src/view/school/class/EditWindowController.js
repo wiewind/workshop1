@@ -26,9 +26,9 @@ Ext.define('WWS.view.school.class.EditWindowController', {
         var view = this.getView(),
             res = Ext.decode(action.response.responseText),
             values = view.down('form').getValues();
-        if (view.callback) {
+        if (view.callbackFn) {
             values['id'] = res.class_id;
-            view.callback(values);
+            view.callbackFn(values);
         }
         ABox.success(T.__("The class has been saved!"));
         view.close();

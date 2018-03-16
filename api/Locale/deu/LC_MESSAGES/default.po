@@ -232,8 +232,8 @@ msgstr "Bitte geben Sie Ihren Suchtext ein."
 msgid "File is invalidate."
 msgstr "Die Datei ist ungültig."
 
-msgid "Folder is invalidate."
-msgstr "Der Ordner ist ungültig."
+msgid "The name of folder or file is invalidate."
+msgstr "Der Ordnername oder Dateiname ist ungültig."
 
 msgid "Uploading your file(s)..."
 msgstr "Ihre Dateien werden hochgeladen..."
@@ -1303,7 +1303,7 @@ msgstr "Anzahl pro Woche"
 msgid "List of Courses"
 msgstr "Kurseliste"
 
-msgid "List of Coursetimes"
+msgid "List of coursetimes"
 msgstr "Uhrzeitliste"
 
 msgid "Time"

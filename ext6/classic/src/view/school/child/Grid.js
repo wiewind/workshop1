@@ -17,10 +17,10 @@ Ext.define ('WWS.view.school.child.Grid', {
     bind: '{childrenStore}',
 
     config: {
-        icon: Cake.image.path + '/customer.png',
         title: T.__("List of Children"),
+        iconCls: 'x-fa fa-child',
         forceFit: true,
-        border: 0,
+        border: 1,
         scrollable: true,
         multiSelect: false
     },
@@ -36,7 +36,7 @@ Ext.define ('WWS.view.school.child.Grid', {
                     icon = (sex === 'f') ? 'girl.png' : 'boy.png',
                     title = (sex === 'f') ? T.__("Girl") : T.__("Boy");
                 if (v) {
-                    return '<img src="' + Cake.api.path + '/school/showPhoto/'+rec.get('id')+'/80?_v=' + btoa(Date.now()) + '" alt="' + title + '" />'
+                    return '<img src="' + Cake.api.path + '/school/showPhoto/child/'+rec.get('id')+'/80?_v=' + btoa(Date.now()) + '" alt="' + title + '" />'
                 }
                 return '<img src="' + Cake.image.path+'/' + icon + '" title="' + title + '" alt="' + title + '" />';
             }
@@ -140,7 +140,7 @@ Ext.define ('WWS.view.school.child.Grid', {
         {
             text: Glb.btnSetting.deleteText,
             tooltip: Glb.btnSetting.deleteText,
-            iconCls: 'x-fa fa-trash',
+            iconCls: Glb.btnSetting.deleteIconCls2,
             itemId: 'deleteBtn',
             disabled: true,
             handler: 'onClickDelete'

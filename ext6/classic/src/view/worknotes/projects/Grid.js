@@ -36,8 +36,8 @@ Ext.define ('WWS.view.worknotes.projects.Grid', {
             width:30,
             items: [
                 {
-                    iconCls: 'x-fa fa-trash-o',
-                    tooltip: T.__("Delete"),
+                    iconCls: Glb.btnSetting.deleteIconCls2,
+                    tooltip: Glb.btnSetting.deleteText,
                     handler: 'onDelete'
                 }
             ]

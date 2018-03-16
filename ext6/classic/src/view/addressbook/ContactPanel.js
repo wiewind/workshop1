@@ -31,7 +31,7 @@ Ext.define('WWS.view.addressbook.ContactPanel', {
             {
                 text: Glb.btnSetting.deleteText,
                 tooltip: Glb.btnSetting.deleteText,
-                iconCls: 'x-fa fa-trash',
+                iconCls: Glb.btnSetting.deleteIconCls2,
                 hidden: this.person_id === 0,
                 handler: 'onClickDeletePerson'
             }

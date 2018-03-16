@@ -43,34 +43,5 @@ Ext.define ('WWS.view.filemanagement.FilemanagementPanel', {
                 }
             ]
         }
-    ],
-
-    initComponent: function () {
-        Ext.apply(Ext.form.VTypes, {
-            fileTypeAndSize : function(val, field){
-                var upload = field.fileInputEl.dom,
-                    files = upload.files;
-
-                for (var i = 0; i < files.length; i++) {
-                    var message = '',
-                        suffix = Wiewind.File.getFileSuffix(files[i].name);
-                    if (Wiewind.Array.in_array(suffix, Cake.filemanagement.notAllowdTypes)) {
-                        return false;
-                    }
-                    if (files[i].size > Cake.filemanagement.maxFileSize) {
-                        return false;
-                    }
-                }
-                return true;
-            },
-            fileTypeAndSizeText: T.__("File is invalidate."),
-
-            foldername : function(val, field){
-                var reg= /^[^\\\/\*\?\|<>:'"]+$/;
-                return (val!=='.')&&(val!=='..')&&(reg.test(val));
-            },
-            foldernameText: T.__("Folder is invalidate.")
-        });
-        this.callParent();
-    }
+    ]
 });

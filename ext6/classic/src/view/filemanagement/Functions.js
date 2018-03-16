@@ -90,7 +90,7 @@ Ext.define('WWS.view.filemanagement.Functions', {
                 {
                     text: T.__("Delete"),
                     tooltip: T.__("Delete"),
-                    iconCls: 'x-fa fa-trash',
+                    iconCls: Glb.btnSetting.deleteIconCls2,
                     handler: function () {
                         ABox.confirm(
                             T.__("Are you sure you want to delete the file?"),
@@ -145,7 +145,7 @@ Ext.define('WWS.view.filemanagement.Functions', {
                 {
                     text: Glb.btnSetting.deleteText,
                     tooltip: Glb.btnSetting.deleteText,
-                    iconCls: 'x-fa fa-trash',
+                    iconCls: Glb.btnSetting.deleteIconCls2,
                     handler: function () {
                         ABox.confirm(
                             T.__("Are you sure you want to delete the Folder?"),

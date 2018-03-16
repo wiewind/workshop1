@@ -34,6 +34,7 @@ Ext.define ('WWS.view.school.class.GridWindow', {
             bind: {
                 store: '{classStore}'
             },
+            emptyText: T.__("Empty"),
             columns: [
                 {
                     xtype:'actioncolumn',
@@ -118,7 +119,7 @@ Ext.define ('WWS.view.school.class.GridWindow', {
         {
             text: Glb.btnSetting.deleteText,
             tooltip: Glb.btnSetting.deleteText,
-            iconCls: 'x-fa fa-trash',
+            iconCls: Glb.btnSetting.deleteIconCls2,
             itemId: 'deleteBtn',
             disabled: true,
             handler: 'onClickDelete'
@@ -136,5 +137,5 @@ Ext.define ('WWS.view.school.class.GridWindow', {
         }
     ],
 
-    callback: function (data) {}
+    callbackFn: function (data) {}
 });

@@ -19,8 +19,8 @@ Ext.define ('WWS.view.school.semester.EditWindow', {
     },
 
     config: {
-        iconCls: 'x-fa fa-diamond',
         title: T.__("Semester"),
+        iconCls: 'x-fa fa-diamond',
         width: 400
     },
 
@@ -78,6 +78,10 @@ Ext.define ('WWS.view.school.semester.EditWindow', {
                         flex: 1,
                         bind: {
                             value: '{school_year}'
+                        },
+                        listeners: {
+                            specialkey: 'submitOnEnter',
+                            afterrender: 'fieldFocus'
                         }
                     }
                 ]
@@ -95,6 +99,9 @@ Ext.define ('WWS.view.school.semester.EditWindow', {
                         allowBlank: false,
                         bind: {
                             value: '{start}'
+                        },
+                        listeners: {
+                            specialkey: 'submitOnEnter'
                         }
                     }
                 ]
@@ -112,6 +119,9 @@ Ext.define ('WWS.view.school.semester.EditWindow', {
                         allowBlank: false,
                         bind: {
                             value: '{end}'
+                        },
+                        listeners: {
+                            specialkey: 'submitOnEnter'
                         }
                     }
                 ]
@@ -119,5 +129,5 @@ Ext.define ('WWS.view.school.semester.EditWindow', {
         ];
     },
 
-    callback: function (data) {}
+    callbackFn: function (data) {}
 });

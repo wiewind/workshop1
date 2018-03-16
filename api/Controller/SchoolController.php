@@ -12,7 +12,6 @@ class SchoolController extends AppController {
         'SchoolClass',
 
         'SchoolCourse',
-        'SchoolCoursetime',
         'SchoolPlan',
         'SchoolRoom',
         'SchoolTeacher',
@@ -64,20 +63,6 @@ class SchoolController extends AppController {
         return ($semester) ? $semester['SchoolSemester'] : [];
     }
 
-    private function __getCourseTimes ($class_id, $semester_id) {
-        $courseTimes = $this->SchoolCoursetime->find('all', [
-            'conditions' => [
-                'class_id' => $class_id,
-                'semester_id' => $semester_id
-            ],
-            'order' => [
-                'SchoolCoursetime.start',
-                'SchoolCoursetime.end'
-            ]
-        ]);
-        return $courseTimes;
-    }
-
     function getPlans () {
         $this->checkLogin();
 
@@ -103,81 +88,73 @@ class SchoolController extends AppController {
             }
         }
 
-        $coursetimes = $this->__getCourseTimes($class_id, $semester_id);
-        $cursetime_ids = Set::extract('/SchoolCoursetime/id', $coursetimes);
+        $data = $this->SchoolPlan->find('all', [
+            'conditions' => [
+                'class_id' => $class_id,
+                'semester_id' => $semester_id
+            ],
+            'order' => [
+                'SchoolPlan.weekday', 'SchoolPlan.start'
+            ]
+        ]);
 
-        if ($coursetimes) {
-            $data['courseTimes'] = $coursetimes;
-            $plans = $this->SchoolPlan->find('all', [
-                'conditions' => [
-                    'SchoolPlan.coursetime_id' => $cursetime_ids
-                ]
-            ]);
-            if ($plans) {
-                foreach ($plans as $p) {
-                    $data['courses'][$p['SchoolPlan']['weekday']][$p['SchoolPlan']['coursetime_id']] = $p;
-                }
-            } else {
-                $data['courses'] = [];
-            }
-        }
         return $data;
     }
 
     function loadPlan () {
         $this->checkLogin();
-        $weekday = $this->request->data['weekday'];
-        $coursetime_id = $this->request->data['coursetime_id'];
-
+        $plan_id = $this->request->data['plan_id'];
         $data = $this->SchoolPlan->find('first', [
             'conditions' => [
-                'SchoolPlan.weekday' => $weekday,
-                'SchoolPlan.coursetime_id' => $coursetime_id
+                'SchoolPlan.id' => $plan_id
             ]
         ]);
+
+        if ($data) {
+            $data = array_merge($data, $data['SchoolPlan']);
+            unset($data['SchoolPlan']);
+        }
+
         return $data;
     }
 
     function savePlan () {
         $this->checkLogin();
         $data = $this->request->data;
-        if ($data && $data['course_id'] > 0) {
+
+        if ($data) {
             $saveData = $data;
-            $plan = $this->SchoolPlan->find('first', [
-                'conditions' => [
-                    'SchoolPlan.weekday' => $data['weekday'],
-                    'SchoolPlan.coursetime_id' => $data['coursetime_id']
-                ]
-            ]);
-            if ($plan) {
-                $saveData['id'] = $plan['SchoolPlan']['id'];
-            } else {
+            unset($saveData['new_photo']);
+            if ($data['id'] == 0) {
+                unset($saveData['id']);
                 $saveData['created_by'] = $this->user_id;
+                $this->SchoolPlan->create();
             }
             $saveData['modified_by'] = $this->user_id;
 
+            $saveData['start'] = $saveData['start_hour'] . ':' . $saveData['start_minute'];
+            $saveData['end'] = $saveData['end_hour'] . ':' . $saveData['end_minute'];
+
             foreach ($saveData as $k => $v) {
                 if ($v == '') {
-                    $saveData[$k] = null;
+                    if (in_array($k, ['teacher_id', 'room_id'])) {
+                        $saveData[$k] = 0;
+                    } else {
+                        $saveData[$k] = null;
+                    }
                 }
             }
             $this->SchoolPlan->save($saveData);
 
-            $newId = (isset($saveData['id'])) ? $saveData['id'] : $this->SchoolPlan->getLastInsertID();
-
-            $data['plan_id'] = $newId;
+            $saveData['id'] = ($data['id'] > 0) ? $data['id'] : $this->SchoolPlan->getLastInsertID();
         }
         return $data;
     }
 
     function deletePlan () {
         $this->checkLogin();
-        $data = $this->request->data;
         $this->SchoolPlan->unbindModelAll();
-        $this->SchoolPlan->deleteAll([
-            'weekday' => $data['weekday'],
-            'coursetime_id' => $data['coursetime_id']
-        ]);
+        $this->SchoolPlan->delete($this->request->data['id']);
     }
 
     function getTeachers () {
@@ -208,7 +185,10 @@ class SchoolController extends AppController {
             'hasMany' => [
                 'SchoolPlan' => array(
                     'className' => 'SchoolPlan',
-                    'foreignKey' => 'teacher_id'
+                    'foreignKey' => 'teacher_id',
+                    'fields' => [
+                        'DISTINCT SchoolPlan.course_id'
+                    ]
                 )
             ]
         ]);
@@ -221,20 +201,14 @@ class SchoolController extends AppController {
             'limit' => $this->request->data['limit'],
             'page' => $this->request->data['page']
         ]);
+
+        $result['data'] = [];
         if ($data) {
             foreach ($data as $key => $d) {
-                $courses = [];
-                if ($d['SchoolPlan']) {
-                    foreach ($d['SchoolPlan'] as $p) {
-                        if (!in_array($p['course_id'], $courses)) {
-                            $courses[] = $p['course_id'];
-                        }
-                    }
-                }
-                $data[$key]['SchoolTeacher']['count_courses'] = count($courses);
+                $d['SchoolTeacher']['count_courses'] = (($d['SchoolPlan'])) ? count(($d['SchoolPlan'])) : 0;
+                unset($d['SchoolPlan']);
+                $result['data'][] = $d;
             }
-
-            $result['data'] = $data;
         }
         return $result;
     }
@@ -246,12 +220,14 @@ class SchoolController extends AppController {
         $saveData = [];
         if ($data) {
             $saveData = $data;
+            unset($saveData['new_photo']);
             if ($data['id'] == 0) {
                 unset($saveData['id']);
             }
             if (!isset($saveData['id'])) {
                 $saveData['user_id'] = $user_id;
                 $saveData['created_by'] = $this->user_id;
+                $this->SchoolTeacher->create();
             }
             $saveData['modified_by'] = $this->user_id;
             foreach ($saveData as $k => $v) {
@@ -264,12 +240,37 @@ class SchoolController extends AppController {
             $newId = ($data['id'] > 0) ? $data['id'] : $this->SchoolTeacher->getLastInsertID();
 
             $saveData['teacher_id'] = $newId;
+
+            //photo
+            if ($data['new_photo']) {
+                $tmpPath = $_SERVER['DOCUMENT_ROOT'] . Configure::read('system.tmp.path');
+                $tempFile = $tmpPath . '/' . $data['new_photo'];
+                if (is_file($tempFile)) {
+                    $savePath = $_SERVER['DOCUMENT_ROOT'] . Configure::read('system.school.root') . '/teacher/' . $saveData['id'];
+                    GlbF::moveDir($savePath);
+                    GlbF::mkDir($savePath);
+                    do {
+                        $sufix = GlbF::getFileSuffix($data['new_photo']);
+                        $saveName = GlbF::getRandomStr(20) . '.' . $sufix;
+                        $saveFile = $savePath . '/' . $saveName;
+                    } while (is_file($saveFile));
+
+                    if (!@rename($tempFile, $saveFile)) {
+                        ErrorCode::throwException(sprintf(__('Error by upload [%s].'), $data['new_photo']), ErrorCode::ErrorCodeServerInternal);
+                    }
+                    $this->SchoolTeacher->save([
+                        'id' => $newId,
+                        'photo' => $saveName
+                    ]);
+                }
+            }
         }
         return $saveData;
     }
 
-    function loadTeacher ($teacher_id) {
+    function loadTeacher () {
         $this->checkLogin();
+        $teacher_id = $this->request->data['teacher_id'];
         $user_id = isset($this->request->data['user_id']) ? $this->request->data['user_id'] : $this->user_id;
         $data = $this->SchoolTeacher->find('first', [
             'conditions' => [
@@ -277,6 +278,9 @@ class SchoolController extends AppController {
                 'id' => $teacher_id
             ]
         ]);
+        if ($data) {
+            $data = $data['SchoolTeacher'];
+        }
         return $data;
     }
 
@@ -300,6 +304,9 @@ class SchoolController extends AppController {
             ]
         );
         $this->SchoolTeacher->delete($teacher_id);
+
+        $path = $_SERVER['DOCUMENT_ROOT'] . Configure::read('system.school.root') . '/teacher/' . $teacher_id;
+        GlbF::moveDir($path);
     }
 
     function getRooms () {
@@ -359,8 +366,9 @@ class SchoolController extends AppController {
         return $saveData;
     }
 
-    function loadRoom ($room_id) {
+    function loadRoom () {
         $this->checkLogin();
+        $room_id = $this->request->data['room_id'];
         $user_id = isset($this->request->data['user_id']) ? $this->request->data['user_id'] : (isset($this->request->query['user_id']) ? $this->request->query['user_id'] : $this->user_id);
         $data = $this->SchoolRoom->find('first', [
             'conditions' => [
@@ -368,6 +376,9 @@ class SchoolController extends AppController {
                 'id' => $room_id
             ]
         ]);
+        if ($data) {
+            $data = $data['SchoolRoom'];
+        }
         return $data;
     }
 
@@ -461,12 +472,19 @@ class SchoolController extends AppController {
             $saveData = $data;
             if ($data['id'] == 0) {
                 unset($saveData['id']);
-            }
-            if (!isset($saveData['id'])) {
                 $saveData['user_id'] = $user_id;
                 $saveData['created_by'] = $this->user_id;
+                $this->SchoolCourse->create();
             }
             $saveData['modified_by'] = $this->user_id;
+
+            $saveData['start'] = $saveData['start_hour'] . ':' . $saveData['start_minute'];
+            $saveData['end'] = $saveData['end_hour'] . ':' . $saveData['end_minute'];
+            unset($saveData['start_hour']);
+            unset($saveData['start_minute']);
+            unset($saveData['end_hour']);
+            unset($saveData['end_minute']);
+
             foreach ($saveData as $k => $v) {
                 if ($v == '') {
                     $saveData[$k] = null;
@@ -481,8 +499,9 @@ class SchoolController extends AppController {
         return $saveData;
     }
 
-    function loadCourse ($course_id) {
+    function loadCourse () {
         $this->checkLogin();
+        $course_id = $this->request->data['course_id'];
         $user_id = isset($this->request->data['user_id']) ? $this->request->data['user_id'] : (isset($this->request->query['user_id']) ? $this->request->query['user_id'] : $this->user_id);
         $data = $this->SchoolCourse->find('first', [
             'conditions' => [
@@ -490,6 +509,10 @@ class SchoolController extends AppController {
                 'SchoolCourse.id' => $course_id
             ]
         ]);
+        if ($data) {
+            $data = array_merge($data, $data['SchoolCourse']);
+            unset($data['SchoolCourse']);
+        }
         return $data;
     }
 
@@ -500,65 +523,6 @@ class SchoolController extends AppController {
             'SchoolPlan.course_id' => $course_id
         ]);
         $this->SchoolCourse->delete($course_id);
-    }
-
-    function getCoursetimes () {
-        $this->checkLogin();
-        $data = $this->SchoolCoursetime->find('all', [
-            'conditions' => [
-                'class_id' => $this->request->data['class_id'],
-                'semester_id' => $this->request->data['semester_id']
-            ],
-            'order' => [
-                'SchoolCoursetime.start',
-                'SchoolCoursetime.end'
-            ]
-        ]);
-        return $data;
-    }
-
-    function saveCoursetime () {
-        $this->checkLogin();
-        $data = $this->request->data;
-        if ($data) {
-            $saveData = [];
-            if ($data['id'] > 0) {
-                $saveData['id'] = $data['id'];
-            }
-
-            $saveData['class_id'] = $data['class_id'];
-            $saveData['semester_id'] = $data['semester_id'];
-
-            $saveData['start'] = $data['start_hour'].':'.$data['start_minute'].':00';
-            $saveData['end'] = $data['end_hour'].':'.$data['end_minute'].':00';
-            $result['data'] = $saveData;
-            $this->SchoolCoursetime->save($saveData);
-
-            $newId = ($data['id'] > 0) ? $data['id'] : $this->SchoolCoursetime->getLastInsertID();
-
-            $result['coursetime_id'] = $newId;
-        }
-    }
-
-    function loadCoursetime ($coursetime_id) {
-        $this->checkLogin();
-        $data = $this->SchoolCoursetime->find('first', [
-            'conditions' => [
-                'class_id' => $this->request->data['class_id'],
-                'semester_id' => $this->request->data['semester_id'],
-                'id' => $coursetime_id
-            ]
-        ]);
-        return $data;
-    }
-
-    function deleteCoursetime () {
-        $this->checkLogin();
-        $coursetime_id = $this->request->data['coursetime_id'];
-        $this->SchoolPlan->deleteAll([
-            'SchoolPlan.coursetime_id' => $coursetime_id
-        ]);
-        $this->SchoolCoursetime->delete($coursetime_id);
     }
 
     function getClasses () {
@@ -668,26 +632,28 @@ class SchoolController extends AppController {
     function deleteClass() {
         $this->checkLogin();
         $class_id = $this->request->data['class_id'];
-        $data = $this->SchoolChild->find('all', [
+
+        // delete Children
+        $data = $this->SchoolChild->find('first', [
             'fields' => 'SchoolChild.id',
             'conditions' => [
                 'SchoolChild.class_id' => $class_id
             ]
         ]);
-        $child_ids = Set::Extract('/SchoolChild/id', $data);
+        if ($data) {
+            ErrorCode::throwException(__('You can not delete the class, because it already has some children.'));
+        }
 
-        $this->SchoolChildrenTelephone->deleteAll([
-            'SchoolChildrenTelephone.child_id' => $child_ids
+        $data = $this->SchoolPlan->find('first', [
+            'fields' => 'SchoolPlan.id',
+            'conditions' => [
+                'SchoolPlan.class_id' => $class_id
+            ]
         ]);
-        $this->SchoolChildrenEmail->deleteAll([
-            'SchoolChildrenEmail.child_id' => $child_ids
-        ]);
-        $this->SchoolChildrenAddress->deleteAll([
-            'SchoolChildrenAddress.child_id' => $child_ids
-        ]);
-        $this->SchoolChild->deleteAll([
-            'SchoolChild.id' => $child_ids
-        ]);
+        if ($data) {
+            ErrorCode::throwException(__('You can not delete the cladd, because it already has some plans.'));
+        }
+
         $this->SchoolClass->delete($class_id);
     }
 
@@ -963,33 +929,44 @@ class SchoolController extends AppController {
         $this->checkLogin();
         $semester_id = $this->request->data['semester_id'];
 
-        $data = $this->SchoolCoursetime->find('all', [
-            'fields' => 'SchoolCoursetime.id',
+        $data = $this->SchoolPlan->find('first', [
+            'fields' => 'SchoolPlan.id',
             'conditions' => [
-                'SchoolCoursetime.semester_id' => $semester_id
+                'SchoolPlan.semester_id' => $semester_id
             ]
         ]);
-        $coursetime_ids = Set::Extract('/SchoolCoursetime/id', $data);
+        if ($data) {
+            ErrorCode::throwException(__('You can not delete the semester, because it already has some plans.'));
+        }
 
-        $this->SchoolPlan->deleteAll([
-            'SchoolPlan.coursetime_id' => $coursetime_ids
-        ]);
         $this->SchoolSemester->delete($semester_id);
     }
 
-    function showPhoto ($child_id, $w=0, $h=0) {
+    function showPhoto ($datatype, $id, $w=0, $h=0) {
         $this->checkLogin();
 
         $this->layout = null;
 
         $photo = '';
-        $data = $this->SchoolChild->find('first', [
-            'conditions' => [
-                'id' => $child_id
-            ]
-        ]);
-        if ($data) {
-            $photo = $_SERVER['DOCUMENT_ROOT'] . Configure::read('system.school.root') . '/' . $data['SchoolChild']['class_id'] . '/' . $data['SchoolChild']['id'] . '/' . $data['SchoolChild']['photo'];
+
+        if ($datatype === 'child') {
+            $data = $this->SchoolChild->find('first', [
+                'conditions' => [
+                    'id' => $id
+                ]
+            ]);
+            if ($data) {
+                $photo = $_SERVER['DOCUMENT_ROOT'] . Configure::read('system.school.root') . '/' . $data['SchoolChild']['class_id'] . '/' . $data['SchoolChild']['id'] . '/' . $data['SchoolChild']['photo'];
+            }
+        } else if ($datatype === 'teacher') {
+            $data = $this->SchoolTeacher->find('first', [
+                'conditions' => [
+                    'id' => $id
+                ]
+            ]);
+            if ($data) {
+                $photo = $_SERVER['DOCUMENT_ROOT'] . Configure::read('system.school.root') . '/teacher/' . $data['SchoolTeacher']['id'] . '/' . $data['SchoolTeacher']['photo'];
+            }
         }
 
         $this->set('photo', $photo);

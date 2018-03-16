@@ -85,7 +85,7 @@ Ext.define('WWS.view.passkey.search.ResultWindow', {
                 {
                     btnName: 'tbarDelete',
                     tooltip: Glb.btnSetting.deleteText,
-                    iconCls: 'x-fa fa-trash',
+                    iconCls: Glb.btnSetting.deleteIconCls2,
                     disabled: true,
                     handler: 'onClickDelete'
                 },

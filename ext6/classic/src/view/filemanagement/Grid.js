@@ -131,7 +131,7 @@ Ext.define('WWS.view.filemanagement.Grid', {
         {
             // text: T.__("Delete"),
             tooltip: Glb.btnSetting.deleteText,
-            iconCls: 'x-fa fa-trash',
+            iconCls: Glb.btnSetting.deleteIconCls2,
             btnName: 'delete',
             disabled: true,
             handler: 'onClickDelete'

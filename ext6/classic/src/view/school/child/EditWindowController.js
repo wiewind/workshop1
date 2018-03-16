@@ -61,17 +61,23 @@ Ext.define('WWS.view.school.child.EditWindowController', {
                     {
                         width: 200,
                         name: 'telephone_type[]',
-                        value: (data) ? data.type : ''
+                        value: (data) ? data.type : '',
+                        listeners: {
+                            specialkey: 'submitOnEnter'
+                        }
                     },
                     {
                         name: 'telephone_content[]',
                         flex: 1,
-                        value: (data) ? data.number : ''
+                        value: (data) ? data.number : '',
+                        listeners: {
+                            specialkey: 'submitOnEnter'
+                        }
                     },
                     {
                         xtype: 'button',
                         tooltip: T.__("delete the telephone"),
-                        iconCls: 'x-fa fa-trash',
+                        iconCls: Glb.btnSetting.deleteIconCls2,
                         handler: function (btn) {
                             me.deleteLine(btn);
                         }
@@ -90,19 +96,25 @@ Ext.define('WWS.view.school.child.EditWindowController', {
                     {
                         width: 200,
                         name: 'email_type[]',
-                        value: (data) ? data.type : ''
+                        value: (data) ? data.type : '',
+                        listeners: {
+                            specialkey: 'submitOnEnter'
+                        }
                     },
                     {
                         xtype: 'textfield',
                         name: 'email_content[]',
                         vtype: 'email',
                         flex: 1,
-                        value: (data) ? data.email : ''
+                        value: (data) ? data.email : '',
+                        listeners: {
+                            specialkey: 'submitOnEnter'
+                        }
                     },
                     {
                         xtype: 'button',
                         tooltip: T.__("delete the email"),
-                        iconCls: 'x-fa fa-trash',
+                        iconCls: Glb.btnSetting.deleteIconCls2,
                         handler: function (btn) {
                             me.deleteLine(btn);
                         }
@@ -123,18 +135,24 @@ Ext.define('WWS.view.school.child.EditWindowController', {
                         xtype: 'textfield',
                         width: 200,
                         name: 'address_type[]',
-                        value: (data) ? data.type : ''
+                        value: (data) ? data.type : '',
+                        listeners: {
+                            specialkey: 'submitOnEnter'
+                        }
                     },
                     {
                         xtype: 'textfield',
                         name: 'address_content[]',
                         flex: 1,
-                        value: (data) ? data.address : ''
+                        value: (data) ? data.address : '',
+                        listeners: {
+                            specialkey: 'submitOnEnter'
+                        }
                     },
                     {
                         xtype: 'button',
                         tooltip: T.__("delete the address"),
-                        iconCls: 'x-fa fa-trash',
+                        iconCls: Glb.btnSetting.deleteIconCls2,
                         handler: function (btn) {
                             me.deleteLine(btn);
                         }
@@ -164,7 +182,7 @@ Ext.define('WWS.view.school.child.EditWindowController', {
     onUploadPhoto: function () {
         var me = this;
         Ext.create('WWS.ux.UploadPhotoWindow', {
-            callback: function (photo) {
+            callbackFn: function (photo) {
                 me.clearTmpPhoto();
                 var vm = me.getViewModel();
                 vm.setData({
@@ -195,9 +213,9 @@ Ext.define('WWS.view.school.child.EditWindowController', {
         var view = this.getView(),
             res = Ext.decode(action.response.responseText),
             values = view.down('form').getValues();
-        if (view.callback) {
+        if (view.callbackFn) {
             values['id'] = res.child_id;
-            view.callback(values);
+            view.callbackFn(values);
         }
         ABox.success(T.__("The child has been saved!"));
         this.clearTmpPhoto();

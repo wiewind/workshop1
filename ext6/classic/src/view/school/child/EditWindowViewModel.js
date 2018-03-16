@@ -15,7 +15,7 @@ Ext.define('WWS.view.school.child.EditWindowViewModel', {
         showPhoto: function (get) {
             return get('new_photo') ?
                     Cake.api.path + '/school/showTmpPhoto/'+get('new_photo')+'/150/150?_v=' + btoa(Date.now()):
-                    Cake.api.path + '/school/showPhoto/'+get('id')+'/150/150?_v=' + btoa(Date.now());
+                    Cake.api.path + '/school/showPhoto/child/'+get('id')+'/150/150?_v=' + btoa(Date.now());
         }
     }
 });

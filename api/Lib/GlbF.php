@@ -147,7 +147,7 @@ class GlbF {
 
     public static function getRandomStr ($length = 10, $onlyZiffer=false) {
         if ($onlyZiffer) return GlbF::getRandomZifferStr($length);
-        $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+-_=!*';
+        $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_=!*';
         $str = '';
         for ( $i = 0; $i < $length; $i++ ) {
             $str .= $chars[mt_rand(0, strlen($chars) - 1)];

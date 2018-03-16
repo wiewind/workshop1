@@ -13,14 +13,19 @@ Ext.define('WWS.view.school.semester.GridWindowController', {
     },
 
     onItemDblClick: function (grid, record) {
-        this.onClickSelect();
+        var selectable = this.getViewModel().get('selectable');
+        if (selectable) {
+            this.onClickSelect();
+        } else {
+            this.onClickEdit();
+        }
     },
 
     onClickSelect: function () {
         var view = this.getView(),
             record = view.down('grid').getSelection();
         if (record.length > 0) {
-            view.callback(record[0].getData());
+            view.callbackFn(record[0].getData());
             view.close();
         }
     },

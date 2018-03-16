@@ -39,9 +39,11 @@ Ext.define('WWS.view.school.class.GridWindowController', {
     },
 
     onItemDblClick: function (grid, record) {
-        var vm = this.getViewModel();
-        if (vm.get('selectable')) {
+        var selectable = this.getViewModel().get('selectable');
+        if (selectable) {
             this.onClickSelect();
+        } else {
+            this.onClickEdit();
         }
     },
 
@@ -49,7 +51,7 @@ Ext.define('WWS.view.school.class.GridWindowController', {
         var view = this.getView(),
             record = view.down('grid').getSelection();
         if (record.length > 0) {
-            view.callback(record[0].getData());
+            view.callbackFn(record[0].getData());
             view.close();
         }
     },

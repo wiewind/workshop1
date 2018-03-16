@@ -220,7 +220,7 @@ Ext.define('WWS.view.passkey.Functions', {
                 {
                     text: Glb.btnSetting.deleteText,
                     tooltip: Glb.btnSetting.deleteText,
-                    iconCls: 'x-fa fa-trash',
+                    iconCls: Glb.btnSetting.deleteIconCls2,
                     handler: function () {
                         PKF.onDelete([record]);
                     }
@@ -279,7 +279,7 @@ Ext.define('WWS.view.passkey.Functions', {
                 {
                     text: Glb.btnSetting.deleteText,
                     tooltip: Glb.btnSetting.deleteText,
-                    iconCls: 'x-fa fa-trash',
+                    iconCls: Glb.btnSetting.deleteIconCls2,
                     handler: function () {
                         PKF.onDelete([record]);
                     }

@@ -7,7 +7,8 @@ Ext.define('WWS.view.school.SchoolPanelController', {
     alias: 'controller.schoolpanel',
     
     init: function () {
-        var vm = this.getViewModel();
+        var view = this.getView(),
+            vm = this.getViewModel();
         Glb.Ajax({
             url: Cake.api.path + '/school/json/getDefaultData',
             success: function(response){
@@ -18,22 +19,53 @@ Ext.define('WWS.view.school.SchoolPanelController', {
                         function () {
                             SCF.openEditClassWindow(0, function (data) {
                                 SCF.setDefaultClass(data.id, function () {
-                                    vm.setData({
-                                        class: data,
-                                        semester: res.data.SchoolSemester
-                                    });
+                                    view.close();
+                                    Ext.getCmp('appmain').add(Ext.create('WWS.view.school.SchoolPanel'));
                                 });
                             });
                         }
                     );
-                } else {
-                    vm.setData({
-                        class: res.data.SchoolClass,
-                        semester: res.data.SchoolSemester
-                    });
+                    return;
                 }
+                if (Ext.isEmpty(res.data.SchoolSemester)) {
+                    ABox.warning(
+                        T.__("Your have not semester, please add a new semester into system."),
+                        function () {
+                            SCF.openEditSemesterWindow(0, function (data) {
+                                SCF.setDefaultSemester(data.id, function () {
+                                    view.close();
+                                    Ext.getCmp('appmain').add(Ext.create('WWS.view.school.SchoolPanel'));
+                                });
+                            });
+                        }
+                    );
+                    return;
+                }
+                vm.setData({
+                    class: res.data.SchoolClass,
+                    semester: res.data.SchoolSemester
+                });
+                view.add(view.buildItems());
             }
         });
+    },
+
+    checkDefaultData: function (data) {
+        var vm = this.getViewModel();
+        if (Ext.isEmpty(data.SchoolClass)) {
+            ABox.warning(
+                T.__("Your have not class, please add a new class into system."),
+                function () {
+                    SCF.openEditClassWindow(0, function (classData) {
+                        SCF.setDefaultClass(classData.id, function () {
+                            vm.setData({
+                                class: classData
+                            });
+                        });
+                    });
+                }
+            );
+        }
     },
 
     onClickSelectClass: function () {
@@ -47,12 +79,6 @@ Ext.define('WWS.view.school.SchoolPanelController', {
             view.down('schoolchildgrid').getStore().reload();
         });
     },
-
-    // onSelectSemester: function (combo, record) {
-    //     this.getViewModel().setData({
-    //         semester: record.getData()
-    //     });
-    // }
 
     onClickSelectSemester: function () {
         var view = this.getView(),

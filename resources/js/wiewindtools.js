@@ -113,6 +113,46 @@ var Wiewind = {
         }
     },
 
+    Time: {
+        display: function (time, format) {
+            format = format || 'HH:mm';
+            var farr = format.split(':'),
+                str = '';
+            if (farr.length > 1) {
+                for (var i=0; i<farr.length; i++) {
+                    if (str.length > 0) str += ':';
+                    str += Wiewind.Time.display(time, farr[i].toLowerCase());
+                }
+            } else {
+                var arr = time.split(':');
+                switch (format) {
+                    case 'h':
+                        str = Wiewind.Number.displayIntZerofill(arr[0], 1);
+                        break;
+                    case 'hh':
+                        str = Wiewind.Number.displayIntZerofill(arr[0], 2);
+                        break;
+                    case 'm':
+                        str = Wiewind.Number.displayIntZerofill(arr[1], 1);
+                        break;
+                    case 'mm':
+                        str = Wiewind.Number.displayIntZerofill(arr[1], 2);
+                        break;
+                    case 's':
+                        str = Wiewind.Number.displayIntZerofill(arr[2], 1);
+                        break;
+                    case 'ss':
+                        str = Wiewind.Number.displayIntZerofill(arr[2], 2);
+                        break;
+                    default:
+                        str = format;
+                        break;
+                }
+            }
+            return str;
+        }
+    },
+
     Math: {
         round: function (number, precision) {
             return Math.round(number * Math.pow(10, precision)) / Math.pow(10, precision);
@@ -179,7 +219,14 @@ var Wiewind = {
         },
 
         displayIntZerofill: function (number, length) {
-            number = number + '';
+            if (number) {
+                var intN = parseInt(number);
+                if (intN) {
+                    number = String(intN)
+                } else {
+                    number = '0';
+                }
+            }
             while (number.length < length) {
                 number = '0' + number;
             }

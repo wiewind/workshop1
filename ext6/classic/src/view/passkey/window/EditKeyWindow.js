@@ -36,7 +36,7 @@ Ext.define ('WWS.view.passkey.window.EditKeyWindow', {
                     {
                         btnName: 'tbarDelete',
                         tooltip: Glb.btnSetting.deleteText,
-                        iconCls: 'x-fa fa-trash',
+                        iconCls: Glb.btnSetting.deleteIconCls2,
                         handler: 'onClickDelete'
                     },
                     {

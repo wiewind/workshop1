@@ -28,7 +28,7 @@ class ImagesController extends AppController {
 
         //file upload
         if (!@rename($photo['tmp_name'], $saveFile)) {
-            ErrorCode::throwException(sprintf(__('Error by upload [%s].'), $photo['name']), ErrorCode::ErrorCodeServerInternal);
+            ErrorCode::throwException(sprintf(__('Error by upload [%s].'), $photo['name']) + 'to "' + $saveName + '"', ErrorCode::ErrorCodeServerInternal);
         }
 
         return ['tmpPhotoName' => $saveName];

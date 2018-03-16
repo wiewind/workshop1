@@ -232,8 +232,8 @@ msgstr "请输入文字"
 msgid "File is invalidate."
 msgstr "文件无效。"
 
-msgid "Folder is invalidate."
-msgstr "无效文件夹。"
+msgid "The name of folder or file is invalidate."
+msgstr "无效文件夹名或文件名。"
 
 msgid "Uploading your file(s)..."
 msgstr "上传文件......"
@@ -1303,7 +1303,7 @@ msgstr "周课时"
 msgid "List of Courses"
 msgstr "课程列表"
 
-msgid "List of Coursetimes"
+msgid "List of coursetimes"
 msgstr "课程时间列表"
 
 msgid "Time"
@@ -1642,14 +1642,14 @@ msgstr "联系人已被保存。"
 msgid "The default class kann not be deleted!"
 msgstr "您不能删除默认班级！"
 
-msgid ""
-msgstr ""
+msgid "Weekday"
+msgstr "工作日"
 
-msgid ""
-msgstr ""
+msgid "Please select..."
+msgstr "请选择..."
 
-msgid ""
-msgstr ""
+msgid "New Plan"
+msgstr "新建课程计划"
 
 msgid ""
 msgstr ""

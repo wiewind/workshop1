@@ -31,7 +31,7 @@ Ext.define('WWS.view.filemanagement.window.FileViewerWindow', {
         {
             text: Glb.btnSetting.deleteText,
             tooltip: Glb.btnSetting.deleteText,
-            iconCls: 'x-fa fa-trash',
+            iconCls: Glb.btnSetting.deleteIconCls2,
             handler: 'onClickDelete'
         },
         {

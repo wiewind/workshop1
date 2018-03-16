@@ -26,11 +26,11 @@ Ext.define('WWS.view.school.semester.EditWindowController', {
         var view = this.getView(),
             res = Ext.decode(action.response.responseText),
             values = view.down('form').getValues();
-        if (view.callback) {
+        if (view.callbackFn) {
             if (values['id'] == 0) {
                 values['id'] = res.id;
             }
-            view.callback(values);
+            view.callbackFn(values);
         }
         ABox.success(T.__("The semester has been saved!"));
         view.close();

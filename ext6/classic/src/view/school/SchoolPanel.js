@@ -7,7 +7,10 @@ Ext.define ('WWS.view.school.SchoolPanel', {
 
     requires: [
         'WWS.view.school.Functions',
-        'WWS.view.school.Table',
+
+        'WWS.view.school.plan.Table',
+        'WWS.view.school.plan.TableCell',
+        'WWS.view.school.plan.EditWindow',
 
         'WWS.view.school.child.Grid',
         'WWS.view.school.child.EditWindow',
@@ -17,6 +20,15 @@ Ext.define ('WWS.view.school.SchoolPanel', {
 
         'WWS.view.school.semester.GridWindow',
         'WWS.view.school.semester.EditWindow',
+
+        'WWS.view.school.course.GridWindow',
+        'WWS.view.school.course.EditWindow',
+
+        'WWS.view.school.room.GridWindow',
+        'WWS.view.school.room.EditWindow',
+
+        'WWS.view.school.teacher.GridWindow',
+        'WWS.view.school.teacher.EditWindow',
 
         'WWS.view.school.SchoolPanelController',
         'WWS.view.school.SchoolPanelViewModel'
@@ -79,15 +91,20 @@ Ext.define ('WWS.view.school.SchoolPanel', {
         }
     ],
 
-    initComponent: function () {
+    // initComponent: function () {
+    //     this.items = this.buildItems();
+    //     this.callParent();
+    // },
+
+    buildItems: function () {
         var vm = this.getViewModel();
-        this.items = [
-            // {
-            //     xtype: 'schooltable',
-            //     viewModel: {
-            //         parent: vm
-            //     }
-            // },
+        return [
+            {
+                xtype: 'schoolplantable',
+                viewModel: {
+                    parent: vm
+                }
+            },
             {
                 xtype: 'schoolchildgrid',
                 viewModel: {
@@ -95,6 +112,5 @@ Ext.define ('WWS.view.school.SchoolPanel', {
                 }
             }
         ];
-        this.callParent();
     }
 });

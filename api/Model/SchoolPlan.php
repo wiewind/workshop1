@@ -8,6 +8,16 @@
 
 class SchoolPlan extends AppModel {
     var $belongsTo = array(
+        'SchoolSemester' => array(
+            'className' => 'SchoolSemester',
+            'foreignKey' => 'semester_id'
+        ),
+
+        'SchoolClass' => array(
+            'className' => 'SchoolClass',
+            'foreignKey' => 'class_id'
+        ),
+
         'SchoolCourse' => array(
             'className' => 'SchoolCourse',
             'foreignKey' => 'course_id'
@@ -15,29 +25,12 @@ class SchoolPlan extends AppModel {
 
         'SchoolTeacher' => array(
             'className' => 'SchoolTeacher',
-            'foreignKey' => false,
-            'conditions' => [
-                'or' => [
-                    'SchoolPlan.teacher_id = SchoolTeacher.id',
-                    'SchoolPlan.teacher_id = 0 and SchoolCourse.default_teacher_id = SchoolTeacher.id'
-                ]
-            ]
+            'foreignKey' => 'teacher_id'
         ),
 
         'SchoolRoom' => array(
             'className' => 'SchoolRoom',
-            'foreignKey' => false,
-            'conditions' => [
-                'or' => [
-                    'SchoolPlan.room_id = SchoolRoom.id',
-                    'SchoolPlan.room_id = 0 and SchoolCourse.default_room_id = SchoolRoom.id'
-                ]
-            ]
-        ),
-
-        'SchoolCoursetime' => array(
-            'className' => 'SchoolCoursetime',
-            'foreignKey' => 'coursetime_id'
+            'foreignKey' => 'room_id'
         )
     );
 }

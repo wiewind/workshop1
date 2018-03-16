@@ -19,8 +19,8 @@ Ext.define ('WWS.view.school.child.EditWindow', {
     },
 
     config: {
-        iconCls: 'x-fa fa-child',
         title: T.__("Child"),
+        iconCls: 'x-fa fa-child',
         width: 800
     },
 
@@ -116,6 +116,10 @@ Ext.define ('WWS.view.school.child.EditWindow', {
                                         allowBlank: false,
                                         bind: {
                                             value: '{firstname}'
+                                        },
+                                        listeners: {
+                                            specialkey: 'submitOnEnter',
+                                            afterrender: 'fieldFocus'
                                         }
                                     },
                                     {
@@ -126,6 +130,9 @@ Ext.define ('WWS.view.school.child.EditWindow', {
                                         allowBlank: false,
                                         bind: {
                                             value: '{lastname}'
+                                        },
+                                        listeners: {
+                                            specialkey: 'submitOnEnter'
                                         }
                                     }
                                 ]
@@ -164,6 +171,9 @@ Ext.define ('WWS.view.school.child.EditWindow', {
                                         // editable: false,
                                         bind: {
                                             value: '{birthday}'
+                                        },
+                                        listeners: {
+                                            specialkey: 'submitOnEnter'
                                         }
                                     }
                                 ]
@@ -320,5 +330,5 @@ Ext.define ('WWS.view.school.child.EditWindow', {
         ];
     },
 
-    callback: function (data) {}
+    callbackFn: function (data) {}
 });

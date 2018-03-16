@@ -21,6 +21,7 @@ Ext.define('WWS.view.main.Main', {
         'WWS.ux.MusterFormWindow',
         'WWS.ux.PhotoField',
         'WWS.ux.UploadPhotoWindow',
+        'WWS.ux.TimeNumberField',
 
         'WWS.view.main.MainController',
         'WWS.view.main.MainModel',
@@ -53,6 +54,45 @@ Ext.define('WWS.view.main.Main', {
         CKEDITOR.config.language = SSD.data.appLanguage.ext_localname;
 
         this.items = this.buildItems();
+
+
+        Ext.apply(Ext.form.field.VTypes, {
+            fileTypeAndSize : function(val, field){
+                var upload = field.fileInputEl.dom,
+                    files = upload.files;
+
+                for (var i = 0; i < files.length; i++) {
+                    var message = '',
+                        suffix = Wiewind.File.getFileSuffix(files[i].name);
+                    if (Wiewind.Array.in_array(suffix, Cake.filemanagement.notAllowdTypes)) {
+                        return false;
+                    }
+                    if (files[i].size > Cake.filemanagement.maxFileSize) {
+                        return false;
+                    }
+                }
+                return true;
+            },
+            fileTypeAndSizeText: T.__("File is invalidate."),
+
+            foldername : function(val, field){
+                var reg= /^[^\\\/\*\?\|<>:'"]+$/;
+                return (val!=='.')&&(val!=='..')&&(reg.test(val));
+            },
+            foldernameText: T.__("The name of folder or file is invalidate."),
+
+            hour: function (val, field) {
+                return val >= 0 && val <= 24;
+            },
+            hourText: T.__('The input of hour must be between 0 and 24.'),
+
+            minuteAndSecond: function (val, field) {
+                return val >= 0 && val < 60;
+            },
+            minuteAndSecondText: T.__('The input of minute and second must be between 0 and 59.')
+        });
+
+
         this.callParent();
     },
 

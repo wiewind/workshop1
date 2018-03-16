@@ -1,7 +1,5 @@
 <?php
 
-
-
 if (isset($tmpphoto)) {
     $photo = $_SERVER['DOCUMENT_ROOT'] . Configure::read('system.tmp.path') . '/' . $tmpphoto;
 }
@@ -83,6 +81,15 @@ imagesavealpha($im, true);
 $trans_colour = imagecolorallocatealpha($im, 0, 0, 0, 127);
 imagefill($im, 0, 0, $trans_colour);
 imagecopyresampled($im, $img, intval(($newW - $drawW)/2), intval(($newH-$drawH)/2), 0, 0, $drawW, $drawH, $imgW, $imgH);
+
+if (isset($tmpphoto)) {
+    $tmpStr = GlbF::getFileNameAndSuffix($tmpphoto);
+    $textcolor = imagecolorallocate($im, 255, 255, 255);
+    imagestring($im, 1, 0, 0, $tmpStr[0], $textcolor);
+    imagestring($im, 1, 2, 2, $tmpStr[0], $textcolor);
+    $textcolor = ImageColorAllocate($im,44,81,150);
+    imagestring($im, 1, 1, 1, $tmpStr[0], $textcolor);
+}
 
 imagepng($im);
 ImageDestroy($im);

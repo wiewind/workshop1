@@ -101,7 +101,7 @@ Ext.define ('WWS.view.passkey.Grid', {
         {
             btnName: 'tbarDelete',
             tooltip: Glb.btnSetting.deleteText,
-            iconCls: 'x-fa fa-trash',
+            iconCls: Glb.btnSetting.deleteIconCls2,
             disabled: true,
             handler: 'onClickDelete'
         },
