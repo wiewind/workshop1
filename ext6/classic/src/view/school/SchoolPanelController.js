@@ -50,32 +50,15 @@ Ext.define('WWS.view.school.SchoolPanelController', {
         });
     },
 
-    checkDefaultData: function (data) {
-        var vm = this.getViewModel();
-        if (Ext.isEmpty(data.SchoolClass)) {
-            ABox.warning(
-                T.__("Your have not class, please add a new class into system."),
-                function () {
-                    SCF.openEditClassWindow(0, function (classData) {
-                        SCF.setDefaultClass(classData.id, function () {
-                            vm.setData({
-                                class: classData
-                            });
-                        });
-                    });
-                }
-            );
-        }
-    },
-
     onClickSelectClass: function () {
         var view = this.getView(),
             vm = this.getViewModel();
-        SCF.openClassGridWindow(true, function (data) {
+        SCF.openClassGridWindow(vm.get('class.id'), function (data) {
             vm.setData({
                 class: data
             });
 
+            view.down('schoolplantable').getController().drawPanel();
             view.down('schoolchildgrid').getStore().reload();
         });
     },
@@ -88,7 +71,7 @@ Ext.define('WWS.view.school.SchoolPanelController', {
                 semester: data
             });
 
-            // view.down('schoolchildgrid').getStore().reload();
+            view.down('schoolplantable').getController().drawPanel();
         });
     }
 });

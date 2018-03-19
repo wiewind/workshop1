@@ -5,14 +5,10 @@ Ext.define('WWS.view.school.Functions', {
     singleton: true,
     alternateClassName: ['SCF'],
 
-    openClassGridWindow: function (selectable, callbackFn) {
+    openClassGridWindow: function (selectedClassId, callbackFn) {
         callbackFn = callbackFn || function () {};
         Ext.create('WWS.view.school.class.GridWindow', {
-            viewModel: {
-                data: {
-                    selectable: selectable
-                }
-            },
+            selectedClassId: selectedClassId,
             callbackFn: callbackFn
         });
     },

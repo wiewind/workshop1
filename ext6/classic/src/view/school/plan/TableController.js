@@ -11,8 +11,6 @@ Ext.define('WWS.view.school.plan.TableController', {
     },
 
     drawPanel: function () {
-
-
         var me = this,
             planCt = this.getView().down('[itemId="planCt"]'),
             vm = this.getViewModel(),
@@ -189,6 +187,41 @@ Ext.define('WWS.view.school.plan.TableController', {
 
     onClickRefresh: function () {
         this.drawPanel();
+    },
+
+    onClickDeleteAll: function () {
+        var me = this,
+            vm = this.getViewModel();
+        ABox.confirm(
+            T.__('Are you sure you want to clear the table?'),
+            function () {
+                Glb.Ajax({
+                    url: Cake.api.path + '/school/transjson/deleteAllPlans',
+                    params: {
+                        class_id: vm.get('class.id'),
+                        semester_id: vm.get('semester.id')
+                    },
+                    success: function(response){
+                        ABox.success(T.__("The table has been cleared!"));
+                        me.drawPanel();
+                    }
+                });
+            }
+        );
+    },
+
+    onClickCopy: function () {
+        var parent = this.getViewModel().getParent();
+        Ext.create('WWS.view.school.plan.CopyWindow', {
+            viewModel: {
+                data: {
+                    from_class: parent.data.class,
+                    from_semester: parent.data.semester,
+                    to_class: parent.data.class,
+                    to_semester: parent.data.semester
+                }
+            }
+        });
     },
 
     onClickCourse: function () {

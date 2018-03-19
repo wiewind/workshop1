@@ -321,7 +321,7 @@ Ext.define ('WWS.view.school.plan.EditWindow', {
                 submitFormat: 'Y-m-d',
                 editable: false,
                 bind: {
-                    value: '{period}',
+                    value: '{first_date}',
                     disabled: '{disabledFirstDate}'
                 }
             },
@@ -335,7 +335,10 @@ Ext.define ('WWS.view.school.plan.EditWindow', {
                 name: 'description',
                 fieldLabel: T.__("Description"),
                 emptyText: T.__("Description"),
-                height: 100
+                height: 100,
+                bind: {
+                    value: '{description}'
+                }
             }
         ];
     },

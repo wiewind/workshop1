@@ -44,8 +44,8 @@ Ext.define('WWS.view.school.plan.TableCellController', {
 
             if (Number(vm.get('weekday')) === Number(weekday)) {
                 var cur = new Date("2000-01-01 " + time).getTime(),
-                    start = new Date("2000-01-01 " + this.data.coursetime.start).getTime(),
-                    end = new Date("2000-01-01 " + this.data.coursetime.end).getTime();
+                    start = new Date("2000-01-01 " + vm.get('start')).getTime(),
+                    end = new Date("2000-01-01 " + vm.get('end')).getTime();
 
                 if (start <= cur && cur <= end) {
                     color = vm.get('curBgColor');

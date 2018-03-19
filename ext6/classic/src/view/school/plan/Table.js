@@ -31,6 +31,19 @@ Ext.define ('WWS.view.school.plan.Table', {
         },
         '-',
         {
+            text: T.__('Clear'),
+            tooltip: T.__('Clear the table'),
+            iconCls: 'x-fa fa-remove',
+            handler: 'onClickDeleteAll'
+        },
+        {
+            text: T.__('Copy plan to...'),
+            tooltip: T.__('Copy plan to...'),
+            iconCls: 'x-fa fa-copy',
+            handler: 'onClickCopy'
+        },
+        '-',
+        {
             text: Glb.btnSetting.refreshText,
             tooltip: Glb.btnSetting.refreshText,
             iconCls: Glb.btnSetting.refreshIconCls,

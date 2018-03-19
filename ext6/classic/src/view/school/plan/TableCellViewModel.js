@@ -31,13 +31,14 @@ Ext.define('WWS.view.school.plan.TableCellViewModel', {
         },
 
         displayPeriod: function (get) {
-            var period = get('period');
+            var period = get('period'),
+                res = T.__("Unknown");
             Ext.each(Glb.coursePeriods, function (p) {
-                if (p.value === period) {
-                    return p.name;
+                if (p.value == period) {
+                    res = p.name;
                 }
             });
-            return T.__("unknow");
+            return res;
         },
 
         displayCellContent: function (get) {
@@ -48,7 +49,7 @@ Ext.define('WWS.view.school.plan.TableCellViewModel', {
             // return get('SchoolCourse.name');
 
 
-            var title_style = '',
+            var title_style = 'margin-bottom: 10px; font-weight: bold; font-size: x-large; text-align: center;',
                 title_tooltip = '';
             if (get('period') == 'two-weeks' && !Ext.isEmpty(get('first_date'))) {
                 var now = new Date(Ext.Date.format(new Date(), 'Y-m-d')),
@@ -62,13 +63,13 @@ Ext.define('WWS.view.school.plan.TableCellViewModel', {
 
                     courseOfToday = (parseInt(iDays / 7) % 2 == 0);
                 if (!courseOfToday) {
-                    title_style = 'color: grey; text-decoration:line-through;';
+                    title_style += ' color: grey; text-decoration:line-through;';
                     title_tooltip = T.__("No Course This Week");
                 }
             }
 
 
-            var html = '<div style="font-weight: bold; font-size: large; text-align: center; ' + title_style + '">' + get('SchoolCourse.name') + '</div>';
+            var html = '<div style="' + title_style + '">' + get('SchoolCourse.name') + '</div>';
 
 
             html += '<table style="color: #888888">';

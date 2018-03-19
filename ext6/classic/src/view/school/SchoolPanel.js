@@ -11,6 +11,7 @@ Ext.define ('WWS.view.school.SchoolPanel', {
         'WWS.view.school.plan.Table',
         'WWS.view.school.plan.TableCell',
         'WWS.view.school.plan.EditWindow',
+        'WWS.view.school.plan.CopyWindow',
 
         'WWS.view.school.child.Grid',
         'WWS.view.school.child.EditWindow',

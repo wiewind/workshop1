@@ -51,13 +51,7 @@ Ext.define ('WWS.view.school.semester.GridWindow', {
                                         } else {
                                             return 'x-fa fa-square-o';
                                         }
-                                    },
-                                    getTip: function(v) {
-                                        if (Number(v) === Number(me.selectedSemesterId)) {
-                                            return T.__("Set Default");
-                                        }
-                                    },
-                                    handler: 'setDefault'
+                                    }
                                 }
                             ]
                         },

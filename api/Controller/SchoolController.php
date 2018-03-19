@@ -124,16 +124,32 @@ class SchoolController extends AppController {
 
         if ($data) {
             $saveData = $data;
-            unset($saveData['new_photo']);
+
+            $saveData['start'] = $saveData['start_hour'] . ':' . $saveData['start_minute'];
+            $saveData['end'] = $saveData['end_hour'] . ':' . $saveData['end_minute'];
+
             if ($data['id'] == 0) {
+                //check the time
+                $d = $this->SchoolPlan->find('first', [
+                    'conditions' => [
+                        'SchoolPlan.semester_id' => $saveData['semester_id'],
+                        'SchoolPlan.class_id' => $saveData['class_id'],
+                        'SchoolPlan.weekday' => $saveData['weekday'],
+                        'SchoolPlan.start <' => $saveData['end'],
+                        'SchoolPlan.end >' => $saveData['start']
+                    ]
+                ]);
+                if ($d) {
+                    ErrorCode::throwException(__('There are already lessons at this time.'), ErrorCode::ErrorCodeBadRequest);
+                }
+                // end check
+
                 unset($saveData['id']);
                 $saveData['created_by'] = $this->user_id;
                 $this->SchoolPlan->create();
             }
             $saveData['modified_by'] = $this->user_id;
 
-            $saveData['start'] = $saveData['start_hour'] . ':' . $saveData['start_minute'];
-            $saveData['end'] = $saveData['end_hour'] . ':' . $saveData['end_minute'];
 
             foreach ($saveData as $k => $v) {
                 if ($v == '') {
@@ -940,6 +956,42 @@ class SchoolController extends AppController {
         }
 
         $this->SchoolSemester->delete($semester_id);
+    }
+
+    function copyPlans () {
+        $this->checkLogin();
+        $from_class_id = $this->request->data['from_class_id'];
+        $from_semester_id = $this->request->data['from_semester_id'];
+        $to_class_id = $this->request->data['to_class_id'];
+        $to_semester_id = $this->request->data['to_semester_id'];
+        $user_ie = $this->user_id;
+
+        if ($from_class_id.'/'.$from_semester_id === $to_class_id.'/'.$to_semester_id) {
+            ErrorCode::throwException(__('It is forbidden to copy plans after the same course and semester!'), ErrorCode::ErrorCodeBadRequest);
+        }
+
+        $this->SchoolPlan->deleteAll([
+            'semester_id' => $to_semester_id,
+            'class_id' => $to_class_id
+        ]);
+
+        $sql = 'insert into wsp_school_plans (semester_id, class_id, course_id, teacher_id, room_id, weekday, start, end, period, first_date, description, created_by, modified_by) '
+            . 'select '.$to_semester_id.', '.$to_class_id.', course_id, teacher_id, room_id, weekday, start, end, period, first_date, description, '.$user_ie.', '.$user_ie.' from wsp_school_plans fromplans '
+            . 'where fromplans.semester_id = ' . $from_semester_id . ' and fromplans.class_id = ' . $from_class_id . ';';
+
+//        return $sql;
+        $this->SchoolPlan->query($sql);
+    }
+
+    function deleteAllPlans () {
+        $this->checkLogin();
+        $class_id = $this->request->data['class_id'];
+        $semester_id = $this->request->data['semester_id'];
+
+        $this->SchoolPlan->deleteAll([
+            'semester_id' => $semester_id,
+            'class_id' => $class_id
+        ]);
     }
 
     function showPhoto ($datatype, $id, $w=0, $h=0) {
