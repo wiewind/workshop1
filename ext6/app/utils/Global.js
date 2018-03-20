@@ -272,7 +272,7 @@ Ext.define('WWS.utils.Global', {
         lastname = lastname || '';
         firstname = firstname || '';
         sex = sex || '';
-        firstnameAtFirst = firstnameAtFirst || Wiewind.FirstnameAtFirst;
+        firstnameAtFirst = firstnameAtFirst || Glb.FirstnameAtFirst;
         var name = '';
         if (firstname == '') {
             name = lastname;

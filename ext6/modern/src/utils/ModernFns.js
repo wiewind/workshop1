@@ -34,6 +34,30 @@ Ext.define('WWS.utils.ModernFns', {
 
         goback: function () {
             window.history.back();
+        },
+
+        forgotPassword: function () {
+            ABox.prompt(
+                T.__('Username') + ":\n" + T.__('Please enter your username'),
+                function (button, value) {
+                    if (button === 'ok') {
+                        Glb.Ajax({
+                            url: Cake.api.path + '/login/json/makeResetPasswordMail',
+                            params: {
+                                username: value
+                            },
+                            success: function (response, options) {
+                                var resp = Ext.decode(response.responseText);
+                                ABox.success(
+                                    Wiewind.String.sprintf(T.__('Hello %s, an email was sent to your email address!'), resp.data.name, {
+                                        placeholder: T.__('Please enter your username')
+                                    })
+                                );
+                            }
+                        });
+                    }
+                }
+            );
         }
     }
 });

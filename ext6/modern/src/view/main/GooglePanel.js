@@ -14,6 +14,7 @@ Ext.define('WWS.view.main.GooglePanel', {
         iconCls: 'x-fa fa-google',
         layout: 'vbox',
         padding: 20,
+        scrollable: true,
         standardSubmit: true
     },
 

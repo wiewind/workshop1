@@ -15,8 +15,6 @@ Ext.define('WWS.view.school.Plans', {
     },
 
     config: {
-        // title: T.__("Time Plan"),
-        // iconCls: 'x-fa fa-clock-o',
         layout: 'hbox'
     },
 

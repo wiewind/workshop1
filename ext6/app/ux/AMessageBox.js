@@ -103,7 +103,7 @@ Ext.define('WWS.ux.AMessageBox', {
             multiLine = multiLine || false;
             value = value || null;
             // Ext.Msg.promt = field;
-            Ext.Msg.prompt(T.__('Bitte eingeben!'), msg, fn, null, multiLine, value, fieldOption);
+            Ext.Msg.prompt(T.__('Please enter...'), msg, fn, null, multiLine, value, fieldOption);
         }
     }
 });

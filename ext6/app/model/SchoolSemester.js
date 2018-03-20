@@ -9,6 +9,9 @@ Ext.define('WWS.model.SchoolSemester', {
         {name: 'name', mapping: 'SchoolSemester.semester', type:'string', convert: function(v, rec) {
             var term = (Number(v)===1) ? T.__("Winter Term") : T.__("Summer Term");
             return term + ' ' + rec.get('school_year');
+        }},
+        {name: 'period', mapping: 'SchoolSemester.start', type:'string', convert: function(v, rec) {
+            return Glb.Date.displayDateFromString(v) + ' - ' + Glb.Date.displayDateFromString(rec.get('end'));
         }}
     ]
 });

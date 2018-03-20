@@ -9,15 +9,5 @@ Ext.define('WWS.view.school.SchoolPanelViewModel', {
     data: {
         class: {},
         semester: {}
-    },
-
-    formulas: {
-        displaySemesterName: function (get) {
-            var term = (Number(get('semester.semester'))===1) ? T.__("Winter Term") : T.__("Summer Term");
-            return term + ' ' + get('semester.school_year');
-        },
-        displaySemesterDate: function (get) {
-            return Glb.Date.displayDateFromString(get('semester.start')) + ' - ' + Glb.Date.displayDateFromString(get('semester.end'));
-        }
     }
 });

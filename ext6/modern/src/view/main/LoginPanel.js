@@ -76,6 +76,16 @@ Ext.define('WWS.view.main.LoginPanel', {
         },
         {
             style: 'height: 2em;'
+        },
+        {
+            xtype: 'component',
+            style: {
+                textAlign: 'right'
+            },
+            html: '<a href="javascript: MGlb.common.forgotPassword()">' + T.__('Forgot Your Password?') + '</a>'
+        },
+        {
+            style: 'height: 2em;'
         }
     ]
 });

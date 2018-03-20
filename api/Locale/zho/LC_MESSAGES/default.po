@@ -1687,11 +1687,11 @@ msgstr "目标"
 msgid "There are already lessons at this time."
 msgstr "该时间段内已经有课程安排。"
 
-msgid ""
-msgstr ""
+msgid "Reset default"
+msgstr "恢复默认值"
 
-msgid ""
-msgstr ""
+msgid "Please enter..."
+msgstr "请输入..."
 
 msgid ""
 msgstr ""

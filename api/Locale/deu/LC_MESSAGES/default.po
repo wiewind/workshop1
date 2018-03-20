@@ -1686,3 +1686,9 @@ msgstr "das Ziel"
 
 msgid "There are already lessons at this time."
 msgstr "Zu dieser Zeit gibt es bereits Unterricht."
+
+msgid "Reset default"
+msgstr "Standard zurücksetzen"
+
+msgid "Please enter..."
+msgstr "Bitte eingeben..."

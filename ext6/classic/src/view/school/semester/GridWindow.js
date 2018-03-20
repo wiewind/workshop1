@@ -109,6 +109,7 @@ Ext.define ('WWS.view.school.semester.GridWindow', {
                     text: Glb.btnSetting.newText,
                     tooltip: Glb.btnSetting.newText,
                     iconCls: Glb.btnSetting.newIconCls,
+                    hidden: SSD.data.user.id > 1,
                     handler: 'onClickNew'
                 },
                 {
@@ -116,6 +117,7 @@ Ext.define ('WWS.view.school.semester.GridWindow', {
                     tooltip: Glb.btnSetting.editText,
                     iconCls: Glb.btnSetting.editIconCls,
                     itemId: 'editBtn',
+                    hidden: SSD.data.user.id > 1,
                     disabled: true,
                     handler: 'onClickEdit'
                 },
@@ -124,6 +126,7 @@ Ext.define ('WWS.view.school.semester.GridWindow', {
                     tooltip: Glb.btnSetting.deleteText,
                     iconCls: Glb.btnSetting.deleteIconCls2,
                     itemId: 'deleteBtn',
+                    hidden: SSD.data.user.id > 1,
                     disabled: true,
                     handler: 'onClickDelete'
                 }

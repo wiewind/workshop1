@@ -8,7 +8,7 @@ Ext.define('WWS.view.school.PlansViewModel', {
 
     data: {
         startTimeScale: 8,
-        endTimeScale: 0,
+        endTimeScale: 19,
 
         scaleHeight: 50,
 

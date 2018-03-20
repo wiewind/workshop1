@@ -1,0 +1,37 @@
+.childrenDiv {
+  //padding: 1px;
+
+  .x-listitem-inner-el {
+    padding: 10px 10px 7px 10px;
+  }
+
+  .x-innerhtml {
+    width: 100%;
+    padding: 10px;
+    background-color: #bbdefb;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 5px 5px 5px #888888;
+  }
+
+  .childrenName {
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .childrenPhoto {
+    float: left;
+    width: 120px;
+  }
+
+  .childrenDetails {
+    float: right;
+    width: 100%;
+    div {
+      width: 100%;
+    }
+  }
+}

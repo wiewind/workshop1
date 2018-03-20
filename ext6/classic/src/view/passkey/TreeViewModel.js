@@ -9,7 +9,7 @@ Ext.define('WWS.view.passkey.TreeViewModel', {
     stores: {
         treeStore: {
             type: 'passkeytreestore',
-            root: SSD.data.user.passkeyRoot,
+            root: Glb.common.checkLogin() ? SSD.data.user.passkeyRoot : {},
             autoLoad: true
         }
     }

@@ -7,7 +7,12 @@ Ext.define('WWS.view.school.SchoolPanelController', {
     alias: 'controller.schoolpanel',
 
     init: function () {
-        var view = this.getView(),
+        this.setDefaults();
+    },
+
+    setDefaults: function () {
+        var me = this,
+            view = this.getView(),
             vm = this.getViewModel();
         Glb.Ajax({
             url: Cake.api.path + '/school/json/getDefaultData',
@@ -29,21 +34,64 @@ Ext.define('WWS.view.school.SchoolPanelController', {
                     class: res.data.SchoolClass,
                     semester: res.data.SchoolSemester
                 });
-                view.add([
-                    {
-                        xtype: 'schoolplans',
-                        viewModel: {
-                            parent: vm
+
+                view.removeAll();
+
+                view.add({
+                    xtype: 'container',
+                    scrollable: true,
+                    itemId: 'plansCtr',
+                    items: [
+                        {
+                            xtype: 'schoolplans',
+                            viewModel: {
+                                parent: vm
+                            }
                         }
-                    // },
-                    // {
-                    //     xtype: 'schoolchildren',
-                    //     viewModel: {
-                    //         parent: vm
-                    //     }
+                    ]
+                });
+
+                // var childrenCtr = view.down('[itemId="childrenCtr"]');
+                view.add({
+                    xtype: 'schoolchildrenlist',
+                    itemId: 'childrenCtr',
+                    viewModel: {
+                        parent: vm
                     }
-                ]);
+                });
+
+                view.add({
+                    xtype: 'container',
+                    scrollable: true,
+                    itemId: 'settingsCtr',
+                    items: [
+                        {
+                            xtype: 'schoolsettings',
+                            viewModel: {
+                                parent: vm
+                            }
+                        }
+                    ]
+                });
             }
         });
+    },
+
+    onClickTimePlan: function () {
+        var view = this.getView(),
+            p = view.down('[itemId="plansCtr"]');
+        view.setActiveItem(p);
+    },
+
+    onClickChildren: function () {
+        var view = this.getView(),
+            p = view.down('[itemId="childrenCtr"]');
+        view.setActiveItem(p);
+    },
+
+    onClickSettings: function () {
+        var view = this.getView(),
+            p = view.down('[itemId="settingsCtr"]');
+        view.setActiveItem(p);
     }
 });

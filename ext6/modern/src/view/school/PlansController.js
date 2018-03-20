@@ -26,7 +26,7 @@ Ext.define('WWS.view.school.PlansController', {
                 var data = Ext.decode(response.responseText).data,
                     plans = {},
                     startTimeScale = vm.get('startTimeScale'),
-                    endTimeScale = 0;
+                    endTimeScale = vm.get('endTimeScale');
 
                 data.forEach(function (item) {
                     var start = parseInt(item.SchoolPlan.start),
