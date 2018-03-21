@@ -31,8 +31,8 @@ Ext.define ('WWS.view.school.plan.Table', {
         },
         '-',
         {
-            text: T.__('Clear'),
-            tooltip: T.__('Clear the table'),
+            text: T.__('Clear the lessons'),
+            tooltip: T.__('Clear the lessons'),
             iconCls: 'x-fa fa-remove',
             handler: 'onClickDeleteAll'
         },
@@ -48,28 +48,6 @@ Ext.define ('WWS.view.school.plan.Table', {
             tooltip: Glb.btnSetting.refreshText,
             iconCls: Glb.btnSetting.refreshIconCls,
             handler: 'onClickRefresh'
-        },
-        '->',
-        {
-            text: T.__("Resource"),
-            iconCls: 'x-fa fa-bars',
-            menu: [
-                {
-                    text: T.__("Courses"),
-                    iconCls: 'x-fa fa-graduation-cap',
-                    handler: 'onClickCourse'
-                },
-                {
-                    text: T.__("Teachers"),
-                    iconCls: 'x-fa fa-user-secret',
-                    handler: 'onClickTeacher'
-                },
-                {
-                    text: T.__("Rooms"),
-                    iconCls: 'x-fa fa-institution',
-                    handler: 'onClickRoom'
-                }
-            ]
         }
     ],
 

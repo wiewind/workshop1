@@ -74,7 +74,7 @@ Ext.define('WWS.view.school.plan.TableCellViewModel', {
 
             html += '<table style="color: #888888">';
 
-            html += '<tr><td colspan="2" title="fdafsda"><b>' + get('start').substr(0, 5) + ' - ' + get('end').substr(0, 5) + '</b>';
+            html += '<tr><td colspan="2"><b>' + get('start').substr(0, 5) + ' - ' + get('end').substr(0, 5) + '</b>';
             if (!Ext.isEmpty(get('description'))) {
                 html += ' <span class="x-fa fa-info-circle" title="' + get('description') + '"></span>';
             }

@@ -11,10 +11,6 @@ Ext.define('WWS.ux.UploadPhotoWindowController', {
         }
     },
 
-    getViewForm: function () {
-        return this.getView();
-    },
-
     onSubmit: function () {
         var me = this,
             view = this.getView(),
@@ -36,8 +32,8 @@ Ext.define('WWS.ux.UploadPhotoWindowController', {
     submitSuccess: function (form, action) {
         var view = this.getView(),
             res = Ext.decode(action.response.responseText);
-        if (view.callback) {
-            view.callback(res.data.tmpPhotoName);
+        if (view.callbackFn) {
+            view.callbackFn(res.data.tmpPhotoName);
         }
         view.close();
     },

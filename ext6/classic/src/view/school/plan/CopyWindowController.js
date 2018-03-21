@@ -39,7 +39,7 @@ Ext.define('WWS.view.school.plan.CopyWindowController', {
         }
 
         ABox.confirm(
-            T.__('All plans in the target class semester will be replaced. Do you continue?'),
+            T.__('All lessons in the target class semester will be replaced. Do you continue?'),
             function () {
                 var form = me.getViewForm(),
                     data = me.getView().setting;

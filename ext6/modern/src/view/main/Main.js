@@ -8,6 +8,8 @@ Ext.define('WWS.view.main.Main', {
     xtype: 'app-main',
 
     requires: [
+        'Ext.Carousel',
+
         'WWS.utils.ModernFns',
         'WWS.ux.List',
         'WWS.view.main.MainContainer',

@@ -193,7 +193,7 @@ Ext.define('WWS.view.school.plan.TableController', {
         var me = this,
             vm = this.getViewModel();
         ABox.confirm(
-            T.__('Are you sure you want to clear the table?'),
+            T.__('Are you sure you want to clear the lessons?'),
             function () {
                 Glb.Ajax({
                     url: Cake.api.path + '/school/transjson/deleteAllPlans',
@@ -222,17 +222,5 @@ Ext.define('WWS.view.school.plan.TableController', {
                 }
             }
         });
-    },
-
-    onClickCourse: function () {
-        SCF.openCourseGridWindow();
-    },
-
-    onClickTeacher: function () {
-        SCF.openTeacherGridWindow();
-    },
-
-    onClickRoom: function () {
-        SCF.openRoomGridWindow();
     }
 });

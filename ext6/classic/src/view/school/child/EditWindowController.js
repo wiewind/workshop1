@@ -193,9 +193,17 @@ Ext.define('WWS.view.school.child.EditWindowController', {
         });
     },
 
+    onDeletePhoto: function () {
+        var vm = this.getViewModel();
+        this.clearTmpPhoto(vm.get('new_photo'));
+        vm.setData({
+            new_photo: 'null'
+        });
+    },
+
     clearTmpPhoto: function (tmp) {
         tmp = tmp || this.getViewModel().get('new_photo');
-        if (tmp) {
+        if (tmp && tmp !== 'null') {
             Glb.Ajax({
                 url: Cake.api.path + '/images/json/clearTempPhoto',
                 params: {

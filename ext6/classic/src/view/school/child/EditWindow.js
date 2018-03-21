@@ -64,6 +64,18 @@ Ext.define ('WWS.view.school.child.EditWindow', {
                         layout: 'vbox',
                         items: [
                             {
+                                xtype: 'button',
+                                text: T.__("Delete photo"),
+                                tooltip: T.__("Delete photo"),
+                                iconCls: Glb.btnSetting.deleteIconCls2,
+                                margin: '5 0 0 0',
+                                width: '100%',
+                                bind: {
+                                    hidden: '{hiddenDeletePhotoBtn}'
+                                },
+                                handler: 'onDeletePhoto'
+                            },
+                            {
                                 xtype: 'image',
                                 width: 150,
                                 height: 150,
@@ -81,8 +93,8 @@ Ext.define ('WWS.view.school.child.EditWindow', {
                             },
                             {
                                 xtype: 'button',
-                                text: T.__("Photo upload"),
-                                tooltip: T.__("Photo upload"),
+                                text: T.__("Upload photo"),
+                                tooltip: T.__("Upload photo"),
                                 iconCls: 'x-fa fa-upload',
                                 margin: '5 0 0 0',
                                 width: '100%',

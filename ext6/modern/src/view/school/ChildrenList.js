@@ -21,7 +21,7 @@ Ext.define('WWS.view.school.ChildrenList', {
         itemCls: 'childrenDiv',
         itemTpl: Ext.create('Ext.XTemplate',
             '<div class="childrenName">' + Glb.displayPersonName('{lastname}', '{firstname}', null, Glb.firstnameAtFirst) + '</div>',
-            '<div class="childrenPhoto"><img src="' + Cake.api.path + '/school/showPhoto/child/{id}/100?_v=' + btoa(Date.now()) + '" alt="{firstname}" /></div>',
+            '<div class="childrenPhoto">{[this.displayPhoto(values)]}</div>',
             '<div class="childrenDetails>" ',
                 '<div>{[this.displayBirthday(values)]}</div>',
                 '<div>{[this.displayTelephones(values)]}</div>',
@@ -29,6 +29,12 @@ Ext.define('WWS.view.school.ChildrenList', {
                 '<div>{[this.displayAddresses(values)]}</div>',
             '</div>',
             {
+                displayPhoto: function (values) {
+                    var url = Cake.api.path + '/school/showPhoto/child/' + values.id + '/100?_v=' + btoa(Date.now());
+                    var onclick = (values.photo) ? ' onclick="SCF.showPhoto('+SCF.datatypeChild+', ' + values.id + ')"' : '';
+                    return '<img src="' + url + '"' + onclick + ' alt="' + values.firstname + '" />';
+                },
+
                 displayBirthday: function (values) {
                     if (values.birthday > 0) {
                         return Glb.Date.displayDateFromString(values.birthday);
@@ -39,6 +45,10 @@ Ext.define('WWS.view.school.ChildrenList', {
                 displayTelephones: function (values) {
                     var res = '',
                         data = Ext.decode(values.telephones);
+                    if (typeof data === 'string') {
+                        data = Ext.decode(data);
+                    }
+
                     if (!Wiewind.isEmpty(data)) {
                         Ext.each(data, function (d) {
                             res += '<div>';
@@ -54,6 +64,9 @@ Ext.define('WWS.view.school.ChildrenList', {
                 displayEmails: function (values) {
                     var res = '',
                         data = Ext.decode(values.emails);
+                    if (typeof data === 'string') {
+                        data = Ext.decode(data);
+                    }
                     if (!Wiewind.isEmpty(data)) {
                         Ext.each(data, function (d) {
                             res += '<div>';
@@ -69,6 +82,9 @@ Ext.define('WWS.view.school.ChildrenList', {
                 displayAddresses: function (values) {
                     var res = '',
                         data = Ext.decode(values.addresses);
+                    if (typeof data === 'string') {
+                        data = Ext.decode(data);
+                    }
                     if (!Wiewind.isEmpty(data)) {
                         Ext.each(data, function (d) {
                             res += '<div>';

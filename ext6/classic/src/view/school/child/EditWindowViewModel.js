@@ -16,6 +16,13 @@ Ext.define('WWS.view.school.child.EditWindowViewModel', {
             return get('new_photo') ?
                     Cake.api.path + '/school/showTmpPhoto/'+get('new_photo')+'/150/150?_v=' + btoa(Date.now()):
                     Cake.api.path + '/school/showPhoto/child/'+get('id')+'/150/150?_v=' + btoa(Date.now());
+        },
+
+        hiddenDeletePhotoBtn: function (get) {
+            if (get('new_photo') === 'null') {
+                return true;
+            }
+            return !(get('new_photo') || get('photo'));
         }
     }
 });

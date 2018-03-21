@@ -30,18 +30,24 @@ Ext.define('WWS.view.school.teacher.EditWindowController', {
         Ext.create('WWS.ux.UploadPhotoWindow', {
             callbackFn: function (photo) {
                 me.clearTmpPhoto();
-                var vm = me.getViewModel();
-                vm.setData({
+                me.getViewModel().setData({
                     new_photo: photo
                 });
-
             }
+        });
+    },
+
+    onDeletePhoto: function () {
+        var vm = this.getViewModel();
+        this.clearTmpPhoto(vm.get('new_photo'));
+        vm.setData({
+            new_photo: 'null'
         });
     },
 
     clearTmpPhoto: function (tmp) {
         tmp = tmp || this.getViewModel().get('new_photo');
-        if (tmp) {
+        if (tmp && tmp !== 'null') {
             Glb.Ajax({
                 url: Cake.api.path + '/images/json/clearTempPhoto',
                 params: {

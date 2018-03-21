@@ -1,0 +1,1 @@
+LL['deu_modules'] = {"search":"Webseite","addressbook":"Adressbuch","admin":"Admin","filemanagement":"FileSYS","jobapplications":"JobSYS","passkey":"Passkey","school":"Stundenplan","worknotes":"Notizen"};

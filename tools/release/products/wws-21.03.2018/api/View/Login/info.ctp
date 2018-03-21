@@ -1,0 +1,1 @@
+<div  class="login-info"><?php if (isset($info)) echo $info ?></div>

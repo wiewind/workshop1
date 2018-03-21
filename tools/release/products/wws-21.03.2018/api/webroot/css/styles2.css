@@ -1,0 +1,17 @@
+body {
+    font-size: 12px;
+}
+
+a {
+    color: #04408C;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover {
+    color: #AE0000;
+}
+
+code {
+    overflow: auto;
+}

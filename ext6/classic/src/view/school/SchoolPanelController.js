@@ -63,6 +63,18 @@ Ext.define('WWS.view.school.SchoolPanelController', {
         });
     },
 
+    onClickCourse: function () {
+        SCF.openCourseGridWindow();
+    },
+
+    onClickTeacher: function () {
+        SCF.openTeacherGridWindow();
+    },
+
+    onClickRoom: function () {
+        SCF.openRoomGridWindow();
+    },
+
     onClickSelectSemester: function () {
         var view = this.getView(),
             vm = this.getViewModel();

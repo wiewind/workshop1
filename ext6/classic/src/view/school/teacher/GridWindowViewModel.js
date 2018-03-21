@@ -15,6 +15,14 @@ Ext.define('WWS.view.school.teacher.GridWindowViewModel', {
             type: 'schoolteacher',
             autoLoad: true,
             listeners: {
+                beforeload: function (store) {
+                    var panel = Ext.ComponentQuery.query('schoolpanel')[0],
+                        pvm = panel.getViewModel();
+                    store.getProxy().setExtraParams({
+                        'class_id': pvm.get('class.id'),
+                        'semester_id': pvm.get('semester.id')
+                    });
+                },
                 load: function () {
                     var win = Ext.ComponentQuery.query('schoolteachergridwindow')[0];
                     win.down('[itemId="okBtn"]').disable();
