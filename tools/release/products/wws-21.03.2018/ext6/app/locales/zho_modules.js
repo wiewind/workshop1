@@ -1,1 +1,0 @@
-LL['zho_modules'] = {"search":"查询系统","addressbook":"通讯录","admin":"管理员","filemanagement":"文件管理","jobapplications":"找工作","passkey":"密钥箱","school":"课程表","worknotes":"工作笔记"};

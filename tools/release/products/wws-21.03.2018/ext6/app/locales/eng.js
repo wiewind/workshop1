@@ -1,1 +1,0 @@
-LL['eng'] = {"Name of Person":"Name","Parent directory":"Parent"};

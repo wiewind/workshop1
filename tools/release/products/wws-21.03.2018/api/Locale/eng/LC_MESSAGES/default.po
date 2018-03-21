@@ -1,5 +1,0 @@
-msgid "Name of Person"
-msgstr "Name"
-
-msgid "Parent directory"
-msgstr "Parent"
