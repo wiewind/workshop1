@@ -25,16 +25,6 @@ Ext.define ('WWS.view.admin.customer.window.ChangeUsernameWindow', {
         scrollable: true
     },
 
-    // configForm: function () {
-    //     return {
-    //         defaults: {
-    //             width: '100%',
-    //             labelWidth: 70,
-    //             padding: 5
-    //         }
-    //     };
-    // },
-
     buildFormItems: function () {
         return [
             {

@@ -4,13 +4,13 @@
 Ext.define('WWS.view.admin.customer.window.EditUserWindowViewModel', {
     extend: 'WWS.ux.MusterFormWindowViewModel',
 
-    alias: 'viewmodel.adminuserwindowedituser',
+    alias: 'viewmodel.admincustomerwindowedituser',
 
     data: {
         id: 0,
-        customer_id: SSD.data.user.customer_id,
+        customer_id: 0,
         name: '',
-        language_id: SSD.data.appLanguage.id
+        language_id: 0
     },
 
     formulas: {

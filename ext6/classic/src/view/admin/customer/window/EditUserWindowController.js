@@ -4,7 +4,7 @@
 Ext.define ('WWS.view.admin.customer.window.EditUserWindowController', {
     extend: 'WWS.ux.MusterFormWindowController',
 
-    alias: 'controller.adminuserwindowedituser',
+    alias: 'controller.admincustomerwindowedituser',
 
     init: function () {
         var view = this.getView(),
@@ -19,10 +19,7 @@ Ext.define ('WWS.view.admin.customer.window.EditUserWindowController', {
                 },
                 success: function (response, options) {
                     var resp = Ext.decode(response.responseText);
-                    console.log(resp.data);
-
                     vm.setData(resp.data);
-
                     modulesCt.add(view.buildModulesFormItems());
                 }
             });

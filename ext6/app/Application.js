@@ -51,11 +51,9 @@ Ext.define('WWS.Application', {
     },
 
     onAppUpdate: function () {
-        Ext.Msg.confirm('Application Update', 'This application has an update, reload?',
-            function (choice) {
-                if (choice === 'yes') {
-                    window.location.reload();
-                }
+        ABox.alert(T.__('Application Update'), T.__('This application has an update, reload now!'),
+            function () {
+                window.location.reload();
             }
         );
     }

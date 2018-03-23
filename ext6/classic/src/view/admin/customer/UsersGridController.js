@@ -32,7 +32,8 @@ Ext.define ('WWS.view.admin.customer.UsersGridController', {
             viewModel: {
                 data: {
                     id: 0,
-                    customer_id: vm.get('selectedCustomer.id')
+                    customer_id: vm.get('selectedCustomer.id'),
+                    language_id: SSD.data.appLanguage.id
                 }
             },
             callbackFn: function () {

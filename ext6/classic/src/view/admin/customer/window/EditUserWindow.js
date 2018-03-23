@@ -6,15 +6,15 @@
  */
 Ext.define ('WWS.view.admin.customer.window.EditUserWindow', {
     extend: 'WWS.ux.MusterFormWindow',
-    xtype: 'adminuserwindowedituser',
+    xtype: 'admincustomerwindowedituser',
 
     requires: [
         'WWS.view.admin.customer.window.EditUserWindowController',
         'WWS.view.admin.customer.window.EditUserWindowViewModel'
     ],
-    controller: 'adminuserwindowedituser',
+    controller: 'admincustomerwindowedituser',
     viewModel: {
-        type: 'adminuserwindowedituser'
+        type: 'admincustomerwindowedituser'
     },
 
     input: {
@@ -53,7 +53,7 @@ Ext.define ('WWS.view.admin.customer.window.EditUserWindow', {
                 defaults: {
                     xtype: 'fieldcontainer',
                     margin: 10,
-                    width: '50%',
+                    flex: 1,
                     layout: 'vbox',
                     defaults: {
                         bodyPadding: 5,
@@ -187,18 +187,21 @@ Ext.define ('WWS.view.admin.customer.window.EditUserWindow', {
                 title: T.__("Modules"),
                 itemId: 'modulesCt',
                 maxHeight: 500,
-                autoScroll: true,
-                layout: {
-                    type: 'table',
-                    columns: 5,
-                    tableAttrs: {
-                        style: {
-                            width: '100%'
-                        }
-                    },
-                    tdAttrs: {
+                scrollable: true,
+                layout: 'vbox',
+                defaults: {
+                    xtype: 'container',
+                    width: '100%',
+                    layout: 'hbox',
+                    defaults: {
+                        xtype: 'container',
                         width: '20%',
-                        align: 'center'
+                        layout: 'center',
+                        padding: '5 0',
+                        defaults: {
+                            xtype: 'button',
+                            width: 120
+                        }
                     }
                 }
             }
@@ -206,11 +209,13 @@ Ext.define ('WWS.view.admin.customer.window.EditUserWindow', {
     },
 
     buildModulesFormItems: function () {
-        var me = this,
-            vm = this.getViewModel(),
+        var vm = this.getViewModel(),
             items = [],
             moduleIds = vm.get('module_ids'),
-            userModuleIds = (moduleIds) ? moduleIds.split(';') : [];
+            userModuleIds = (moduleIds) ? moduleIds.split(';') : [],
+            columns = 5,
+            col = 0,
+            rowItems = [];
 
         for (var key in SSD.config.modules) {
             if (!SSD.config.modules[key].visible) continue;
@@ -226,14 +231,7 @@ Ext.define ('WWS.view.admin.customer.window.EditUserWindow', {
             }
 
             if (!module.authorizable) {
-                items.push({
-                    xtype: 'container',
-                    layout: 'hbox',
-                    margin: 5,
-                    width: 120,
-                    defaults: {
-                        xtype: 'button'
-                    },
+                rowItems.push({
                     items: [
                         {
                             text: SSD.config.modules[key].text,
@@ -241,7 +239,7 @@ Ext.define ('WWS.view.admin.customer.window.EditUserWindow', {
                             scale: 'large',
                             split: false,
                             iconAlign: 'top',
-                            width: '100%',
+                            // width: '100%',
                             style: {
                                 background: 'green'
                             },
@@ -251,60 +249,65 @@ Ext.define ('WWS.view.admin.customer.window.EditUserWindow', {
                         }
                     ]
                 });
-                continue;
-            }
-
-            items.push({
-                xtype: 'container',
-                layout: 'hbox',
-                margin: 5,
-                width: 120,
-                defaults: {
-                    xtype: 'button'
-                },
-                items: [
-                    {
-                        text: SSD.config.modules[key].text,
-                        icon: Cake.image.path+'/board/' + module.name + '.png',
-                        itemId: 'btn_yes',
-                        scale: 'large',
-                        split: false,
-                        iconAlign: 'top',
-                        width: '100%',
-                        hidden: hide1,
-                        handler: function (btn) {
-                            var container = btn.up();
-                            container.down('hiddenfield').setValue(0);
-                            container.getComponent('btn_no').show();
-                            btn.hide();
-                        }
-                    },
-                    {
-                        text: SSD.config.modules[module.name].text,
-                        icon: Cake.image.path+'/board/' + module.name + '_bw.png',
-                        itemId: 'btn_no',
-                        scale: 'large',
-                        split: false,
-                        iconAlign: 'top',
-                        hideBorders:'false',
-                        style: {
-                            background: '#ccc'
+            } else {
+                rowItems.push({
+                    items: [
+                        {
+                            text: SSD.config.modules[key].text,
+                            icon: Cake.image.path+'/board/' + module.name + '.png',
+                            itemId: 'btn_yes',
+                            scale: 'large',
+                            split: false,
+                            iconAlign: 'top',
+                            // width: '100%',
+                            hidden: hide1,
+                            handler: function (btn) {
+                                var container = btn.up();
+                                container.down('hiddenfield').setValue(0);
+                                container.getComponent('btn_no').show();
+                                btn.hide();
+                            }
                         },
-                        width: '100%',
-                        hidden: hide2,
-                        handler: function (btn) {
-                            var container = btn.up();
-                            container.down('hiddenfield').setValue(1);
-                            container.getComponent('btn_yes').show();
-                            btn.hide();
+                        {
+                            text: SSD.config.modules[module.name].text,
+                            icon: Cake.image.path+'/board/' + module.name + '_bw.png',
+                            itemId: 'btn_no',
+                            scale: 'large',
+                            split: false,
+                            iconAlign: 'top',
+                            hideBorders:'false',
+                            style: {
+                                background: '#ccc'
+                            },
+                            // width: '100%',
+                            hidden: hide2,
+                            handler: function (btn) {
+                                var container = btn.up();
+                                container.down('hiddenfield').setValue(1);
+                                container.getComponent('btn_yes').show();
+                                btn.hide();
+                            }
+                        },
+                        {
+                            xtype: 'hiddenfield',
+                            name: 'modules[' + module.id + ']',
+                            value: valModel
                         }
-                    },
-                    {
-                        xtype: 'hiddenfield',
-                        name: 'modules[' + module.id + ']',
-                        value: valModel
-                    }
-                ]
+                    ]
+                });
+            }
+            col++;
+            if (col % columns === 0) {
+                items.push({
+                    items: rowItems
+                });
+                rowItems = [];
+            }
+        }
+
+        if (!Wiewind.isEmpty(rowItems)) {
+            items.push({
+                items: rowItems
             });
         }
 

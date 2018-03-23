@@ -1717,11 +1717,11 @@ msgstr "全部"
 msgid "This module is available for all users."
 msgstr "该模块对全体用户可用。"
 
-msgid ""
-msgstr ""
+msgid "Application Update"
+msgstr "应用更新"
 
-msgid ""
-msgstr ""
+msgid "This application has an update, reload now!"
+msgstr "有一个应用更新可用，现在重新启动！"
 
 msgid ""
 msgstr ""

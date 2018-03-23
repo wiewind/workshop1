@@ -1716,3 +1716,9 @@ msgstr "alle"
 
 msgid "This module is available for all users."
 msgstr "Der Modul ist für alle Benutzer verfügbar."
+
+msgid "Application Update"
+msgstr "Anwendungsupdate"
+
+msgid "This application has an update, reload now!"
+msgstr "Diese Anwendung hat ein Update, jetzt neu laden!"
