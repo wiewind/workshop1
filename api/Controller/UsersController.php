@@ -23,11 +23,11 @@ class UsersController extends AppController
     public function getCustomerUsers () {
         $this->checkLogin();
         $conditions = array(
-            'User.customer_id' =>  $this->request->query['customer_id']
+            'User.customer_id' =>  $this->request->data['customer_id']
         );
 
-        if (isset($this->request->query['active']) && $this->request->query['active'] !== 'all') {
-            $conditions['User.active'] = $this->request->query['active'];
+        if (isset($this->request->data['active']) && $this->request->data['active'] !== 'all') {
+            $conditions['User.active'] = $this->request->data['active'];
         }
 
         $result['total'] = $this->User->find('count', array(
@@ -37,8 +37,8 @@ class UsersController extends AppController
         $data = $this->User->find('all', array(
             'conditions' => $conditions,
             'order' => 'LOWER(User.name)',
-            'limit' => $this->request->query['limit'],
-            'page' => $this->request->query['page']
+            'limit' => $this->request->data['limit'],
+            'page' => $this->request->data['page']
         ));
         if ($data) {
             for ($i=0; $i<count($data); $i++) {
@@ -50,6 +50,19 @@ class UsersController extends AppController
         }
         $result['data'] = $data;
         return $result;
+    }
+
+    public function load () {
+        $this->checkLogin();
+        $data = $this->User->findById($this->request->data['id']);
+        if ($data) {
+            $modules = $this->Module->getUserModules($data['User']['id'], false);
+            $data['User']['module_ids'] = implode(';', Hash::extract($modules, '{n}.id'));
+            $data['User']['module_names'] = implode(';', Hash::extract($modules, '{n}.name'));
+            unset($data['User']['password']);
+            $data = $data['User'];
+        }
+        return $data;
     }
 
     public function save () {
@@ -67,7 +80,7 @@ class UsersController extends AppController
             throw new Exception(__('The user has no modules!'));
         }
 
-        $udata = $this->request->data['User'];
+        $udata = $this->request->data;
         if (!$udata['name'] || ($udata['id'] == 0 && !$udata['username']) || !$udata['email']) {
             throw new Exception(__('The information of user was not complete!'));
         }

@@ -1711,11 +1711,11 @@ msgstr "您真的要清除所有课程吗？"
 msgid "All lessons in the target class semester will be replaced. Do you continue?"
 msgstr "目标班级学期中的所有课程将被替换。要继续吗？"
 
-msgid ""
-msgstr ""
+msgid "all"
+msgstr "全部"
 
-msgid ""
-msgstr ""
+msgid "This module is available for all users."
+msgstr "该模块对全体用户可用。"
 
 msgid ""
 msgstr ""

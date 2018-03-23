@@ -50,7 +50,7 @@ Ext.define('WWS.ux.AMessageBox', {
         },
 
         info: function (msg, fn, interval) {
-            if (!interval) interval = ABox.defaultInterval;
+            interval = interval || ABox.defaultInterval;
             ABox.show({
                 title: T.__("Info"),
                 message: msg,

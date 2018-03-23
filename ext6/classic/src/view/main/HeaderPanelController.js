@@ -29,28 +29,19 @@ Ext.define('WWS.view.main.HeaderPanelController', {
     },
 
     openModule: function (btn) {
-        var module = btn.module.split('/'),
-            panel = Ext.ComponentQuery.query(module[0] + 'panel'),
+        var strModule = btn.module.toLowerCase(),
+            module = strModule.split('/'),
+            panelname = module.length > 1 ?  module[0] + module[1] + 'panel' : module[0] + 'panel',
+            panel = Ext.ComponentQuery.query(panelname),
             tabPanel = Ext.getCmp('mainTabpanel');
         if (panel.length === 0) {
-            panel = Ext.create('WWS.view.' + module[0] + '.' + Wiewind.String.ucfirst(module[0]) + 'Panel');
+            var className = 'WWS.view.' + module[0] + '.' + (
+                        module.length > 1 ? module[1] + '.' + Wiewind.String.ucfirst(module[1]) : Wiewind.String.ucfirst(module[0])
+                    ) + 'Panel',
+            panel = Ext.create(className);
             tabPanel.add(panel);
         } else {
             panel = panel[0];
-        }
-
-        if (!Ext.isEmpty(module[1])) {
-            var panel_1 = Ext.getCmp(module[0] + module[1] + 'Panel'),
-                tabPanel_1 = panel;
-            if (panel_1.length === 0) {
-                panel_1 = Ext.create('WWS.view.' + module[0] + '.' + module[1] + '.' + Wiewind.String.ucfirst(module[1]) + 'Panel', {
-                    closable: true
-                });
-                tabPanel_1.add(panel_1);
-            } else {
-                panel_1 = panel[0];
-            }
-            tabPanel_1.setActiveTab(panel_1);
         }
         tabPanel.setActiveTab(panel);
     },

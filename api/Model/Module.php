@@ -47,9 +47,10 @@ class Module extends AppModel {
             'order' => ['Module.sortorder']
         ]);
         $res = array();
+
         if ($data) {
             foreach($data as $module) {
-                $res[] = $module['Module']['name'];
+                $res[] = $module['Module'];
             }
         }
 

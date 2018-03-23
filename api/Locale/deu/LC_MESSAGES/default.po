@@ -1710,3 +1710,9 @@ msgstr "Sind Sie sicher, alle Unterrichte zu löschen?"
 
 msgid "All lessons in the target class semester will be replaced. Do you continue?"
 msgstr "Alle Unterrichte in der Zielklasssemester würden ersetit. Läuft es weiter?"
+
+msgid "all"
+msgstr "alle"
+
+msgid "This module is available for all users."
+msgstr "Der Modul ist für alle Benutzer verfügbar."

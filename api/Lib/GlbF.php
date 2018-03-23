@@ -114,7 +114,7 @@ class GlbF {
         }
     }
 
-    public static function chmodir ($path, $filemode = 0777) {
+    public static function chmodir ($path, $filemode = 0644) {
         if (is_file($path)) {
             return chmod($path, $filemode);
         }

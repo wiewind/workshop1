@@ -122,8 +122,10 @@ Class SystemController extends AppController {
 
         $user_id = $this->logged ? $this->MySession->read('user.id') : 0;
         $userModules = $this->Module->getUserModules($user_id, false);
+        $userModules = Hash::extract($userModules, '{n}.name');
         $this->MySession->write('userModules', $userModules);
         $userMobileModules = $this->Module->getUserModules($user_id, false, true);
+        $userMobileModules = Hash::extract($userMobileModules, '{n}.name');
         $this->MySession->write('userMobileModules', $userMobileModules);
 
         if (in_array('passkey', $userModules) || in_array('passkey', $userMobileModules)) {
