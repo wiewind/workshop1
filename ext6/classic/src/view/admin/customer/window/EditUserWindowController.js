@@ -9,7 +9,8 @@ Ext.define ('WWS.view.admin.customer.window.EditUserWindowController', {
     init: function () {
         var view = this.getView(),
             vm = this.getViewModel(),
-            user_id = vm.get('id');
+            user_id = vm.get('id'),
+            modulesCt = view.down('[itemId="modulesCt"]');
         if (user_id > 0) {
             Glb.Ajax({
                 url: Cake.api.path + '/users/json/load',
@@ -22,9 +23,11 @@ Ext.define ('WWS.view.admin.customer.window.EditUserWindowController', {
 
                     vm.setData(resp.data);
 
-                    view.down('[itemId="modulesCt"]').add(view.buildModulesFormItems());
+                    modulesCt.add(view.buildModulesFormItems());
                 }
             });
+        } else {
+            modulesCt.add(view.buildModulesFormItems());
         }
     },
 

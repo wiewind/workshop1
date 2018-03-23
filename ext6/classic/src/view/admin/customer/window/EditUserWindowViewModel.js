@@ -8,7 +8,9 @@ Ext.define('WWS.view.admin.customer.window.EditUserWindowViewModel', {
 
     data: {
         id: 0,
-        name: ''
+        customer_id: SSD.data.user.customer_id,
+        name: '',
+        language_id: SSD.data.appLanguage.id
     },
 
     formulas: {

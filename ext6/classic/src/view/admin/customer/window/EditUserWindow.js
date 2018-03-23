@@ -209,7 +209,8 @@ Ext.define ('WWS.view.admin.customer.window.EditUserWindow', {
         var me = this,
             vm = this.getViewModel(),
             items = [],
-            userModuleIds = vm.get('module_ids').split(';');
+            moduleIds = vm.get('module_ids'),
+            userModuleIds = (moduleIds) ? moduleIds.split(';') : [];
 
         for (var key in SSD.config.modules) {
             if (!SSD.config.modules[key].visible) continue;

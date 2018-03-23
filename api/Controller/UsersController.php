@@ -111,11 +111,11 @@ class UsersController extends AppController
     }
 
     public function deleteUser () {
+        $this->checkLogin();
         $udata = $this->User->findById($this->request->data['id']);
         if ($udata['User']['active']) {
             throw new Exception(__('An active user can not be deleted, please block the user first!'));
         }
-        $this->checkLogin();
         $this->User->deleteUsers($this->request->data['id']);
     }
 

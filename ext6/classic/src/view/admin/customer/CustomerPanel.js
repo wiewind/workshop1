@@ -9,9 +9,8 @@ Ext.define ('WWS.view.admin.customer.CustomerPanel', {
         'WWS.view.admin.customer.Functions',
 
         'WWS.view.admin.customer.CustomersGrid',
-        'WWS.view.admin.customer.window.EditCustomerWindow',
-
         'WWS.view.admin.customer.UsersGrid',
+        'WWS.view.admin.customer.window.EditCustomerWindow',
         'WWS.view.admin.customer.window.EditUserWindow'
     ],
 

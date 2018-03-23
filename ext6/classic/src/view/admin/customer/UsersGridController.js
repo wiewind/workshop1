@@ -26,11 +26,13 @@ Ext.define ('WWS.view.admin.customer.UsersGridController', {
     },
 
     onClickNew: function () {
-        var view = this.getView();
+        var view = this.getView(),
+            vm = this.getViewModel();
         Ext.create('WWS.view.admin.customer.window.EditUserWindow', {
             viewModel: {
                 data: {
-                    id: 0
+                    id: 0,
+                    customer_id: vm.get('selectedCustomer.id')
                 }
             },
             callbackFn: function () {
@@ -41,13 +43,15 @@ Ext.define ('WWS.view.admin.customer.UsersGridController', {
 
     onClickEdit: function () {
         var view = this.getView(),
+            vm = this.getViewModel(),
             record = view.getSelection();
         if (record.length > 0) {
             record = record[0];
             Ext.create('WWS.view.admin.customer.window.EditUserWindow', {
                 viewModel: {
                     data: {
-                        id: record.get('id')
+                        id: record.get('id'),
+                        customer_id: vm.get('selectedCustomer.id')
                     }
                 },
                 callbackFn: function () {
@@ -63,7 +67,21 @@ Ext.define ('WWS.view.admin.customer.UsersGridController', {
             record = view.getSelection();
         if (record.length > 0) {
             record = record[0];
-
+            ABox.confirm(
+                T.__("Are you sure you want to delete the user?"),
+                function (btn) {
+                    Glb.Ajax({
+                        url: Cake.api.path + '/users/json/deleteUser',
+                        params: {
+                            id: record.get('id')
+                        },
+                        success: function (response, options) {
+                            view.getStore().reload();
+                            ABox.success(T.__("The user was removed."));
+                        }
+                    });
+                }
+            );
         }
     },
 
