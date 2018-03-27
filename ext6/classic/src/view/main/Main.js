@@ -36,6 +36,7 @@ Ext.define('WWS.view.main.Main', {
         'WWS.view.school.SchoolPanel',
         'WWS.view.admin.customer.CustomerPanel',
         'WWS.view.admin.dbmanager.DbmanagerPanel',
+        'WWS.view.admin.backup.BackupPanel',
 
         'WWS.view.setting.LoginWindow',
         'WWS.view.setting.ForgotPasswordWindow',

@@ -1723,8 +1723,8 @@ msgstr "应用更新"
 msgid "This application has an update, reload now!"
 msgstr "有一个应用更新可用，现在重新启动！"
 
-msgid ""
-msgstr ""
+msgid "Please select a tabale!"
+msgstr "请选择一个表格"
 
 msgid ""
 msgstr ""

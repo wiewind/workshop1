@@ -6,11 +6,14 @@ Ext.define ('WWS.view.admin.dbmanager.DbmanagerPanel', {
     xtype: 'admindbmanagerpanel',
 
     requires: [
-        'WWS.view.admin.dbmanager.NaviPanel'
+        'WWS.view.admin.dbmanager.Functions',
+        'WWS.view.admin.dbmanager.NaviPanel',
+        'WWS.view.admin.dbmanager.TableGrid',
+        'WWS.view.admin.dbmanager.window.RecordWindow'
     ],
 
     config: {
-        title: T.__("DB-Manager"),
+        title: T.__("DB Management"),
         icon: Cake.image.path+'/dbmanager.png',
         layout: 'border',
         closable: true,

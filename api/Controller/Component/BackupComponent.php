@@ -9,11 +9,23 @@
 App::uses('Component', 'Controller');
 
 Class BackupComponent extends Component {
-    var $components = array('Session', 'Cookie', 'Auth');
+    var $components = array('MySession', 'MyCookie', 'Auth');
+
+    public function getFilePhysicPath () {
+        $path = realpath($_SERVER['DOCUMENT_ROOT']) . DS . Configure::read('system.backup.path');
+        if (!is_dir($path)) {
+            GlbF::mkDir($path);
+        }
+        return realpath($path);
+    }
+
+    protected function _getProjectPath ($projectPath) {
+        return realpath($_SERVER['DOCUMENT_ROOT'] .DS . $projectPath);
+    }
 
     function doBackup ($project='all') {
-        $allproject = Configure::read('backup.projects');
-        $time = date(Configure::read('backup.folder_time_format'));
+        $allproject = Configure::read('system.backup.projects');
+        $time = date(Configure::read('system.backup.folder_time_format'));
         if ($project === 'all') {
             foreach ($allproject as $proj => $info) {
                 $this->_do($proj, $time, $info);
@@ -54,7 +66,7 @@ Class BackupComponent extends Component {
     protected function _backupDB ($time) {
         $dataSourceName = 'default';
 
-        $path = Configure::read('backup.path') . DS . $time . DS;
+        $path = $this->getFilePhysicPath() . DS . $time . DS;
         GlbF::mkDir($path);
 
         $fileSufix = '[db]_' . $time . '.sql';
@@ -66,19 +78,20 @@ Class BackupComponent extends Component {
         $this->__log("Backing up to '".$fileSufix."'...");
         $File = new File($file);
 
-        $db = ConnectionManager::getDataSource($dataSourceName);
+        $db = ClassRegistry::init("User")->getDataSource();
         $tables = $db->listSources();
 
-        if (!$this->Session->check('wsp.sys.version')) {
+        if (!$this->MySession->checkConfig('version')) {
             $model = ClassRegistry::init('Version');
-            $v = $model->find('first', array(
+            $version = $model->find('first', [
                 'order' => 'id desc'
-            ));
-            $this->Session->write('wsp.sys.version', $v['Version']);
+            ]);
+            $version['Version']['year'] = substr($version['Version']['date'], 0, 4);
+            $this->MySession->writeConfig('version', $version['Version']);
         }
 
         $File->write("-- Wiewind Studio SQL Dump\n".
-            "-- version ".$this->Session->read('wsp.sys.version.number')."\n".
+            "-- version ".$this->MySession->readConfig('version.number')."\n".
             "-- http://www.wiewind.com\n".
             "-- Database: `wiewind_com`\n".
             "-- Generation Time: ".date('Y-m-d H:i:s')."\n".
@@ -136,7 +149,7 @@ Class BackupComponent extends Component {
     }
 
     private function __writeTableData ($model, $File, $page = 1) {
-        $limit = Configure::read('backup.count_pro_insert');
+        $limit = Configure::read('system.backup.count_pro_insert');
         $data = $model->find('all', array(
             'page' => $page,
             'limit' => $limit,
@@ -167,7 +180,7 @@ Class BackupComponent extends Component {
     }
 
     protected function _deleteOldBackup() {
-        $path = Configure::read('backup.path');
+        $path = $this->getFilePhysicPath();
         $dir = scandir($path);
         $files = [];
         foreach ($dir as $f) {
@@ -177,7 +190,7 @@ Class BackupComponent extends Component {
         }
         reset($dir);
 
-        $max = Configure::read('backup.max');
+        $max = Configure::read('system.backup.max');
         $count = count($files);
 
         if ($count >= $max) {
@@ -195,38 +208,56 @@ Class BackupComponent extends Component {
         ini_set("memory_limit","512M");
         ini_set('max_execution_time', 600);
 
-        $path = Configure::read('backup.path') . DS . $time . DS;
+        $path = $this->getFilePhysicPath() . DS . $time . DS;
         GlbF::mkDir($path);
 
-        $fileSufix = $project . '_' . $time . '.zip';
-        $file = $path . $fileSufix;
+        $filename = $project . '_' . $time . '.zip';
+        $file = $path . $filename;
 
-        $this->__log('Zipping files ' . $fileSufix . ' ...');
+        $this->__log('Zipping files ' . $filename . ' ...');
         $zip = new ZipArchive();
-        $zip->open($file, ZIPARCHIVE::CREATE);
+        $flag = $zip->open($file, ZipArchive::CREATE);
+        if($flag!==true){
+            echo "open error code: {$flag}\n";
+            exit();
+            ErrorCode::throwException(__('open error code: ') + $flag, ErrorCode::ErrorCodeServerInternal);
+        }
+
         $this->_addFileToZip('', $zip, $projectInfo);
         $zip->close();
-        $this->__log("Zip \"" . $fileSufix . "\" Saved (" . filesize($file) . " bytes)");
+        $this->__log("Zip \"" . $filename . "\" Saved (" . filesize($file) . " bytes)");
     }
 
     protected function _addFileToZip($path, $zip, $projectInfo){
-        $webPath = $projectInfo['path'];
+        $webPath = $this->_getProjectPath($projectInfo['path']);
+        if (substr($webPath, strlen($webPath)-1,  1) != DS) {
+            $webPath .= DS;
+        }
+
         if (!isset($projectInfo['exception']) || !is_array($projectInfo['exception'])) {
             $projectInfo['exception'] = [];
         }
-        if (is_dir($webPath.$path)) {
-            $handler=opendir($webPath.$path);
-            while (($filename=readdir($handler))!==false) {
+
+
+        $webPath = $webPath . $path;
+
+        if (is_dir($webPath)) {
+            $handler = opendir($webPath);
+            if (substr($webPath, strlen($webPath)-1,  1) != DS) {
+                $webPath .= DS;
+            }
+            while (($filename = readdir($handler)) !== false) {
                 if ($filename === '.' || $filename === '..') continue;
-                if (in_array($filename, $projectInfo['exception'])) {
-                    $zip->addEmptyDir($path.$filename);
-                } else if (is_dir($webPath.$path.$filename)) {
-                    $this->_addFileToZip($path.$filename.'/', $zip, $projectInfo);
+                $relativeFilePath = ($path) ? $path . DS . $filename : $filename;
+                if (in_array($relativeFilePath, $projectInfo['exception'])) {
+                    $zip->addEmptyDir($relativeFilePath);
                 } else {
-                    $zip->addFile($webPath.$path.$filename, $path.$filename);
+                    $this->_addFileToZip($relativeFilePath, $zip, $projectInfo);
                 }
             }
             @closedir($handler);
+        } else if (file_exists($webPath)) {
+            $zip->addFile($webPath, $path);
         }
     }
 }

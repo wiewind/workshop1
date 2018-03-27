@@ -57,27 +57,30 @@ $config['system']['backup']['code'] = 'fdsw3)sx,L$w7+0E';
 $config['system']['backup']['projects'] = [
     'sql' => false,
     'studio' => [
-        'path' => '../../../',
+        'path' => '',
         'exception' => ['_backups', '_datei', 'apps']
     ],
     'workshop' => [
-        'path' => '../../../apps/workshop/'
+        'path' => 'apps/workshop/'
+    ],
+    'workshop1' => [
+        'path' => 'apps/workshop1/'
     ],
     'shop' => [
-        'path' => '../../../apps/shop/'
+        'path' => 'apps/shop/'
     ],
     'ischool' => [
-        'path' => '../../../apps/ischool/'
+        'path' => 'apps/ischool/'
     ],
     'new_project' => [
-        'path' => '../../../apps/new_project/'
+        'path' => 'apps/new_project/'
     ],
     'apps' => [
-        'path' => '../../../apps/',
-        'exception' => ['workshop', 'shop', 'ischool', 'ischool_1', 'new_project']
+        'path' => 'apps/',
+        'exception' => ['workshop', 'workshop1', 'shop', 'ischool', 'ischool_1', 'new_project']
     ],
     '_datei' => [
-        'path' => '../../../_datei/'
+        'path' => '_datei/'
     ]
 ];
 

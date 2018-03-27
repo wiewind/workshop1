@@ -59,8 +59,7 @@ Ext.define('WWS.utils.Global', {
         var options = {
             method: 'POST',
             timeout: 30000,
-            responseType: 'json',
-            waitMsg: (config.waitMsg) ? config.waitMsg : T.__('Laden...')
+            responseType: 'json'
         };
         options = Ext.apply(options, config);
 
@@ -95,6 +94,8 @@ Ext.define('WWS.utils.Global', {
             Glb.common.unmask();
         };
 
+        var waitMsg = (config.waitMsg) ? config.waitMsg : T.__('loading...')
+        Glb.common.mask(waitMsg);
         Ext.Ajax.request(options);
     },
 
@@ -122,7 +123,8 @@ Ext.define('WWS.utils.Global', {
             if (!component) {
                 component = Ext.getCmp('appmain');
             }
-            component.mask(msg);
+
+            if (component) component.mask(msg);
         },
 
         unmask: function (component) {
@@ -130,8 +132,7 @@ Ext.define('WWS.utils.Global', {
             if (!component) {
                 component = Ext.getCmp('appmain');
             }
-            // setTimeout(function () { component.unmask(); }, 300);
-            component.unmask();
+            if (component) component.unmask();
         },
 
         openLeftMenu: function () {

@@ -8,28 +8,38 @@ Ext.define ('WWS.view.admin.dbmanager.NaviPanelController', {
 
     onItemSelect: function (grid, record, item, index, e) {
         var view = this.getView(),
-            vm = this.getViewModel();
-        //
-        // e.preventDefault();
-        // e.stopEvent();
-        // me.showTable(record.get('name'));
+            vm = this.getViewModel(),
+            tablename = record.get('name');
 
-        // view.down('[itemId="editBtn"]').enable();
-        // view.down('[itemId="deleteBtn"]').enable();
-        //
-        // vm.setData({
-        //     selectedCustomer: record.getData()
-        // });
-        //
-        // var mainPanel = view.up('admincustomerpanel').down('[itemId="admincustomersmainpanel"]');
-        // mainPanel.removeAll();
-        // mainPanel.add(
-        //     Ext.create('WWS.view.admin.customer.UsersGrid', {
-        //         viewModel: {
-        //             parent: vm
-        //         }
-        //     })
-        // );
-    },
+        Glb.Ajax({
+            url: Cake.api.path + '/dbmanager/json/getTableInfo/',
+            params: {
+                tablename: tablename
+            },
+            success: function (response, options) {
+                var result = Ext.decode(response.responseText),
+                    ctr = view.up().down('[itemId="dbmanagerMainPanel"]'),
+                    dataConfig = result.data,
+                    keys = [];
+                Ext.Object.each(dataConfig, function(key, value, myself) {
+                    if (value.key === 'primary') {
+                        keys.push(key);
+                    }
+                });
+
+                ctr.removeAll();
+                ctr.add({
+                    xtype: 'admindbmanagertablegrid',
+                    viewModel: {
+                        data: {
+                            tablename: tablename,
+                            dataConfig: dataConfig,
+                            keys: keys
+                        }
+                    }
+                });
+            }
+        });
+    }
 
 });

@@ -1722,3 +1722,6 @@ msgstr "Anwendungsupdate"
 
 msgid "This application has an update, reload now!"
 msgstr "Diese Anwendung hat ein Update, jetzt neu laden!"
+
+msgid "Please select a tabale!"
+msgstr "Bitte wählen Sie eine Tabelle aus!"

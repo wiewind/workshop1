@@ -26,8 +26,9 @@ class DbmanagerController extends AppController {
         ];
     }
 
-    function getTableInfo ($tablename) {
+    function getTableInfo () {
         $this->checkLogin();
+        $tablename = $this->request->data['tablename'];
         $data = [];
         $db = ClassRegistry::init("User")->getDataSource();
         $tables = $db->listSources();
@@ -44,11 +45,12 @@ class DbmanagerController extends AppController {
         return $model;
     }
 
-    function getTableDaten ($tablename) {
+    function getTableDaten () {
         $this->checkLogin();
-
-        $page = $this->request->query['page'];
-        $limit = $this->request->query['limit'];
+        
+        $tablename = $this->request->data['tablename'];
+        $page = $this->request->data['page'];
+        $limit = $this->request->data['limit'];
 
         $model = $this->_getClassModel($tablename);
 
@@ -70,9 +72,10 @@ class DbmanagerController extends AppController {
         ];
     }
 
-    public function getPrimaryKey ($tablename) {
+    public function getPrimaryKey () {
         $this->checkLogin();
 
+        $tablename = $this->request->data['tablename'];
         $keys = array();
         $db = ClassRegistry::init("User")->getDataSource();
         $tables = $db->listSources();
@@ -87,13 +90,14 @@ class DbmanagerController extends AppController {
         return $keys;
     }
 
-    public function update ($tablename) {
+    public function update () {
         $this->checkLogin();
-        if ($this->request->is('post')) {
-            $data = $this->request->data;
-            if (isset($data['modified'])) $data['modified'] = date('Y-m-d H:i:s');
-            if (isset($data['modified_by'])) $data['modified_by'] = $this->user_id;
-        }
+        $tablename = $this->request->data['tablename'];
+
+        $data = $this->request->data;
+        $data['modified'] = date('Y-m-d H:i:s');
+        $data['modified_by'] = $this->user_id;
+
         $model = $this->_getClassModel($tablename);
         $keys = $this->getPrimaryKey($tablename);
         if (count($keys) === 1 && $keys[0] === 'id') {
@@ -112,17 +116,17 @@ class DbmanagerController extends AppController {
             $sql = 'update '.$tablename.' set '.$setValue.' where '.$where;
             $model->query($sql);
         }
+        return $data;
     }
 
-    public function create ($tablename) {
+    public function create () {
         $this->checkLogin();
-        if ($this->request->is('post')) {
-            $data = $this->request->data;
-            $data['created'] = date('Y-m-d H:i:s');
-            $data['created_by'] = $this->user_id;
-            $data['modified'] = date('Y-m-d H:i:s');
-            $data['modified_by'] = $this->user_id;
-        }
+        $tablename = $this->request->data['tablename'];
+        $data = $this->request->data;
+        $data['created'] = date('Y-m-d H:i:s');
+        $data['created_by'] = $this->user_id;
+        $data['modified'] = date('Y-m-d H:i:s');
+        $data['modified_by'] = $this->user_id;
         $model = $this->_getClassModel($tablename);
         $model->create();
         $model->save($data);
