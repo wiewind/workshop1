@@ -19,20 +19,6 @@ Ext.define ('WWS.view.worknotes.NaviPanelController', {
     },
 
     renderStatus: function (value, metaData, record) {
-        // var imgPath = '';
-        // if (!record.get('hasRelease')) {
-        //     imgPath = Cake.image.path + '/star_empty_14.png';
-        // } else if (record.get('waitRelease')) {
-        //     imgPath = Cake.image.path + '/star_half_14.png';
-        // } else {
-        //     imgPath = Cake.image.path + '/star_full_14.png';
-        // }
-        // if (record.get('id') == 256) {
-        //     console.log(record);
-        //     console.log(imgPath);
-        // }
-        // return (imgPath) ? '<img src="' + imgPath + '" />' : '';
-
         if (!record.get('hasRelease')) {
             return 'x-fa fa-star-o';
         } else if (record.get('waitRelease')) {

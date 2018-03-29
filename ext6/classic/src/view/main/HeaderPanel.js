@@ -76,7 +76,7 @@ Ext.define ('WWS.view.main.HeaderPanel', {
                 ]
             },
             {
-                xtype: 'textfield',
+                xtype: 'searchfield',
                 name: 'searchtext',
                 flex: 1,
                 minWidth: 200,
@@ -86,7 +86,8 @@ Ext.define ('WWS.view.main.HeaderPanel', {
                             me.getController().onSearch();
                         }
                     }
-                }
+                },
+                onClickSearch: 'onSearch'
             },
             {
                 xtype: 'radiogroup',
@@ -121,13 +122,13 @@ Ext.define ('WWS.view.main.HeaderPanel', {
                         checked: checkEn
                     }
                 ]
-            },
-            {
-                xtype: 'button',
-                iconCls: 'x-fa fa-search',
-                text: T.__("Search"),
-                tooltip: T.__("Search"),
-                handler: 'onSearch'
+            // },
+            // {
+            //     xtype: 'button',
+            //     iconCls: 'x-fa fa-search',
+            //     text: T.__("Search"),
+            //     tooltip: T.__("Search"),
+            //     handler: 'onSearch'
             }
         ];
     }

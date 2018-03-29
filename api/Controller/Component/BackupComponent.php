@@ -64,8 +64,6 @@ Class BackupComponent extends Component {
     }
 
     protected function _backupDB ($time) {
-        $dataSourceName = 'default';
-
         $path = $this->getFilePhysicPath() . DS . $time . DS;
         GlbF::mkDir($path);
 
@@ -102,7 +100,7 @@ Class BackupComponent extends Component {
         if ($tables) {
             foreach($tables as $table) {
                 $this->_getTableCreateStatement($table, $db, $File);
-                $this->_getTableDataStatement($table, $File);
+                $this->_getTableDataStatement($table, $db, $File);
 
                 $File->write("\n");
             }
@@ -134,39 +132,39 @@ Class BackupComponent extends Component {
         $File->write($str);
     }
 
-    protected function _getTableDataStatement ($tablename, $File) {
-        $model = ClassRegistry::init(Inflector::classify($tablename));
-        $model->useTable = $tablename;
-        $model->tablePrefix = '';
-        $count = $model->find('count');
+    protected function _getTableDataStatement ($tablename, $dataSource, $File) {
+        $dbinfo = $dataSource->describe($tablename);
 
-        if ($count > 0) {
-            $File->write("\n\n--\n".
-                "-- Dumping data for table `{$tablename}`\n".
-                "--\n");
-            $this->__writeTableData($model, $File);
+        $fields = array_keys($dbinfo);
+
+        for ($i=0; $i<count($fields); $i++) {
+            $fields[$i] = "`{$fields[$i]}`";
         }
+
+        $File->write("\n\n--\n".
+            "-- Dumping data for table `{$tablename}`\n".
+            "--\n");
+        $this->__writeTableData($tablename, $fields, $dataSource, $File);
     }
 
-    private function __writeTableData ($model, $File, $page = 1) {
+    private function __writeTableData ($tablename, $fields, $dataSource, $File, $page = 1) {
         $limit = Configure::read('system.backup.count_pro_insert');
-        $data = $model->find('all', array(
-            'page' => $page,
-            'limit' => $limit,
-        ));
-        $modelName = Inflector::classify($model->useTable);
+        $start = $limit * ($page - 1);
+        $selSql = 'select ' . implode(', ', $fields) . ' from `' . $tablename . "` limit $start, $limit;";
+        $data = $dataSource->query($selSql);
         if ($data) {
+
             $fields = [];
-            foreach ($data[0][$modelName] as $key => $value) {
+            foreach ($data[0][$tablename] as $key => $value) {
                 $fields[] = "`{$key}`";
             }
 
-            $out = "INSERT INTO `".$model->useTable."` (" . implode(', ', $fields) . ") VALUES\n";
+            $out = "INSERT INTO `".$tablename."` (" . implode(', ', $fields) . ") VALUES\n";
 
             $records = [];
             foreach ($data as $i => $d) {
                 $values = [];
-                foreach ($d[$modelName] as $key => $value) {
+                foreach ($d[$tablename] as $key => $value) {
                     $values[] = "'" . str_replace("'", "\\'", $value) . "'";
                 }
                 $records[] = "(" . implode(', ', $values) . ")";
@@ -175,7 +173,7 @@ Class BackupComponent extends Component {
 
             $File->write($out);
 
-            $this->__writeTableData($model, $File, ($page+1));
+            $this->__writeTableData($tablename, $fields, $dataSource, $File, ($page+1));
         }
     }
 
@@ -218,8 +216,6 @@ Class BackupComponent extends Component {
         $zip = new ZipArchive();
         $flag = $zip->open($file, ZipArchive::CREATE);
         if($flag!==true){
-            echo "open error code: {$flag}\n";
-            exit();
             ErrorCode::throwException(__('open error code: ') + $flag, ErrorCode::ErrorCodeServerInternal);
         }
 
@@ -242,11 +238,12 @@ Class BackupComponent extends Component {
         $webPath = $webPath . $path;
 
         if (is_dir($webPath)) {
-            $handler = opendir($webPath);
+            $dirs = scandir($webPath, 1);
             if (substr($webPath, strlen($webPath)-1,  1) != DS) {
                 $webPath .= DS;
             }
-            while (($filename = readdir($handler)) !== false) {
+
+            foreach ($dirs as $filename) {
                 if ($filename === '.' || $filename === '..') continue;
                 $relativeFilePath = ($path) ? $path . DS . $filename : $filename;
                 if (in_array($relativeFilePath, $projectInfo['exception'])) {
@@ -255,7 +252,6 @@ Class BackupComponent extends Component {
                     $this->_addFileToZip($relativeFilePath, $zip, $projectInfo);
                 }
             }
-            @closedir($handler);
         } else if (file_exists($webPath)) {
             $zip->addFile($webPath, $path);
         }

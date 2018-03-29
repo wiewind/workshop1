@@ -44,6 +44,7 @@ class AdminController extends AppController
 
     function backup () {
         $this->checkLogin();
+        set_time_limit(600);
         $hashaction = str_replace($this->request->params['controller'].'/'.$this->request->params['action'].'/', '', $this->request->url);
         if ($hashaction) {
             $hashaction = $this->Auth->decodeHashAction($hashaction);

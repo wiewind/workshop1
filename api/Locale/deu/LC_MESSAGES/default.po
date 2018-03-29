@@ -1725,3 +1725,9 @@ msgstr "Diese Anwendung hat ein Update, jetzt neu laden!"
 
 msgid "Please select a tabale!"
 msgstr "Bitte wählen Sie eine Tabelle aus!"
+
+msgid "Please upload a file!"
+msgstr "Bitte laden Sie eine Datei hoch!"
+
+msgid "The attachment does not exist!"
+msgstr "Der Anhang existiert nicht!"

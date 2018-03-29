@@ -1726,11 +1726,11 @@ msgstr "有一个应用更新可用，现在重新启动！"
 msgid "Please select a tabale!"
 msgstr "请选择一个表格"
 
-msgid ""
-msgstr ""
+msgid "Please upload a file!"
+msgstr "请上传一份文件！"
 
-msgid ""
-msgstr ""
+msgid "The attachment does not exist!"
+msgstr "该附件不存在！"
 
 msgid ""
 msgstr ""

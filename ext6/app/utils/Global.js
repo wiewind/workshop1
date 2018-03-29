@@ -94,7 +94,7 @@ Ext.define('WWS.utils.Global', {
             Glb.common.unmask();
         };
 
-        var waitMsg = (config.waitMsg) ? config.waitMsg : T.__('loading...')
+        var waitMsg = (config.waitMsg) ? config.waitMsg : T.__('loading...');
         Glb.common.mask(waitMsg);
         Ext.Ajax.request(options);
     },
@@ -124,7 +124,7 @@ Ext.define('WWS.utils.Global', {
                 component = Ext.getCmp('appmain');
             }
 
-            if (component) component.mask(msg);
+            if (component && component.wtype === 'classic') component.mask(msg);
         },
 
         unmask: function (component) {

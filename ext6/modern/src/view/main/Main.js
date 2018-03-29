@@ -22,6 +22,8 @@ Ext.define('WWS.view.main.Main', {
     controller: 'main',
     viewModel: 'main',
 
+    wtype: 'modern',
+
     config: {
         id: 'appmain',
         // fullscreen: true,
