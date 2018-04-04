@@ -26,16 +26,12 @@ Ext.define('WWS.view.jobapplications.edit.PanelController', {
     },
 
     submitSuccess: function (form, action) {
-        var view = this.getView(),
-            result = Ext.decode(options.response.responseText),
-            job_id = result.data.id;
-
-        view.jobId = job_id;
+        var view = this.getView();
         if (view.callbackFn) {
             view.callbackFn();
         }
-
-        ABox.success(T.__("Mailsetting saved."));
+        ABox.success(T.__("Job saved."));
+        view.close();
     },
 
     onClickCancel: function () {

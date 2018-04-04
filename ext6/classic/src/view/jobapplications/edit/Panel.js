@@ -6,6 +6,9 @@ Ext.define ('WWS.view.jobapplications.edit.Panel', {
     xtype: 'jobapplicationseditpanel',
 
     requires: [
+        'WWS.view.jobapplications.edit.JobAttachmentsGrid',
+        'WWS.view.jobapplications.edit.JobStatusGrid',
+
         'WWS.view.jobapplications.edit.PanelController',
         'WWS.view.jobapplications.edit.PanelViewModel'
     ],
@@ -17,7 +20,7 @@ Ext.define ('WWS.view.jobapplications.edit.Panel', {
     job_id: 0,
 
     input: {
-        url: Cake.api.path + '/jobapplications/json/saveJob'
+        url: Cake.api.path + '/jobapplications/transjson/saveJob'
     },
 
     config: {
@@ -295,16 +298,20 @@ Ext.define ('WWS.view.jobapplications.edit.Panel', {
     },
 
     buildAttachments: function () {
-        // return Ext.create('WWS.view.jobapplications.edit.JobAttachmentsGrid', {
-        //     job_id: this.job_id
-        // });
+        var vm = this.getViewModel();
+        return Ext.create('WWS.view.jobapplications.edit.JobAttachmentsGrid', {
+            viewModel: {
+                parent: vm
+            }
+        });
     },
 
     buildStatus: function () {
-        // if (this.job_id > 0) {
-        //     return Ext.create('WWS.view.jobapplications.edit.JobStatusGrid', {
-        //         job_id: this.job_id
-        //     });
-        // }
+        var vm = this.getViewModel();
+        return Ext.create('WWS.view.jobapplications.edit.JobStatusGrid', {
+            viewModel: {
+                parent: vm
+            }
+        });
     }
 });

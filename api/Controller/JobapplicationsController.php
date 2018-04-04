@@ -21,7 +21,81 @@ class JobapplicationsController extends AppController {
     }
 
     private function __getFilePhysicRoot () {
-        return realpath($_SERVER['DOCUMENT_ROOT'] . Configure::read('system.jobattachment.root'));
+
+        return realpath($_SERVER['DOCUMENT_ROOT'] . $this->__getFileRoot());
+    }
+
+    function showAttachmentFile ($att_id, $user_id = 0) {
+        $this->autoRender = false;
+        try {
+            $this->checkLogin();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+            return;
+        }
+
+        if (!$user_id) $user_id = $this->user_id;
+
+        $data = $this->JobapplicationsAttachment->find('first', [
+            'conditions' => [
+                'id' => $att_id,
+                'user_id' => $user_id
+            ]
+        ]);
+
+        if (!$data) {
+            echo ErrorCode::getExceptionMessage(ErrorCode::ErrorCodeBadRequest);
+            return;
+        }
+
+        $data = $data['JobapplicationsAttachment'];
+
+        $physicFile = $this->__getFilePhysicRoot() . DS .  $user_id . DS . $data['file'];
+        $urlFile = Configure::read('system.url') . $this->__getFileRoot() . '/' . $user_id . '/' . $data['file'];
+        if (!file_exists($physicFile)) {
+            echo __('This file does not exist.');
+            return;
+        }
+
+        $suffix = GlbF::getFileSuffix($data['file']);
+
+        $this->set('suffix', $suffix);
+        $this->set('filename', $physicFile);
+        $this->set('frameurl', $urlFile);
+        $this->layout = 'viewer';
+        switch ($suffix) {
+            case 'pdf':
+                $this->render('/Display/pdfshow');
+                break;
+            case 'bmp':
+            case 'jpg':
+            case 'jpeg':
+            case 'gif':
+            case 'png':
+                $this->render('/Display/picshow');
+                break;
+            case 'xls':
+            case 'doc':
+            case 'xlsx':
+            case 'docx':
+            case 'ppt':
+            case 'pptx':
+                $this->render('/Display/msoshow');
+                break;
+            case 'txt':
+            case 'js':
+            case 'php':
+            case 'html':
+            case 'htm':
+            case 'asp':
+            case 'html':
+                $this->set('frameurl', $physicFile);
+                $this->render('/Display/txtshow');
+                break;
+            default:
+                $this->render('/Display/noshow');
+                break;
+        }
     }
 
     function getJobList () {
@@ -203,7 +277,7 @@ class JobapplicationsController extends AppController {
         $this->JobapplicationsAttachment->delete($id);
     }
 
-    function getJobAttachments ($job_id) {
+    function getJobAttachments () {
         $this->checkLogin();
         $this->JobapplicationsJobsAttachment->bindModel(array(
             'belongsTo' => array(
@@ -216,7 +290,7 @@ class JobapplicationsController extends AppController {
 
         $data = $this->JobapplicationsJobsAttachment->find('all', array(
             'conditions' => array(
-                'job_id' => $job_id
+                'job_id' => $this->request->data['job_id']
             ),
             'order' => 'JobapplicationsAttachment.name'
         ));
@@ -247,8 +321,9 @@ class JobapplicationsController extends AppController {
         return $data;
     }
 
-    function getJobStatus ($job_id) {
+    function getJobStatus () {
         $this->checkLogin();
+        $job_id = $this->request->data['job_id'];
         $total = $this->JobapplicationsTrack->find('count', array(
             'conditions' => array(
                 'job_id' => $job_id
@@ -277,24 +352,31 @@ class JobapplicationsController extends AppController {
         ];
     }
 
-    function deleteJobStatus ($track_id) {
+    function deleteJobStatus () {
         $this->checkLogin();
+        $track_id = $this->request->data['track_id'];
         $this->JobapplicationsTrack->delete($track_id);
     }
 
     function  saveJobStatus () {
         $this->checkLogin();
-        if ($this->request->is('post')) {
-            $data = $this->request->data;
+        $data = $this->request->data;
 
-            if (isset($data['id'])) {
-                if ($data['id'] == 0) unset($data['id']);
-            }
+        $saveData = [
+            'job_id' => $data['job_id'],
+            'statustype_id' => $data['status_id'],
+            'date' => date('Y-m-d H:i:s'),
+            'notice' => $data['notice']
+        ];
 
-            $data['date'] = date('Y-m-d H:i:s');
-
-            $this->JobapplicationsTrack->save($data);
+        if (isset($data['id']) && $data['id'] > 0) {
+            $saveData['id'] = $data['id'];
+        } else {
+            $this->JobapplicationsTrack->create();
         }
+
+        $this->JobapplicationsTrack->save($saveData);
+        return $saveData;
     }
 
     function getStatustypes () {
@@ -321,48 +403,55 @@ class JobapplicationsController extends AppController {
         // Job Info
 
         $data = $this->request->data;
-        $data['job']['user_id'] = $this->user_id;
+        $data['user_id'] = $this->user_id;
 
         $date = date('Y-m-d H:i:s');
 
-        $data['job']['created_by'] = $this->user_id;
-        $data['job']['modified_by'] = $this->user_id;
+        $data['modified_by'] = $this->user_id;
 
         $isNew = false;
-        if ($data['job']['id'] == 0) {
+        if ($data['id'] == 0) {
             $this->JobapplicationsJob->create();
+            $data['created_by'] = $this->user_id;
             $isNew = true;
+            unset($data['id']);
         }
-        $this->JobapplicationsJob->save($data['job']);
-        if ($isNew) {
-            $data['job']['id'] = $this->JobapplicationsJob->getLastInsertID();
+        $this->JobapplicationsJob->save($data);
 
-            // Status
-            $this->JobapplicationsTrack->create();
-            $this->JobapplicationsTrack->save(array(
-                'job_id' => $data['job']['id'],
-                'statustype_id' => 1,
-                'date' => $date
-            ));
+        if (!$isNew) {
+            return $data;
         }
+
+        $data['id'] = $this->JobapplicationsJob->getLastInsertID();
+
+        // Status
+        $this->JobapplicationsTrack->create();
+        $this->JobapplicationsTrack->save(array(
+            'job_id' => $data['id'],
+            'statustype_id' => 1,
+            'date' => $date
+        ));
 
         // Attachments
-        if ($isNew && $data['attc']) {
+        if ($data['attc']) {
             foreach ($data['attc'] as $att) {
                 $this->JobapplicationsJobsAttachment->create();
                 $this->JobapplicationsJobsAttachment->save(array(
-                    'job_id' => $data['job']['id'],
+                    'job_id' => $data['id'],
                     'attachment_id' => $att
                 ));
             }
         }
 
         // send email
-        if ($isNew && $data['job']['email']) {
-            list($mailsend, $message) = $this->_sendmail($data['job']);
+        if ($data['email']) {
+            list($mailsend, $message) = $this->_sendmail($data);
+
+            $data['mailsend']['status'] = $mailsend;
+            $data['mailsend']['message'] = $message;
         }
 
-        return $mailsend;
+        return $data;
     }
 
     protected function _sendmail ($jobinfo) {
@@ -399,7 +488,7 @@ class JobapplicationsController extends AppController {
             if ($jobAttachments) {
                 $attcs = array();
                 foreach ($jobAttachments as $key => $attc) {
-                    $file = $this->JobapplicationsAttachment->getFilePath($attc);
+                    $file = $this->__getFilePhysicRoot() . DS . $this->JobapplicationsAttachment->getFilePath($attc);
                     $attcs[$attc['JobapplicationsAttachment']['file']] = array(
                         'file' => $file,
                         'mimetype' => mime_content_type($file),
@@ -419,7 +508,7 @@ class JobapplicationsController extends AppController {
             ));
 
             $Email->reset();
-            $Email->from(Configure::read('email.admin'));
+            $Email->from(Configure::read('system.email.admin'));
             $Email->to(array($mailsetting['JobapplicationsMailsetting']['email']));
             $Email->subject('Du hast eine Bewerbung ausgeschickt: ' . $jobinfo['jobname']);
             $Email->emailFormat('html');
@@ -439,19 +528,20 @@ class JobapplicationsController extends AppController {
         }
     }
 
-    function sendMail ($job_id) {
+    function sendMail () {
         $this->checkLogin();
         // Job Info
+        $job_id = $this->request->data['job_id'];
         $data = $this->JobapplicationsJob->findById($job_id);
-
         // send email
         if ($data['JobapplicationsJob']['email']) {
             $this->_sendmail($data['JobapplicationsJob']);
         }
     }
 
-    function deleteJob ($job_id) {
+    function deleteJob () {
         $this->checkLogin();
+        $job_id = $this->request->data['job_id'];
         $this->JobapplicationsTrack->deleteAll(array('job_id' => $job_id));
         $this->JobapplicationsJobsAttachment->deleteAll(array('job_id' => $job_id));
         $this->JobapplicationsJob->delete($job_id);

@@ -70,7 +70,7 @@ Ext.define ('WWS.view.jobapplications.attachment.Grid', {
             flex: 1,
             dataIndex: 'name',
             renderer: function(v, meta, rec){
-                return '<a href="'+ Cake.jobattachment.root +'/' + rec.get('user_id') + '/' + rec.get('file') + '" target="_blank">' + v + '</a>';
+                return '<a href="' + Cake.api.path + '/jobapplications/showAttachmentFile/' + rec.get('id') + '" target="_blank">' + v + '</a>';
             }
         },
         {

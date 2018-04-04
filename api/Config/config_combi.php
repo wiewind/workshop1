@@ -14,8 +14,8 @@ $config['system']['projUrl'] = $config['system']['url'] . '/' . $config['system'
 $config['system']['api']['path']            = '/' . $config['system']['path'] . '/' . $config['system']['api']['dirname'];
 $config['system']['app']['path']            = '/' . $config['system']['path'] . '/' . $config['system']['app']['dirname'];
 $config['system']['resources']['path']      = '/' . $config['system']['path'] . '/' . $config['system']['resources']['dirname'];
-$config['system']['cdata']['path']          = '/' . $config['system']['path'] . '/' . $config['system']['cdata']['dirname'];
-$config['system']['tmp']['path']            = '/' . $config['system']['path'] . '/' . $config['system']['tmp']['dirname'];
+$config['system']['cdata']['path']          = $config['system']['cdata']['dirname'];
+$config['system']['tmp']['path']            = $config['system']['tmp']['dirname'];
 
 $config['system']['image']['path']          = $config['system']['resources']['path'] . '/' . $config['system']['image']['dirname'];
 $config['system']['image']['logo']          = $config['system']['image']['path'] . '/' . $config['system']['image']['logoFile'];

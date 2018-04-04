@@ -1,4 +1,6 @@
 <?php
+
+
 if (strpos($_SERVER['HTTP_HOST'], 'local') === false && (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS']!=='on')) {
     header('Location: https://'.$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
 }

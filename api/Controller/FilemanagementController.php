@@ -434,6 +434,7 @@ class FilemanagementController extends AppController {
             if ($file) {
                 $savefile = $this->__getFileRoot().'/'.$file['FilemanagementFolder']['path'].'/'.$file['FilemanagementFile']['name'];
                 $file_path = $_SERVER['DOCUMENT_ROOT'] . $savefile;
+
                 if (!file_exists($file_path)) {
                     throw new Exception(__('This file does not exist.'));
                 } else {
@@ -450,14 +451,14 @@ class FilemanagementController extends AppController {
                         switch ($suffix) {
                             case 'pdf':
 //                                $this->set('frameurl', $file_path);
-                                $this->render('pdfshow');
+                                $this->render('/Display/pdfshow');
                                 break;
                             case 'bmp':
                             case 'jpg':
                             case 'jpeg':
                             case 'gif':
                             case 'png':
-                                $this->render('picshow');
+                                $this->render('/Display/picshow');
                                 break;
                             case 'xls':
                             case 'doc':
@@ -465,7 +466,7 @@ class FilemanagementController extends AppController {
                             case 'docx':
                             case 'ppt':
                             case 'pptx':
-                                $this->render('msoshow');
+                                $this->render('/Display/msoshow');
                                 break;
                             case 'txt':
                             case 'js':
@@ -475,10 +476,10 @@ class FilemanagementController extends AppController {
                             case 'asp':
                             case 'html':
                                 $this->set('frameurl', $file_path);
-                                $this->render('txtshow');
+                                $this->render('/Display/txtshow');
                                 break;
                             default:
-                                $this->render('noshow');
+                                $this->render('/Display/noshow');
                                 break;
                         }
                     }

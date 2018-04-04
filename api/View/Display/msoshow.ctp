@@ -1,0 +1,1 @@
+<iframe src="https://view.officeapps.live.com/op/embed.aspx?src=<?= $frameurl ?>" width="100%" height="100%" frameborder="0" ></iframe>

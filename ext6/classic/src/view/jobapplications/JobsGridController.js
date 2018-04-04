@@ -9,7 +9,7 @@ Ext.define('WWS.view.jobapplications.JobsGridController', {
     onItemSelect: function (grid, record) {
         var grid = this.getView();
         grid.down('[itemId="editBtn"]').enable();
-        if (record.get('statustype_id') > 1) {
+        if (record.get('statustype_id') > 1 || !record.get('email')) {
             grid.down('[itemId="sendBtn"]').disable();
         } else {
             grid.down('[itemId="sendBtn"]').enable();
@@ -57,11 +57,49 @@ Ext.define('WWS.view.jobapplications.JobsGridController', {
     },
 
     onClickSendEmail: function () {
-
+        var view = this.getView(),
+            records = view.getSelectionModel().getSelection();
+        if (records.length === 1) {
+            var rec = records[0];
+            if (rec.get('email_applied')) {
+                ABox.error(T.__('This mail was send'));
+            } else if (rec.get('statustype_id') > 1) {
+                APP.MBox.error(T.__("The mail applied was gone."));
+            } else {
+                Glb.Ajax({
+                    url: Cake.api.path + '/jobapplications/json/sendMail',
+                    params: {
+                        job_id: rec.get('id')
+                    },
+                    success: function(response){
+                        view.getStore().reload();
+                        ABox.success(T.__("Mail sended."));
+                    }
+                });
+            }
+        }
     },
 
     onClickDelete: function () {
-
+        var view = this.getView(),
+            records = view.getSelectionModel().getSelection();
+        if (records.length === 1) {
+            ABox.confirm(
+                T.__("Are you sure you want to delete the job?"),
+                function () {
+                        Glb.Ajax({
+                            url: Cake.api.path + '/jobapplications/json/deleteJob',
+                            params: {
+                                job_id: records[0].get('id')
+                            },
+                            success: function(response){
+                                view.getStore().reload();
+                                ABox.success(T.__("Job deleted."));
+                            }
+                        });
+                }
+            );
+        }
     },
 
     onClickEmailSetting: function () {

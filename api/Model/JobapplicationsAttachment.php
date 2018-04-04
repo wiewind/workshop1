@@ -13,7 +13,7 @@ class JobapplicationsAttachment extends AppModel {
             $data = $this->findById($data);
         }
         if ($data) {
-            return Configure::read('jobattachment.root').'/'.$data['JobapplicationsAttachment']['user_id'].'/'.$data['JobapplicationsAttachment']['file'];
+            return $data['JobapplicationsAttachment']['user_id'].'/'.$data['JobapplicationsAttachment']['file'];
         }
         return false;
     }

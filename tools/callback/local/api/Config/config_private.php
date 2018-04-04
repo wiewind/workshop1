@@ -9,8 +9,4 @@
 $config['system']['name'] = 'Wiewind Studio';
 
 $config['system']['domain'] = $_SERVER['HTTP_HOST'];
-$config['system']['path'] = 'apps/workshop1';
-
-
-$config['system']['filemanagement']['dirname'] = '../../workshop/webroot/fmroot';
-$config['system']['jobattachment']['root']  = '../../workshop/webroot/jobattachment';
+$config['system']['app']['dirname'] = 'ext6';
