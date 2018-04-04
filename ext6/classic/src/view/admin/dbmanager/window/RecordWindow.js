@@ -15,14 +15,13 @@ Ext.define ('WWS.view.admin.dbmanager.window.RecordWindow', {
     },
 
     input: {
-        url: Cake.api.path + '/dbmanager/json/create'
+        url: Cake.api.path + '/dbmanager/json/save'
     },
 
     config: {
         bind: {
-            title: Wiewind.String.sprintf('{getTitle}', '{tablename}')
+            title: '{getTitle}'
         },
-        iconCls: Glb.btnSetting.newIconCls,
         maxHeight: 300,
         width: 600,
         scrollable: true
@@ -32,6 +31,7 @@ Ext.define ('WWS.view.admin.dbmanager.window.RecordWindow', {
         var me = this,
             vm = this.getViewModel(),
             dataConfig = vm.get('dataConfig'),
+            keys = vm.get('keys');
             formItems = [
                 {
                     xtype: 'hiddenfield',
@@ -44,6 +44,22 @@ Ext.define ('WWS.view.admin.dbmanager.window.RecordWindow', {
         Ext.Object.each(dataConfig, function(key, value, myself) {
             if (!Wiewind.Array.in_array(key, ['id', 'created', 'created_by', 'modified', 'modified_by'])) {
                 formItems.push(DMF.buildEditor(value, key));
+            }
+
+            if (Wiewind.Array.in_array(key, keys) && !vm.get('newRocord')) {
+                formItems.push({
+                    xtype: 'hiddenfield',
+                    name: 'conditions['+key+']',
+                    value: vm.get(key)
+                });
+            }
+        });
+
+        formItems.push({
+            xtype: 'hiddenfield',
+            name: 'isNewRecord',
+            bind: {
+                value: '{newRocord}'
             }
         });
 

@@ -14,7 +14,6 @@ Ext.define('WWS.view.jobapplications.edit.JobStatusGridController', {
     onCellEdit: function (editor, context) {
         var vm = this.getViewModel(),
             rec = context.record;
-        cont = context;
         Glb.Ajax({
             url: Cake.api.path + '/jobapplications/json/saveJobStatus',
             params: rec.getData(),

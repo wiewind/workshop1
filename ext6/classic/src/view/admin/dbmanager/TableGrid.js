@@ -19,20 +19,19 @@ Ext.define ('WWS.view.admin.dbmanager.TableGrid', {
             title: T.__("Resource") + ': ' + '{tablename}',
             store: '{recordsStore}'
         },
-        // closable: true,
         scrollable: true,
         forceFit: true,
         border: 1,
-        selType: 'rowmodel',
-        plugins: {
-            rowediting: {
-                clicksToEdit: 1,
-                // autoUpdate: true
-                listeners: {
-                    edit: 'onCellEdit'
-                }
-            }
-        },
+
+        // plugins: [
+        //     Ext.create("Ext.grid.plugin.CellEditing", {
+        //         clicksToEdit: 1,
+        //         listeners: {
+        //             edit: 'onCellEdit'
+        //         }
+        //     })
+        // ],
+        // selType: 'cellmodel',
 
         bbar: {
             xtype: 'pagingtoolbar',
@@ -47,13 +46,29 @@ Ext.define ('WWS.view.admin.dbmanager.TableGrid', {
                 tooltip: Glb.btnSetting.newText,
                 iconCls: Glb.btnSetting.newIconCls,
                 handler: 'onClickNew'
+            },
+            {
+                text: Glb.btnSetting.editText,
+                tooltip: Glb.btnSetting.editText,
+                iconCls: Glb.btnSetting.editIconCls,
+                itemId: 'editBtn',
+                disabled: true,
+                handler: 'onClickEdit'
+            },
+            {
+                text: Glb.btnSetting.deleteText,
+                tooltip: Glb.btnSetting.deleteText,
+                iconCls: Glb.btnSetting.deleteIconCls2,
+                itemId: 'deleteBtn',
+                disabled: true,
+                handler: 'onClickDelete'
             }
         ]
     },
 
     initComponent: function () {
-        var me = this,
-            vm = this.getViewModel(),
+        var vm = this.getViewModel(),
+            tablename = vm.get('tablename'),
             dataConfig = vm.get('dataConfig'),
             keys = vm.get('keys'),
             store = vm.getStore('recordsStore'),
@@ -69,9 +84,6 @@ Ext.define ('WWS.view.admin.dbmanager.TableGrid', {
                 text: key,
                 dataIndex: key
             };
-            if (!Wiewind.Array.in_array(key, keys)) {
-                col.editor = DMF.buildEditor(value);
-            }
             col.renderer = function(v, meta, rec) {
                 if (!v && value.type !== 'boolean') {
                     return '';
@@ -88,23 +100,17 @@ Ext.define ('WWS.view.admin.dbmanager.TableGrid', {
             columns.push(col);
         });
 
-        columns.push({
-            xtype:'actioncolumn',
-            width:30,
-            items: [
-                {
-                    iconCls: 'x-fa fa-minus-circle red',
-                    tooltip: T.__("Delete"),
-                    handler: 'onClickDelete'
-                }
-            ]
-        });
-
         this.columns = columns;
+
         store.setFields(fields);
 
 
         this.callParent();
         store.load();
+    },
+
+    listeners: {
+        select: 'onItemSelect',
+        itemdblclick: 'onItemDblClick'
     }
 });

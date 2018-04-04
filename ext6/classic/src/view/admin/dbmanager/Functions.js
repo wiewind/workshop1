@@ -6,6 +6,7 @@ Ext.define('WWS.view.admin.dbmanager.Functions', {
     alternateClassName: ['DMF'],
 
     buildEditor: function (field, lable) {
+        lable = lable || false;
         var editor;
         switch (field.type ) {
             case 'boolean':
@@ -17,8 +18,8 @@ Ext.define('WWS.view.admin.dbmanager.Functions', {
                             {name: 'value'}
                         ],
                         data : [
-                            {name: 'true', value: true},
-                            {name: 'false', value: false}
+                            {name: T.__('true'), value: true},
+                            {name: T.__('false'), value: false}
                         ]
 
                     }),
@@ -41,14 +42,20 @@ Ext.define('WWS.view.admin.dbmanager.Functions', {
                 };
                 break;
         }
+        editor = Ext.apply(editor, {
+            bind: {
+                value: '{' + lable + '}'
+            }
+        });
+
         if (lable) {
-            editor = Ext.apply({
+            editor = Ext.apply(editor, {
                 name: lable,
                 hiddenName: lable,
                 fieldLabel: lable,
                 labelStyle: 'font-weight: bold; padding: 5px',
                 padding: '5'
-            }, editor);
+            });
         }
         return editor;
     }

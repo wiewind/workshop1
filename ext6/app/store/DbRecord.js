@@ -9,11 +9,6 @@ Ext.define('WWS.store.DbRecord', {
     ],
     autoSync: true,
     proxy: {
-        api: {
-            read: Cake.api.path + '/dbmanager/json/getTableDaten',
-            update: Cake.api.path + '/dbmanager/json/update',
-            create: Cake.api.path + '/dbmanager/json/create',
-            destroy: Cake.api.path + '/dbmanager/json/delete'
-        }
+        url: Cake.api.path + '/dbmanager/json/getTableDaten'
     }
 });

@@ -31,9 +31,6 @@ Ext.define ('WWS.view.admin.dbmanager.DbmanagerPanel', {
             itemId: 'dbmanagerMainPanel',
             region: 'center',
             layout: 'fit',
-            bodyStyle: {
-                background: '#dfe9f6'
-            },
             items: [
                 {
                     padding: '20 0 0 0',

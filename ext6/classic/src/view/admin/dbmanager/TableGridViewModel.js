@@ -22,11 +22,11 @@ Ext.define('WWS.view.admin.dbmanager.TableGridViewModel', {
                         tablename = grid.getViewModel().get('tablename');
                     grid.getStore().setExtraParams({'tablename': tablename});
                 },
-
-                beforesync: function () {
-                    var grid = Ext.ComponentQuery.query('admindbmanagertablegrid')[0],
-                        tablename = grid.getViewModel().get('tablename');
-                    grid.getStore().setExtraParam({'tablename': tablename});
+                load: function () {
+                    var grid = Ext.ComponentQuery.query('admindbmanagertablegrid')[0];
+                    grid.down('[itemId="editBtn"]').disable();
+                    grid.down('[itemId="deleteBtn"]').disable();
+                    grid.setSelection();
                 }
             }
         }

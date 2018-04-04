@@ -1732,11 +1732,11 @@ msgstr "请上传一份文件！"
 msgid "The attachment does not exist!"
 msgstr "该附件不存在！"
 
-msgid ""
-msgstr ""
+msgid "New Record of %s"
+msgstr "为%s创建记录"
 
-msgid ""
-msgstr ""
+msgid "Record of %s"
+msgstr "%s的记录"
 
 msgid ""
 msgstr ""

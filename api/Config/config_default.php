@@ -58,13 +58,10 @@ $config['system']['backup']['projects'] = [
     'sql' => false,
     'studio' => [
         'path' => '',
-        'exception' => ['_backups', '_datei', 'apps']
+        'exception' => ['__data__', '_backups', '_datei', 'apps']
     ],
     'workshop' => [
         'path' => 'apps/workshop/'
-    ],
-    'workshop1' => [
-        'path' => 'apps/workshop1/'
     ],
     'shop' => [
         'path' => 'apps/shop/'
@@ -77,10 +74,13 @@ $config['system']['backup']['projects'] = [
     ],
     'apps' => [
         'path' => 'apps/',
-        'exception' => ['workshop', 'workshop1', 'shop', 'ischool', 'ischool_1', 'new_project']
+        'exception' => ['workshop', 'workshop_0', 'shop', 'ischool', 'ischool_1', 'new_project']
     ],
     '_datei' => [
         'path' => '_datei/'
+    ],
+    '__data__' => [
+        'path' => '__data__/'
     ]
 ];
 

@@ -90,47 +90,52 @@ class DbmanagerController extends AppController {
         return $keys;
     }
 
-    public function update () {
+    public function save () {
         $this->checkLogin();
-        $tablename = $this->request->data['tablename'];
-
         $data = $this->request->data;
-        $data['modified'] = date('Y-m-d H:i:s');
-        $data['modified_by'] = $this->user_id;
 
+        $tablename = $data['tablename'];
+        unset($data['tablename']);
         $model = $this->_getClassModel($tablename);
-        $keys = $this->getPrimaryKey($tablename);
-        if (count($keys) === 1 && $keys[0] === 'id') {
-            $model->save($data);
+        $db = $model->getDataSource();
+        $tables = $db->listSources();
+        if ($tables && in_array($tablename, $tables)) {
+            $tableInfo = $db->describe($tablename);
         } else {
-            $setValue = '';
-            foreach ($data as $feld => $value) {
-                if ($setValue) $setValue .= ', ';
-                $setValue .= $feld.' = "'.$value.'"';
+            ErrorCode::throwException(__('DB error!'));
+        }
+
+        $conditions = $data['conditions'];
+        unset($data['conditions']);
+        $isNewRecord = isset($data['isNewRecord']) && ($data['isNewRecord'] === 'true');
+        unset($data['isNewRecord']);
+
+        if (array_key_exists('modified', $tableInfo)) $data['modified'] = date('Y-m-d H:i:s');
+        if (array_key_exists('modified_by', $tableInfo)) $data['modified_by'] = $this->user_id;
+
+        if ($isNewRecord) {
+            if (array_key_exists('created', $tableInfo)) $data['created'] = date('Y-m-d H:i:s');
+            if (array_key_exists('created_by', $tableInfo)) $data['created_by'] = $this->user_id;
+            if (isset($data['id'])) unset($data['id']);
+            $model->create();
+            $model->save($data);
+            $data['id'] = $model->id;
+        } else if ($conditions) {
+            $sql = 'update ' . $tablename . ' set ';
+
+            foreach ($data as $key => $value) {
+                $sql .= '`'.$key.'` = "' . str_replace('"', '\\"', $value) . '", ';
             }
-            $where = '';
-            foreach ($keys as $key) {
-                if ($where) $where .= ' and ';
-                $where .= $key.' = '.$data[$key];
+            $sql = substr($sql, 0, strlen($sql)-2) . ' where ';
+
+            foreach ($conditions as $key => $value) {
+                $sql .= '`'.$key.'` = "' . $value . '" and ';
             }
-            $sql = 'update '.$tablename.' set '.$setValue.' where '.$where;
+            $sql = substr($sql, 0, strlen($sql)-4) . ';';
+
             $model->query($sql);
         }
-        return $data;
-    }
 
-    public function create () {
-        $this->checkLogin();
-        $tablename = $this->request->data['tablename'];
-        $data = $this->request->data;
-        $data['created'] = date('Y-m-d H:i:s');
-        $data['created_by'] = $this->user_id;
-        $data['modified'] = date('Y-m-d H:i:s');
-        $data['modified_by'] = $this->user_id;
-        $model = $this->_getClassModel($tablename);
-        $model->create();
-        $model->save($data);
-        $data['id'] = $model->id;
         return $data;
     }
 

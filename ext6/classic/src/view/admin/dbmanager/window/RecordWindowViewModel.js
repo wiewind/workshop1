@@ -7,13 +7,14 @@ Ext.define('WWS.view.admin.dbmanager.window.RecordWindowViewModel', {
     alias: 'viewmodel.admindbmanagerwindowrecord',
 
     data: {
-        id: 0,
-        name: ''
+        name: '',
+        newRocord: true
     },
 
     formulas: {
         getTitle: function (get) {
-            return get('id') > 0 ? T.__("Record of %s") : T.__("New Record of %s");
+            $muster = get('newRocord') ?  T.__("New Record of %s") : T.__("Record of %s");
+            return Wiewind.String.sprintf($muster, get('tablename'));
         }
     }
 });
