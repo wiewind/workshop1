@@ -1731,3 +1731,12 @@ msgstr "Bitte laden Sie eine Datei hoch!"
 
 msgid "The attachment does not exist!"
 msgstr "Der Anhang existiert nicht!"
+
+msgid "New Record of %s"
+msgstr "Neuer Rekord für %s"
+
+msgid "Record of %s"
+msgstr "Der Rekord von %s"
+
+msgid "The child has been saved!"
+msgstr "Das Kind ist gespeichert!"

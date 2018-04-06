@@ -113,6 +113,10 @@ Ext.define('WWS.view.passkey.GridController', {
         }
     },
 
+    onClickCancel: function (field) {
+        field.setValue('');
+    },
+
     onClickParentDir: function () {
         var me = this,
             vm = this.getViewModel(),

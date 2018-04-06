@@ -221,6 +221,10 @@ Ext.define('WWS.view.filemanagement.GridController', {
         }
     },
 
+    onClickCancel: function (field) {
+        field.setValue('');
+    },
+
     onContainerMouseUp: function (view) {
         var data = this.getViewModel().getData();
         FMF.events.containermouseup(view, data);

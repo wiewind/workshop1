@@ -164,18 +164,14 @@ Ext.define('WWS.view.filemanagement.Grid', {
         },
         '->',
         {
-            xtype: 'textfield',
+            xtype: 'searchfield',
             emptyText: Glb.btnSetting.searchText,
-            triggers: {
-                search: {
-                    cls: 'x-form-search-trigger',
-                    tooltip: Glb.btnSetting.searchText,
-                    handler: 'onClickSearch'
-                }
-            },
+            width: 300,
             listeners: {
                 specialkey: 'enterSearch'
-            }
+            },
+            onClickCancel: 'onClickCancel',
+            onClickSearch: 'onClickSearch'
         }
     ],
 
