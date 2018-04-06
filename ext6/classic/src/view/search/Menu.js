@@ -34,7 +34,10 @@ Ext.define ('WWS.view.search.Menu', {
                     '<tpl for=".">',
                     '   <a onclick="SHF.showContent({id})">{title}</a>',
                     '</tpl>'
-                )
+                ),
+                listeners: {
+                    itemcontextmenu: 'onItemClick'
+                }
             }
         ];
 

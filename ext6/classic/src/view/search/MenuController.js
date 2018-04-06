@@ -8,5 +8,9 @@ Ext.define('WWS.view.search.MenuController', {
 
     onAdd: function () {
         SHF.showEditContent(0);
+    },
+
+    onItemClick: function (dataview, record) {
+        alert('click ' + record.get('id'));
     }
 });
