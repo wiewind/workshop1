@@ -134,4 +134,11 @@ class SearchPageController extends AppController {
         }
         return $this->getHotlinks();
     }
+
+    public function deleteWidget () {
+        $this->checkLogin();
+        $id = $this->request->data['id'];
+        $this->Hotlink->delete($id);
+        return $id;
+    }
 }

@@ -1741,20 +1741,20 @@ msgstr "%s的记录"
 msgid "The child has been saved!"
 msgstr "孩子信息已被保存！"
 
-msgid ""
-msgstr ""
+msgid "Please enter a title"
+msgstr "请输入标题"
 
-msgid ""
-msgstr ""
+msgid "Edit Widget"
+msgstr "编辑小程序"
 
-msgid ""
-msgstr ""
+msgid "Add a new widget"
+msgstr "添加新的小程序"
 
-msgid ""
-msgstr ""
+msgid "Are you sure you want to delete the widget?"
+msgstr "您确定要删除该小程序吗？"
 
-msgid ""
-msgstr ""
+msgid "The widget has been deleted!"
+msgstr "小程序删除成功！"
 
 msgid ""
 msgstr ""

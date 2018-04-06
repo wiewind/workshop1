@@ -52,16 +52,8 @@ Ext.define ('WWS.view.search.Content', {
             {
                 type: 'gear',
                 tooltip: T.__('Edit'),
-                icon: Cake.image.path + '/edit.png',
                 hidden: !Glb.common.checkLogin(),
                 handler: 'onClickEdit'
-            },
-            {
-                type: 'close',
-                tooltip: T.__('Delete'),
-                icon: Cake.image.path + '/delete.png',
-                hidden: !Glb.common.checkLogin(),
-                handler: 'onClickDelete'
             }
         ];
         this.callParent();

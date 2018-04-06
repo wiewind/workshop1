@@ -7,8 +7,11 @@ Ext.define('WWS.view.search.SearchPanelController', {
     alias: 'controller.searchpanel',
 
     afterRender: function () {
+        this.drawPanel();
+    },
+
+    drawPanel: function () {
         var view = this.getView();
-        // view.setTitle(SSD.config.modules.search.text);
         Glb.Ajax({
             url: Cake.api.path + '/SearchPage/json/getHotlinks',
             success: function (response, options) {

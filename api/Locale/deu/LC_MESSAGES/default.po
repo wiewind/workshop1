@@ -1740,3 +1740,18 @@ msgstr "Der Rekord von %s"
 
 msgid "The child has been saved!"
 msgstr "Das Kind ist gespeichert!"
+
+msgid "Please enter a title"
+msgstr "Biite geben Sie einen Titel ein"
+
+msgid "Edit Widget"
+msgstr "Widget Bearbeiten"
+
+msgid "Add a new widget"
+msgstr "ein neues Widget einfügen"
+
+msgid "Are you sure you want to delete the widget?"
+msgstr "Wollen Sie wirklich das Widget löschen?"
+
+msgid "The widget has been deleted!"
+msgstr "Das Widget ist gelöscht!"

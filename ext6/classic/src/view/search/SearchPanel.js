@@ -27,11 +27,28 @@ Ext.define ('WWS.view.search.SearchPanel', {
     },
 
     buildItems: function (hotlinks) {
-        var linkPanelItems = [
-            {
-                xtype: 'searchmenu'
-            }
-        ];
+        var me = this,
+            linkPanelItems = [
+                {
+                    xtype: 'searchmenu'
+                },
+                {
+                    xtype: 'container',
+                    layout: 'fit',
+                    items: [
+                        {
+                            xtype: 'button',
+                            text: T.__('Add a new widget'),
+                            tooltip: T.__('Add a new widget'),
+                            iconCls: Glb.btnSetting.addIconCls,
+                            padding: 10,
+                            handler: function () {
+                                me.getController().onEditWidget(0);
+                            }
+                        }
+                    ]
+                }
+            ];
 
         var items = [
             {
@@ -67,7 +84,6 @@ Ext.define ('WWS.view.search.SearchPanel', {
             if (Glb.common.checkLogin()) {
                 tools = [{
                     type: 'gear',
-                    hotId: comp['id'],
                     tooltip: T.__("Edit"),
                     handler: function () {
                         me.getController().onEditWidget(comp['id']);

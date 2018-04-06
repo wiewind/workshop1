@@ -8,5 +8,11 @@ Ext.define('WWS.view.search.EditHotlineWindowViewModel', {
 
     data: {
         id: 0
+    },
+
+    formulas: {
+        showTitle: function (get) {
+            return get('id') > 0 ? T.__('Edit Widget') : T.__('Add a new widget');
+        }
     }
 });

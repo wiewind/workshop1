@@ -15,7 +15,9 @@ Ext.define ('WWS.view.search.EditHotlineWindow', {
     },
 
     config: {
-        title: T.__('Edit'),
+        bind: {
+            title: '{showTitle}'
+        },
         iconCls: 'x-fa fa-edit',
         width: 900,
         defaults: {
@@ -25,6 +27,27 @@ Ext.define ('WWS.view.search.EditHotlineWindow', {
 
     input: {
         url: Cake.api.path + '/SearchPage/json/saveHotlink'
+    },
+
+    buildToolbar: function() {
+        var defaultButtons = this.getButtomItems(),
+            buttons = [
+                {
+                    text: Glb.btnSetting.deleteText,
+                    tooltip: Glb.btnSetting.deleteText,
+                    iconCls: Glb.btnSetting.deleteIconCls2,
+                    bind: {
+                        hidden: '{id == 0}'
+                    },
+                    handler: 'onClickDelete'
+                }
+            ];
+
+        for (var i=0; i<defaultButtons.length; i++) {
+            buttons.push(defaultButtons[i]);
+        }
+
+        this.buttons = buttons;
     },
 
     buildFormItems: function () {
@@ -67,16 +90,18 @@ Ext.define ('WWS.view.search.EditHotlineWindow', {
                         store: Ext.create('Ext.data.Store', {
                             fields: ['value', 'name'],
                             data : [
-                                {"value":"r", "name": T.__('right side')},
-                                {"value":"l", "name": T.__('left side')}
+                                {value:"r", name: T.__('right side')},
+                                {value:"l", name: T.__('left side')}
                             ]
                         }),
                         queryMode: 'local',
                         displayField: 'name',
                         valueField: 'value',
+                        editable: false,
                         bind: {
                             value: '{seite}'
-                        }
+                        },
+                        allowBlank: false
                     },
                     {
                         xtype: 'numberfield',

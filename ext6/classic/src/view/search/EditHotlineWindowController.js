@@ -10,17 +10,18 @@ Ext.define ('WWS.view.search.EditHotlineWindowController', {
         var view = this.getView(),
             vm = this.getViewModel(),
             id = vm.get('id');
-        view.setTitle(SSD.config.modules.search.text);
-        Glb.Ajax({
-            url: Cake.api.path + '/SearchPage/json/getHotlink',
-            params: {
-                id: id
-            },
-            success: function (response, options) {
-                var resp = Ext.decode(response.responseText).data;
-                vm.setData(resp);
-            }
-        });
+        if (id > 0) {
+            Glb.Ajax({
+                url: Cake.api.path + '/SearchPage/json/getHotlink',
+                params: {
+                    id: id
+                },
+                success: function (response, options) {
+                    var resp = Ext.decode(response.responseText).data;
+                    vm.setData(resp);
+                }
+            });
+        }
     },
 
     submitSuccess: function (form, action) {
@@ -28,10 +29,28 @@ Ext.define ('WWS.view.search.EditHotlineWindowController', {
         ABox.success(
             T.__('Successfully saved'),
             function () {
-                var data = Ext.decode(action.response.responseText).data;
-                SHF.refreshWidgets(data);
                 me.closeView();
+                SHF.refreshSearchPanel();
             }
         );
+    },
+
+    onClickDelete: function () {
+        var me = this,
+            id = this.getViewModel().get('id');
+        ABox.confirm(T.__('Are you sure you want to delete the widget?'), function () {
+            Glb.Ajax({
+                url: Cake.api.path + '/SearchPage/json/deleteWidget',
+                params: {
+                    id: id
+                },
+                success: function (response, options) {
+                    ABox.success(T.__("The widget has been deleted!"), function () {
+                        me.closeView();
+                        SHF.refreshSearchPanel();
+                    });
+                }
+            });
+        })
     }
 });

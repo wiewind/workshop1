@@ -77,5 +77,11 @@ Ext.define('WWS.view.search.Functions', {
                 sp.add(searchpanel.buildWidgets(hotlinks, side));
             });
         }
+    },
+
+    refreshSearchPanel: function () {
+        var searchpanel = Ext.ComponentQuery.query('searchpanel')[0];
+        searchpanel.removeAll();
+        searchpanel.getController().drawPanel();
     }
 });

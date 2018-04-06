@@ -1,14 +1,14 @@
 .searchmenubox {
   //width: 100%;
   font-size: larger;
-
+  padding: 5px 5px 5px 20px;
   a {
     clear: both;
     float: left;
     color: #325640 !important;
     text-decoration: none !important;
     width: 100%;
-    padding: 5px 0 5px 20px;
+    padding: 5px 0;
     background-color: transparent;
     cursor: pointer;
   }

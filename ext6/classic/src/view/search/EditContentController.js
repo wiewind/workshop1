@@ -32,5 +32,22 @@ Ext.define('WWS.view.search.EditContentController', {
             id = SHF.getErstContentId();
         }
         SHF.showContent(id, true);
+    },
+
+    onClickDelete: function () {
+        var id = this.getViewModel().get('id');
+        ABox.confirm(T.__('Are you sure you want to delete the Page?'), function () {
+            Glb.Ajax({
+                url: Cake.api.path + '/SearchPage/json/deletePage',
+                params: {
+                    id: id
+                },
+                success: function (response, options) {
+                    ABox.success(T.__("The page has been deleted!"), function () {
+                        SHF.refreshMenu(true);
+                    });
+                }
+            });
+        })
     }
 });
