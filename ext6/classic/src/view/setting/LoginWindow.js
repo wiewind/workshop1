@@ -53,9 +53,9 @@ Ext.define ('WWS.view.setting.LoginWindow', {
                         xtype: 'checkbox',
                         boxLabel: T.__('Keep me logged in'),
                         name: 'keepLogged',
-                        inputValue: '1',
-                        checked: true,
-                        uncheckedValue: '0'
+                        inputValue: 1,
+                        uncheckedValue: 0,
+                        value: 1
                     },
                     {
                         xtype: 'component',

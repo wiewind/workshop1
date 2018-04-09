@@ -117,6 +117,6 @@ class LoginComponent extends Component {
         $this->MySession->delete('userModules');
         $this->MySession->delete('appLanguage');
 
-        $this->MyCookie->destory();
+        $this->MyCookie->deleteAll();
     }
 }

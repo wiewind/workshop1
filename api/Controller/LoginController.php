@@ -37,7 +37,7 @@ class LoginController extends AppController
         $this->customer_id = intval($this->MySession->read('customer.id'));
         $this->set('customer_id', $this->customer_id);
 
-        $keepLogged = isset($this->request->data['keepLogged']) && $this->request->data['keepLogged']==='true';
+        $keepLogged = isset($this->request->data['keepLogged']) && in_array($this->request->data['keepLogged'], ['true', '1', 'on', 1, true]);
         if ($keepLogged) {
             $this->MyCookie->write('keepLogged', 1);
             $this->MyCookie->write('username', $username);

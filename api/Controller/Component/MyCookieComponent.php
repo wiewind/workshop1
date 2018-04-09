@@ -31,7 +31,7 @@ class MyCookieComponent extends Component
         $this->Cookie->delete(GlbF::getAppName() . $path);
     }
 
-    public function destory () {
+    public function deleteAll () {
         $this->delete('keepLogged');
         $this->delete('username');
     }
