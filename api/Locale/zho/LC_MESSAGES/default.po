@@ -1306,8 +1306,8 @@ msgstr "周课时"
 msgid "List of Courses"
 msgstr "课程列表"
 
-msgid "List of coursetimes"
-msgstr "课程时间列表"
+msgid "List of semesters"
+msgstr "学期列表"
 
 msgid "Time"
 msgstr "时间"
@@ -1756,8 +1756,8 @@ msgstr "您确定要删除该小程序吗？"
 msgid "The widget has been deleted!"
 msgstr "小程序删除成功！"
 
-msgid ""
-msgstr ""
+msgid "Your have not class, please add a new class into system."
+msgstr "请首先输入一个班级到系统中。"
 
 msgid ""
 msgstr ""

@@ -87,8 +87,7 @@ Ext.define('WWS.view.main.HeaderPanelToolbar', {
                 langsMenu.push(
                     {
                         text: lang.name,
-                        iconCls: 'x-fa fa-language',
-                        // icon: Cake.image.path + '/' + lang.code + '.png',
+                        icon: Cake.image.path + '/' + lang.code + '.png',
                         lang_id: lang.id,
                         handler: 'setLanguage'
                     }
@@ -108,7 +107,7 @@ Ext.define('WWS.view.main.HeaderPanelToolbar', {
                     {
                         text: T.__("Language"),
                         tooltip: T.__("Language"),
-                        icon: Cake.image.path+'/lang.png',
+                        iconCls: 'x-fa fa-language',
                         menu: langsMenu
                     },
                     {

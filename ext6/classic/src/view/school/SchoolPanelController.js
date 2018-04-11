@@ -58,8 +58,14 @@ Ext.define('WWS.view.school.SchoolPanelController', {
                 class: data
             });
 
-            view.down('schoolplantable').getController().drawPanel();
-            view.down('schoolchildgrid').getStore().reload();
+            var table = view.down('schoolplantable');
+            if (table) {
+                table.getController().drawPanel();
+                view.down('schoolchildgrid').getStore().reload();
+            } else {
+                view.add(view.buildItems());
+            }
+
         });
     },
 
@@ -82,8 +88,10 @@ Ext.define('WWS.view.school.SchoolPanelController', {
             vm.setData({
                 semester: data
             });
-
-            view.down('schoolplantable').getController().drawPanel();
+            var table = view.down('schoolplantable');
+            if (table) {
+                table.getController().drawPanel();
+            }
         });
     }
 });
