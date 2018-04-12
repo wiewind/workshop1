@@ -119,5 +119,12 @@ Ext.define('WWS.view.main.HeaderPanelController', {
             url: '../../update',
             target: '_blank'
         })
+    },
+
+    onClickWShop: function () {
+        Wiewind.Action.click({
+            url: '../../shop',
+            target: '_blank'
+        })
     }
 });

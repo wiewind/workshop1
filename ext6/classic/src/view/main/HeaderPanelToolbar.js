@@ -110,12 +110,19 @@ Ext.define('WWS.view.main.HeaderPanelToolbar', {
                         iconCls: 'x-fa fa-language',
                         menu: langsMenu
                     },
+                    '-',
                     {
                         text: T.__("Update"),
                         tooltip: T.__("Update"),
                         iconCls: 'x-fa fa-retweet',
                         hidden: Number(SSD.data.user.id) !== 1,
                         handler: 'onClickUpdate'
+                    },
+                    {
+                        text:  T.__("Wiewind Shop"),
+                        tooltip: T.__("Wiewind Shop"),
+                        iconCls: 'x-fa fa-shopping-cart',
+                        handler: 'onClickWShop'
                     },
                     '-',
                     {

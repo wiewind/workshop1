@@ -31,24 +31,27 @@ Ext.define ('WWS.view.search.SearchPanel', {
             linkPanelItems = [
                 {
                     xtype: 'searchmenu'
-                },
-                {
-                    xtype: 'container',
-                    layout: 'fit',
-                    items: [
-                        {
-                            xtype: 'button',
-                            text: T.__('Add a new widget'),
-                            tooltip: T.__('Add a new widget'),
-                            iconCls: Glb.btnSetting.addIconCls,
-                            padding: 10,
-                            handler: function () {
-                                me.getController().onEditWidget(0);
-                            }
-                        }
-                    ]
                 }
             ];
+
+        if (Glb.common.checkLogin()) {
+            linkPanelItems.push({
+                xtype: 'container',
+                layout: 'fit',
+                items: [
+                    {
+                        xtype: 'button',
+                        text: T.__('Add a new widget'),
+                        tooltip: T.__('Add a new widget'),
+                        iconCls: Glb.btnSetting.addIconCls,
+                        padding: 10,
+                        handler: function () {
+                            me.getController().onEditWidget(0);
+                        }
+                    }
+                ]
+            });
+        }
 
         var items = [
             {
