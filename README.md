@@ -1,5 +1,5 @@
 # workshop1
 Wiewind Workshop (CakePHP2 &amp; ExtJs6.5)
 
-author: benying Zou
+author: Benying Zou
 email: wiewind@gmail.com
