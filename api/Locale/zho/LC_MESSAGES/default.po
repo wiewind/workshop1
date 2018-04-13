@@ -1759,17 +1759,59 @@ msgstr "小程序删除成功！"
 msgid "Your have not class, please add a new class into system."
 msgstr "请首先输入一个班级到系统中。"
 
-msgid ""
-msgstr ""
+msgid "Euro"
+msgstr "欧元"
 
-msgid ""
-msgstr ""
+msgid "US Dollar"
+msgstr "美元"
 
-msgid ""
-msgstr ""
+msgid "Japanese yen"
+msgstr "日元"
 
-msgid ""
-msgstr ""
+msgid "British Pound"
+msgstr "英镑"
+
+msgid "Swiss franc"
+msgstr "瑞士法郎"
+
+msgid "Australian dollar"
+msgstr "澳元"
+
+msgid "Canada Dollar"
+msgstr "加元"
+
+msgid "New Zealand dollar"
+msgstr "新西兰元"
+
+msgid "Swedish krona"
+msgstr "瑞典克朗"
+
+msgid "Norwegian krone"
+msgstr "挪威克朗"
+
+msgid "Mexican peso"
+msgstr "墨西哥比索"
+
+msgid "South African Rand"
+msgstr "南非兰特"
+
+msgid "Turkish Lira"
+msgstr "土耳其里拉"
+
+msgid "Chinese Yuan"
+msgstr "人民币"
+
+msgid "Transfer source and target currency"
+msgstr "调换源和目标货币"
+
+msgid "There is no exchange rate between the both currencies!"
+msgstr "这两种货币间没有汇率！"
+
+msgid "No Curriecies!"
+msgstr "没有货币！"
+
+msgid "Don't Connect with forex!"
+msgstr "无法连接forex服务器！"
 
 msgid ""
 msgstr ""

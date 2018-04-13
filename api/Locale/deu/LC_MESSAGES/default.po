@@ -1758,3 +1758,57 @@ msgstr "Das Widget ist gelöscht!"
 
 msgid "Your have not class, please add a new class into system."
 msgstr "Sie haben noch keine Klasse, bitte geben Sie zuerst eine ein."
+
+msgid "Euro"
+msgstr "Euro"
+
+msgid "US Dollar"
+msgstr "US Dollar"
+
+msgid "Japanese yen"
+msgstr "Japanische YEN"
+
+msgid "British Pound"
+msgstr "Britisches Pfund"
+
+msgid "Swiss franc"
+msgstr "Schweizerfranken"
+
+msgid "Australian dollar"
+msgstr "Australischer Dollar"
+
+msgid "Canada Dollar"
+msgstr "Kanadischer Dollar"
+
+msgid "New Zealand dollar"
+msgstr "Neuseeland Dollar"
+
+msgid "Swedish krona"
+msgstr "Schwedische Krone"
+
+msgid "Norwegian krone"
+msgstr "Norwegische Krone"
+
+msgid "Mexican peso"
+msgstr "Mexikanischer Peso"
+
+msgid "South African Rand"
+msgstr "Südafrikanischer Rand"
+
+msgid "Turkish Lira"
+msgstr "Türkische Lire"
+
+msgid "Chinese Yuan"
+msgstr "Chinesische Yuan"
+
+msgid "Transfer source and target currency"
+msgstr "Quellen- und Zielwährung umkehren"
+
+msgid "There is no exchange rate between the both currencies!"
+msgstr "Es gibt keinen Wechselkurs zwischen den beiden Währungen!"
+
+msgid "No Curriecies!"
+msgstr "Keine Währungen!"
+
+msgid "Don't Connect with forex!"
+msgstr "Verbindung mit Forex ist kaputt!"

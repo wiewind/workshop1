@@ -75,3 +75,9 @@ body.x-border-layout-ct, div.x-border-layout-ct {
     margin-right: 5px;
   }
 }
+
+.exchangeCls {
+  .x-form-trigger-wrap {
+    border-right-width: 0;
+  }
+}

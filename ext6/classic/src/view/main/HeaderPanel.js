@@ -6,15 +6,18 @@
 
 
 Ext.define ('WWS.view.main.HeaderPanel', {
-    extend: 'Ext.form.Panel',
+    extend: 'Ext.panel.Panel',
     xtype: 'appheader',
 
     requires: [
         'WWS.view.main.HeaderPanelController',
+        'WWS.view.main.HeaderPanelViewModel',
         'WWS.view.main.HeaderPanelToolbar'
     ],
-
-    controller: 'mainheaderpanel',
+    controller: 'appheader',
+    viewModel: {
+        type: 'appheader'
+    },
 
     config: {
         layout: 'hbox',
@@ -122,13 +125,70 @@ Ext.define ('WWS.view.main.HeaderPanel', {
                         checked: checkEn
                     }
                 ]
-            // },
-            // {
-            //     xtype: 'button',
-            //     iconCls: 'x-fa fa-search',
-            //     text: T.__("Search"),
-            //     tooltip: T.__("Search"),
-            //     handler: 'onSearch'
+            },
+            {
+                xtype: 'component',
+                width: 100
+            },
+            {
+                xtype: 'container',
+                layout: 'hbox',
+                items: [
+                    {
+                        xtype: 'numberfield',
+                        name: 'menge',
+                        width: 100,
+                        fieldStyle: 'text-align: right;',
+                        cls: 'exchangeCls',
+                        hideTrigger: true,
+                        bind: {
+                            value: '{menge}'
+                        }
+                    },
+                    {
+                        xtype: 'combobox',
+                        name: 'from',
+                        queryMode: 'local',
+                        displayField: 'name',
+                        valueField: 'code',
+                        editable: false,
+                        forceSelection: true,
+                        width: 120,
+                        bind: {
+                            store: '{currencies}',
+                            value: '{from}'
+                        }
+                    },
+                    {
+                        xtype: 'button',
+                        iconCls: 'x-fa fa-exchange',
+                        margin: '0 10',
+                        tooltip: T.__('Transfer source and target currency'),
+                        handler: 'onClickChange'
+                    },
+                    {
+                        xtype: 'displayfield',
+                        editable: false,
+                        padding: '0 10 0 0',
+                        bind: {
+                            value: '{result}'
+                        }
+                    },
+                    {
+                        xtype: 'combobox',
+                        name: 'to',
+                        queryMode: 'local',
+                        displayField: 'name',
+                        valueField: 'code',
+                        editable: false,
+                        forceSelection: true,
+                        width: 120,
+                        bind: {
+                            store: '{currencies}',
+                            value: '{to}'
+                        }
+                    }
+                ]
             }
         ];
     }

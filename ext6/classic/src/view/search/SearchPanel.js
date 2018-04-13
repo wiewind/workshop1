@@ -7,7 +7,8 @@ Ext.define ('WWS.view.search.SearchPanel', {
 
     requires: [
         'WWS.view.search.Functions',
-        'WWS.view.search.Menu',
+        'WWS.view.search.widgets.Menu',
+        // 'WWS.view.search.widgets.CurrencyRate',
         'WWS.view.search.Content',
         'WWS.view.search.EditContent',
         'WWS.view.search.SideContainer',
@@ -28,14 +29,19 @@ Ext.define ('WWS.view.search.SearchPanel', {
 
     buildItems: function (hotlinks) {
         var me = this,
-            linkPanelItems = [
+            leftPanelItems = [
                 {
-                    xtype: 'searchmenu'
+                    xtype: 'searchwidgetsmenu'
                 }
+            ],
+            rightPanelItems = [
+                // {
+                //     xtype: 'searchwidgetscurrencyrate'
+                // }
             ];
 
         if (Glb.common.checkLogin()) {
-            linkPanelItems.push({
+            leftPanelItems.push({
                 xtype: 'container',
                 layout: 'fit',
                 items: [
@@ -57,7 +63,7 @@ Ext.define ('WWS.view.search.SearchPanel', {
             {
                 xtype: 'searchsidecontainer',
                 side: 'l',
-                items: linkPanelItems.concat(this.buildWidgets(hotlinks, 'l'))
+                items: leftPanelItems.concat(this.buildWidgets(hotlinks, 'l'))
             },
             {
                 xtype: 'container',
@@ -71,7 +77,7 @@ Ext.define ('WWS.view.search.SearchPanel', {
             {
                 xtype: 'searchsidecontainer',
                 side: 'r',
-                items: this.buildWidgets(hotlinks, 'r')
+                items: rightPanelItems.concat(this.buildWidgets(hotlinks, 'r'))
             }
         ];
 

@@ -94,8 +94,11 @@ Ext.define('WWS.utils.Global', {
             Glb.common.unmask();
         };
 
-        var waitMsg = (config.waitMsg) ? config.waitMsg : T.__('loading...');
-        Glb.common.mask(waitMsg);
+        var hiddenMsg = config.hiddenMsg || false;
+        if (!hiddenMsg) {
+            var waitMsg = (config.waitMsg) ? config.waitMsg : T.__('loading...');
+            Glb.common.mask(waitMsg);
+        }
         Ext.Ajax.request(options);
     },
 

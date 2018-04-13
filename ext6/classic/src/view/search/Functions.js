@@ -43,7 +43,7 @@ Ext.define('WWS.view.search.Functions', {
     },
 
     getErstContentId: function () {
-        var searchmenu = Ext.ComponentQuery.query('searchmenu')[0],
+        var searchmenu = Ext.ComponentQuery.query('searchwidgetsmenu')[0],
             store = searchmenu.getViewModel().getStore('menus'),
             res = store.getAt(0),
             id = res.get('id');
@@ -52,7 +52,7 @@ Ext.define('WWS.view.search.Functions', {
 
     refreshMenu: function (loadFirstPage) {
         loadFirstPage = loadFirstPage || false;
-        var searchmenu = Ext.ComponentQuery.query('searchmenu')[0];
+        var searchmenu = Ext.ComponentQuery.query('searchwidgetsmenu')[0];
         if (loadFirstPage) {
             searchmenu.newOpen = true;
         }
@@ -70,7 +70,8 @@ Ext.define('WWS.view.search.Functions', {
                 it = items;
                 for (var i=items.length-1; i>-1; i--) {
                     item = items[i];
-                    if (item.xtype !== 'searchmenu') {
+                    // if (item.xtype !== 'searchwidgetsmenu' && item.xtype !== 'searchwidgetscurrencyrate') {
+                    if (item.xtype !== 'searchwidgetsmenu') {
                         sp.remove(item);
                     }
                 }

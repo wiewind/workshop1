@@ -1,19 +1,19 @@
 /**
  * Created by benying.zou on 02.02.2018.
  */
-Ext.define ('WWS.view.search.Menu', {
+Ext.define ('WWS.view.search.widgets.Menu', {
     extend: 'Ext.panel.Panel',
-    xtype: 'searchmenu',
+    xtype: 'searchwidgetsmenu',
 
     requires: [
-        'WWS.view.search.MenuController',
-        'WWS.view.search.MenuViewModel'
+        'WWS.view.search.widgets.MenuController',
+        'WWS.view.search.widgets.MenuViewModel'
     ],
 
-    controller: 'searchmenu',
+    controller: 'searchwidgetsmenu',
 
     viewModel: {
-        type: 'searchmenu'
+        type: 'searchwidgetsmenu'
     },
 
     config: {

@@ -4,7 +4,7 @@
 Ext.define('WWS.view.main.HeaderPanelController', {
     extend: 'Ext.app.ViewController',
 
-    alias: 'controller.mainheaderpanel',
+    alias: 'controller.appheader',
 
     setLanguage: function (btn) {
         language = btn.lang_id;
@@ -125,6 +125,16 @@ Ext.define('WWS.view.main.HeaderPanelController', {
         Wiewind.Action.click({
             url: '../../shop',
             target: '_blank'
+        })
+    },
+
+    onClickChange: function () {
+        var vm = this.getViewModel(),
+            from = vm.get('from'),
+            to = vm.get('to');
+        vm.setData({
+            from: to,
+            to: from
         })
     }
 });
