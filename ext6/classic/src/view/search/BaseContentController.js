@@ -16,6 +16,7 @@ Ext.define('WWS.view.search.BaseContentController', {
             params: {
                 id: data.id
             },
+            hiddenMsg: true,
             success: function (response, options) {
                 var resp = Ext.decode(response.responseText).data;
                 vm.setData(resp);
