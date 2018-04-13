@@ -34,11 +34,7 @@ Ext.define ('WWS.view.search.SearchPanel', {
                     xtype: 'searchwidgetsmenu'
                 }
             ],
-            rightPanelItems = [
-                // {
-                //     xtype: 'searchwidgetscurrencyrate'
-                // }
-            ];
+            rightPanelItems = [];
 
         if (Glb.common.checkLogin()) {
             leftPanelItems.push({
