@@ -76,8 +76,8 @@ Ext.define('WWS.view.worknotes.SearchWindow', {
 
     buildFormItems: function () {
         var me = this,
-            endDate = startDate = new Date();
-        startDate.setFullYear(startDate.getFullYear() - 1);
+            endDate = new Date(),
+            startDate = Wiewind.Date.getDate(-2, 'y');
         return [
             {
                 xtype: 'fieldset',

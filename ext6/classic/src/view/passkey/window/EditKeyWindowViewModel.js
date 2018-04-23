@@ -21,7 +21,6 @@ Ext.define('WWS.view.passkey.window.EditKeyWindowViewModel', {
         },
 
         hasUrl: function (get) {
-            console.log(get('url').length);
             return get('url').length > 0;
         }
     }

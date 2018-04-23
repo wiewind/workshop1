@@ -7,6 +7,5 @@ Ext.define('WWS.view.worknotes.WorknotesPanelController', {
     alias: 'controller.worknotespanel',
 
     onClickSearch: function () {
-        console.log('onClickSearch');
     }
 });

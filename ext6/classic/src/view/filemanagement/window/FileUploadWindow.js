@@ -26,7 +26,7 @@ Ext.define('WWS.view.filemanagement.window.FileUploadWindow', {
 
     config: {
         bind: {
-            title: 'showWindowTitle'
+            title: '{showWindowTitle}'
         },
         iconCls: 'x-fa fa-upload',
         layout: 'fit',

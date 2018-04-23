@@ -42,8 +42,6 @@ Ext.define ('WWS.view.addressbook.DetailController', {
             email = '',
             address = '';
 
-        console.log(data);
-
         if (!Wiewind.isEmpty(data['telephone'])) {
             for (var i=0; i<data['telephone'].length; i++) {
                 var rec = data['telephone'][i]['AddressbookTelephone'];

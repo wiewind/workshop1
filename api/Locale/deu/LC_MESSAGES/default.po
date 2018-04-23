@@ -1812,3 +1812,6 @@ msgstr "Keine Währungen!"
 
 msgid "Don't Connect with forex!"
 msgstr "Verbindung mit Forex ist kaputt!"
+
+msgid "Attention"
+msgstr "Achtung"

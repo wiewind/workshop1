@@ -128,8 +128,28 @@ var Wiewind = {
             dd.setDate(dd.getDate()+addDayCount);//获取AddDayCount天后的日期
             var y = dd.getFullYear();
             var m = dd.getMonth()+1;//获取当前月份的日期
+            m = m < 10 ? "0" + m : m;
             var d = dd.getDate();
+            d = d < 10 ? "0" + d : d;
+
             return y+"-"+m+"-"+d;
+        },
+
+        getDate: function (menge, unit) {
+            unit = unit || 'd';
+            var dd = new Date();
+            switch (unit.toLowerCase()) {
+                case 'y':
+                    dd.setFullYear(dd.getFullYear() + menge);
+                    break;
+                case 'm':
+                    dd.setMonth(dd.getMonth() + menge);
+                    break;
+                default:
+                    dd.setDate(dd.getDate()+menge);
+                    break;
+            }
+            return new Date(dd);
         }
     },
 

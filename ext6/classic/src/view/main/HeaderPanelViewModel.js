@@ -21,7 +21,6 @@ Ext.define('WWS.view.main.HeaderPanelViewModel', {
 
     formulas: {
         getResult: function (get) {
-            console.log(this);
             var vm = this,
                 from = get('from'),
                 to = get('to'),

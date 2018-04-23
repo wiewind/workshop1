@@ -1813,8 +1813,8 @@ msgstr "没有货币！"
 msgid "Don't Connect with forex!"
 msgstr "无法连接forex服务器！"
 
-msgid ""
-msgstr ""
+msgid "Attention"
+msgstr "请注意"
 
 msgid ""
 msgstr ""

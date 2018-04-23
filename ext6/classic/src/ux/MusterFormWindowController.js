@@ -12,7 +12,7 @@ Ext.define ('WWS.ux.MusterFormWindowController', {
 
     onClose: function () {
         this.beforeclose();
-        this.closeView();
+        this.getView().close();
     },
 
     beforeclose: function () {}

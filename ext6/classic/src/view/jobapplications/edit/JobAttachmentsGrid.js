@@ -37,7 +37,6 @@ Ext.define ('WWS.view.jobapplications.edit.JobAttachmentsGrid', {
             flex: 1,
             dataIndex: 'name',
             renderer: function(v, meta, rec){
-                console.log(rec);
                 if (rec.get('deleted')) return '<div style="color: grey">' + v + '</div>';
                 return '<a href="' + Cake.api.path + '/jobapplications/showAttachmentFile/' + rec.get('attachment_id') + '" target="_blank">' + v + '</a>';
             }

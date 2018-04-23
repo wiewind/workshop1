@@ -73,7 +73,6 @@ Ext.define('WWS.view.addressbook.Functions', {
     refreshGrid: function (person_id, datatype) {
         var panel = Ext.getCmp('addressbookContactPanel_' + person_id);
         if (panel) {
-            console.log(datatype + 'Store');
             panel.getViewModel().getStore(datatype + 'Store').reload();
         }
     }

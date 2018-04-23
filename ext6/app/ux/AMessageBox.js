@@ -91,7 +91,7 @@ Ext.define('WWS.ux.AMessageBox', {
         },
 
         confirm: function (msg, fn) {
-            Ext.Msg.confirm(T.__('Frage'), msg, function (btn) {
+            Ext.Msg.confirm(T.__('Attention'), msg, function (btn) {
                 if(btn === 'yes') {
                     fn();
                 }

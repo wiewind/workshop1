@@ -432,8 +432,6 @@ Ext.define('WWS.view.filemanagement.Functions', {
             }
         }
 
-        // console.log(draggedNode);
-
         FMF.moveEvent(isFile, draggedId, tagertId, 0, fromId);
     },
 
