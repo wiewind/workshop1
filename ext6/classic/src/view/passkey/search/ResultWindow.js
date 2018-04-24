@@ -120,7 +120,7 @@ Ext.define('WWS.view.passkey.search.ResultWindow', {
             },
             listeners: {
                 selectionchange: 'onSelectionChange',
-                itemdblclick: 'onItemdblclick'
+                itemdblclick: 'onItemDblclick'
             }
         }
     ]
