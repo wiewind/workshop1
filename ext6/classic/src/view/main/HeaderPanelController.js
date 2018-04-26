@@ -7,7 +7,7 @@ Ext.define('WWS.view.main.HeaderPanelController', {
     alias: 'controller.appheader',
 
     afterRender: function () {
-        if (!SSD.data.user.psw_free) {
+        if (Glb.common.checkLogin() && !SSD.data.user.psw_free) {
             this.onClickUserInfo();
         }
     },

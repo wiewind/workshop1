@@ -165,10 +165,6 @@ class JobapplicationsController extends AppController {
             'order' => 'name'
         ));
 
-        if ($total === 0) {
-            throw new Exception(__('Nothing found'));
-        }
-
         return [
             'data' => $data,
             'total' => $total
