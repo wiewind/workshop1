@@ -11,6 +11,7 @@ Ext.define('WWS.view.main.Main', {
 
     requires: [
         'WWS.overrides.form.field.Base',
+        'WWS.overrides.button.Button',
 
         'WWS.ux.Ckeditor',
         'WWS.ux.ClearCombo',

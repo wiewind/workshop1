@@ -1815,3 +1815,12 @@ msgstr "Verbindung mit Forex ist kaputt!"
 
 msgid "Attention"
 msgstr "Achtung"
+
+msgid "The email address was used by another user."
+msgstr "Die Email-Adresse wurde von einem anderen Benutzer verwendet."
+
+msgid "Please change immediately the password assigned by the system!"
+msgstr "Bitte ändern Sie sofort das vom System vergebene Passwort"
+
+msgid "The password has been changed!"
+msgstr "Das Passwort wurde geändert!"

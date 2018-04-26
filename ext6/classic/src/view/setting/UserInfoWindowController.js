@@ -11,9 +11,9 @@ Ext.define ('WWS.view.setting.UserInfoWindowController', {
             result = Ext.decode(action.response.responseText);
         if (result.success) {
             ABox.success(
-                T.__("Password is changed!"),
+                T.__("The password has been changed!"),
                 function () {
-                    me.closeView();
+                    location.reload();
                 }
             );
         }

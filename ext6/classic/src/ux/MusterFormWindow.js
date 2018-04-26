@@ -84,6 +84,7 @@ Ext.define('WWS.ux.MusterFormWindow', {
                 text: data.closeText,
                 tooltip: data.closeText,
                 iconCls: data.closeIconCls,
+                hidden: !this.closable,
                 handler: 'onClose'
             }
         ];

@@ -102,6 +102,7 @@ Ext.define('WWS.view.main.HeaderPanelToolbar', {
                 split: false,
                 iconAlign: 'top',
                 hideBorders:'false',
+                badgeText: SSD.data.user.psw_free ? '' : '&nbsp;&nbsp;&nbsp;',
                 margin: 5,
                 menu: [
                     {
@@ -126,7 +127,7 @@ Ext.define('WWS.view.main.HeaderPanelToolbar', {
                     },
                     '-',
                     {
-                        text:  SSD.data.user.name + '[' + SSD.data.user.username + ']',
+                        text:  SSD.data.user.name + '[' + SSD.data.user.username + ']' + (SSD.data.user.psw_free ? '' : ' <span class="badgeable">&nbsp;&nbsp;&nbsp;</span>'),
                         tooltip: T.__("User profile"),
                         icon: Cake.image.path + '/user.png',
                         handler: 'onClickUserInfo'

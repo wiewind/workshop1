@@ -6,6 +6,12 @@ Ext.define('WWS.view.main.HeaderPanelController', {
 
     alias: 'controller.appheader',
 
+    afterRender: function () {
+        if (!SSD.data.user.psw_free) {
+            this.onClickUserInfo();
+        }
+    },
+
     setLanguage: function (btn) {
         language = btn.lang_id;
         ABox.confirm(

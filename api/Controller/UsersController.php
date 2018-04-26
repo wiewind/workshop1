@@ -77,13 +77,28 @@ class UsersController extends AppController
             }
         }
         if (!$modules) {
-            throw new Exception(__('The user has no modules!'));
+            ErrorCode::throwException(__('The user has no modules!'));
         }
 
         $udata = $this->request->data;
         if (!$udata['name'] || ($udata['id'] == 0 && !$udata['username']) || !$udata['email']) {
-            throw new Exception(__('The information of user was not complete!'));
+            ErrorCode::throwException(__('The information of user was not complete!'));
         }
+
+        // -- check email
+        $conditionsE = [
+            'email' => $udata['email']
+        ];
+        if ($udata['id'] > 0) {
+            $conditionsE['id != '] = $udata['id'];
+        }
+        $cu = $this->User->find('first', [
+            'conditions' => $conditionsE
+        ]);
+        if ($cu) {
+            ErrorCode::throwException(__('The email address was used by another user.'));
+        }
+        // -- end check email
 
         if ($udata['id'] == 0) {
             unset($udata['id']);
@@ -114,7 +129,7 @@ class UsersController extends AppController
         $this->checkLogin();
         $udata = $this->User->findById($this->request->data['id']);
         if ($udata['User']['active']) {
-            throw new Exception(__('An active user can not be deleted, please block the user first!'));
+            ErrorCode::throwException(__('An active user can not be deleted, please block the user first!'));
         }
         $this->User->deleteUsers($this->request->data['id']);
     }
@@ -126,7 +141,7 @@ class UsersController extends AppController
 
         $udata = $this->User->findById($id);
         if (!$udata) {
-            throw new Exception(__('The user does not exist.'));
+            ErrorCode::throwException(__('The user does not exist.'));
         }
 
         if ($active && $this->__isNewCreateUser($udata)) {

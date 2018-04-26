@@ -1816,14 +1816,14 @@ msgstr "无法连接forex服务器！"
 msgid "Attention"
 msgstr "请注意"
 
-msgid ""
-msgstr ""
+msgid "The email address was used by another user."
+msgstr "该邮箱已被其他用户占用。"
 
-msgid ""
-msgstr ""
+msgid "Please change immediately the password assigned by the system!"
+msgstr "请立即更由改系统所分配的密码!"
 
-msgid ""
-msgstr ""
+msgid "The password has been changed!"
+msgstr "密码已更改！"
 
 msgid ""
 msgstr ""
