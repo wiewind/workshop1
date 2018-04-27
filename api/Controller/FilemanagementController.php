@@ -854,7 +854,8 @@ class FilemanagementController extends AppController {
         $res = [];
         if ($fileIds) {
             $this->FilemanagementWorklistitem->deleteAll([
-                'file_id' => implode(',', $fileIds)
+                'file_id' => $fileIds,
+                'user_id' => $this->user_id
             ]);
         }
         return $fileIds;
