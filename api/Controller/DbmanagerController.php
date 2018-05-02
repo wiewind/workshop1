@@ -105,6 +105,23 @@ class DbmanagerController extends AppController {
             ErrorCode::throwException(__('DB error!'));
         }
 
+        foreach ($tableInfo as $attrname=>$attr) {
+            if ($attr['type'] == 'boolean' && array_key_exists($attrname, $data)) {
+                // hire cann't switch be used, 'switch case' eq. '=='; 'false' == true!!!
+                if (
+                    $data[$attrname] === 1 ||
+                    $data[$attrname] === '1' ||
+                    $data[$attrname] === true ||
+                    $data[$attrname] === 'true' ||
+                    $data[$attrname] === 'on'
+                ) {
+                    $data[$attrname] = true;
+                } else {
+                    $data[$attrname] = false;
+                }
+            }
+        }
+
         $conditions = $data['conditions'];
         unset($data['conditions']);
         $isNewRecord = isset($data['isNewRecord']) && ($data['isNewRecord'] === 'true');
