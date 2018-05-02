@@ -6,7 +6,7 @@
 
 
 Ext.define('WWS.view.filemanagement.window.FileUploadWindow', {
-    extend: 'WWS.ux.MusterFormWindow',
+    extend: 'Ext.window.Window',
     xtype: 'filemanagementwindowfileupload',
 
     requires: [
@@ -18,64 +18,48 @@ Ext.define('WWS.view.filemanagement.window.FileUploadWindow', {
         type: 'filemanagementwindowfileupload'
     },
 
-    input: {
-        url: Cake.api.path + '/filemanagement/json/filesUpload',
-        waitMsg: T.__("Uploading your file(s)..."),
-        timeout: 300000
-    },
-
     config: {
         bind: {
             title: '{showWindowTitle}'
         },
         iconCls: 'x-fa fa-upload',
-        layout: 'fit',
+        layout: 'border',
         width: 600,
-        height: 400,
+        height: 500,
         autoShow: true
     },
 
-    configForm: function () {
-        var me = this;
-        return {
-            layout: 'fit',
-            bodyPadding: 0,
-            padding: 0,
-            tbar: [
-                {
-                    xtype: 'multifilefield',
-                    id: 'documentsField',
-                    name: 'documents[]',
-                    fieldLabel: T.__("Files"),
-                    labelWidth: 60,
-                    padding: 5,
-                    width: '100%',
-                    allowBlank: false,
-                    buttonText: T.__("Select Files")+'...',
-                    vtype: 'fileTypeAndSize',
-                    afterFileChange: function (files) {
-                        me.getController().afterFileChange(files);
+    initComponent: function () {
+        var controller = this.getController();
+        this.items = [
+            {
+                xtype: 'form',
+                region: 'north',
+                height: 160,
+                html: '<div id="drop_area">' + T.__('Drag documents to this area...') + '</div>',
+                bbar: [
+                    {
+                        xtype: 'multifilefield',
+                        name: 'documents[]',
+                        // labelWidth: 0,
+                        // width: '100%',
+                        buttonOnly: true,
+                        buttonText: T.__("Add Files")+'...',
+                        vtype: 'fileTypeAndSize',
+                        afterFileChange: function (files) {
+                            controller.afterFileChange(files)
+                        }
                     }
-                }, {
-                    xtype: 'hiddenfield',
-                    name: 'folderId',
-                    bind: {
-                        value: '{id}'
-                    }
-                }
-            ]
-        };
-    },
-
-    buildFormItems: function () {
-        return [
+                ]
+            },
             {
                 xtype: 'grid',
+                region: 'center',
                 title: null,
                 scrollable: true,
                 // border: '1px 0 0 0',
-                store: {
-                    fields: ['name', 'size', 'message']
+                bind: {
+                    store: '{uploadFiles}'
                 },
                 columns: [
                     {
@@ -104,9 +88,36 @@ Ext.define('WWS.view.filemanagement.window.FileUploadWindow', {
                             meta.tdAttr = 'data-qtip="' + rec.get('message') + '"';
                             return Ext.util.Format.fileSize(v);
                         }
+                    },
+                    {
+                        xtype:'actioncolumn',
+                        width:30,
+                        items: [
+                            {
+                                iconCls: Glb.btnSetting.deleteIconCls2,
+                                tooltip: Glb.btnSetting.deleteText,
+                                handler: 'onDelete'
+                            }
+                        ]
                     }
                 ]
             }
         ];
-    }
+        this.callParent();
+    },
+
+    buttons: [
+        {
+            text: Glb.btnSetting.saveText,
+            tooltip: Glb.btnSetting.saveText,
+            iconCls: Glb.btnSetting.saveIconCls,
+            handler: 'onSave'
+        },
+        {
+            text: Glb.btnSetting.cancelText,
+            tooltip: Glb.btnSetting.cancelText,
+            iconCls: Glb.btnSetting.cancelIconCls,
+            handler: 'onCancel'
+        }
+    ]
 });

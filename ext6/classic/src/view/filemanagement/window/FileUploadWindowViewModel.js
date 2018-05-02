@@ -6,7 +6,20 @@ Ext.define('WWS.view.filemanagement.window.FileUploadWindowViewModel', {
 
     alias: 'viewmodel.filemanagementwindowfileupload',
 
-    data: {},
+    data: {
+        files: []
+    },
+
+    stores: {
+        uploadFiles: {
+            filds: [
+                {name: 'fid'},
+                {name: 'name'},
+                {name: 'size'},
+                {name: 'message'}
+            ]
+        }
+    },
 
     formulas: {
         showWindowTitle: function (get) {

@@ -247,8 +247,8 @@ msgstr "Datei-Hochladen auf [%s]"
 msgid "Files"
 msgstr "Dateien"
 
-msgid "Select Files"
-msgstr "Dateien auswählen"
+msgid " Files"
+msgstr "Dateien hinzufügen"
 
 msgid "This File ist not allowed type to upload."
 msgstr "Der Dateityp ist nicht erlaubt zu hochladen."
@@ -1824,3 +1824,9 @@ msgstr "Bitte ändern Sie sofort das vom System vergebene Passwort!"
 
 msgid "The password has been changed!"
 msgstr "Das Passwort wurde geändert!"
+
+msgid "Drag documents to this area..."
+msgstr "Ziehen Sie Dokumente in diesen Bereich..."
+
+msgid "Some files do not conform to the upload rules."
+msgstr "Einige Dateien entsprechen nicht den Upload-Regeln."

@@ -34,7 +34,7 @@ $config['system']['modern']['maxPageSize']   = 10;
 $config['system']['filemanagement']['dirname'] = 'fmroot';
 $config['system']['filemanagement']['chip'] = 'wiewind.com';
 $config['system']['filemanagement']['expire'] = 30;
-$config['system']['filemanagement']['maxFileSize'] = 5200000;
+$config['system']['filemanagement']['maxFileSize'] = 10480000;
 $config['system']['filemanagement']['notAllowdTypes'] = ['exe', 'bat', 'sys', 'cmd'];
 $config['system']['filemanagement']['allowView'] = [
     'pdf',

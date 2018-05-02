@@ -247,8 +247,8 @@ msgstr "文件上传至[%s]"
 msgid "Files"
 msgstr "文件"
 
-msgid "Select Files"
-msgstr "选择文件"
+msgid "Add Files"
+msgstr "添加文件"
 
 msgid "This File ist not allowed type to upload."
 msgstr "该类型文件不允许被上传。"
@@ -1824,6 +1824,21 @@ msgstr "请立即更由改系统所分配的密码!"
 
 msgid "The password has been changed!"
 msgstr "密码已更改！"
+
+msgid "Drag documents to this area..."
+msgstr "将文档拖拽到此区域......"
+
+msgid "Some files do not conform to the upload rules."
+msgstr "有些文档不符合上传规则。"
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
 
 msgid ""
 msgstr ""

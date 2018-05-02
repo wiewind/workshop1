@@ -9,6 +9,10 @@ Ext.define('WWS.ux.MultiFileField', {
     extend: 'Ext.form.field.File',
     xtype: 'multifilefield',
 
+    config: {
+        fieldBodyCls: 'wwsMultifilefield'
+    },
+
     onRender: function() {
         this.callParent(arguments);
 
