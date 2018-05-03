@@ -151,9 +151,9 @@ Configure::write('Dispatcher.filters', array(
 
 App::uses('CakeLog', 'Log');
 
-//CakeLog::config('default', array(
-//    'engine' => 'File'
-//));
+CakeLog::config('default', array(
+    'engine' => 'File'
+));
 
 CakeLog::config('debug', array(
 	'engine' => 'File',

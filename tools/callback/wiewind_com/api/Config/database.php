@@ -62,7 +62,7 @@
 class DATABASE_CONFIG {
 
 	public $default = array(
-		'datasource' => 'Database/Mysql',
+		'datasource' => 'MysqlPro',
 		'persistent' => false,
 		'host' => 'wiewind.com.mysql',
 		'login' => 'wiewind_com',

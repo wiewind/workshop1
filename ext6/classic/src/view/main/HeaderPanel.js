@@ -12,7 +12,9 @@ Ext.define ('WWS.view.main.HeaderPanel', {
     requires: [
         'WWS.view.main.HeaderPanelController',
         'WWS.view.main.HeaderPanelViewModel',
-        'WWS.view.main.HeaderPanelToolbar'
+        'WWS.view.main.HeaderPanelToolbar',
+
+        'WWS.view.main.window.CurrencyChartWindow'
     ],
     controller: 'appheader',
     viewModel: {
@@ -137,7 +139,7 @@ Ext.define ('WWS.view.main.HeaderPanel', {
                     {
                         xtype: 'numberfield',
                         name: 'menge',
-                        width: 100,
+                        width: 80,
                         fieldStyle: 'text-align: right;',
                         cls: 'exchangeCls',
                         hideTrigger: true,
@@ -187,6 +189,13 @@ Ext.define ('WWS.view.main.HeaderPanel', {
                             store: '{currencies}',
                             value: '{to}'
                         }
+                    },
+                    {
+                        xtype: 'button',
+                        iconCls: 'x-fa fa-line-chart',
+                        margin: '0 10',
+                        tooltip: T.__('show chart'),
+                        handler: 'onClickChart'
                     }
                 ]
             }

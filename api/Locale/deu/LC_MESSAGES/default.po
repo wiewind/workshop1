@@ -1830,3 +1830,6 @@ msgstr "Ziehen Sie Dokumente in diesen Bereich..."
 
 msgid "Some files do not conform to the upload rules."
 msgstr "Einige Dateien entsprechen nicht den Upload-Regeln."
+
+msgid "Currency Chart"
+msgstr "Währungsdiagramm"

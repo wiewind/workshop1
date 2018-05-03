@@ -142,5 +142,14 @@ Ext.define('WWS.view.main.HeaderPanelController', {
             from: to,
             to: from
         })
+    },
+
+    onClickChart: function () {
+        var vm = this.getViewModel();
+        Ext.create('WWS.view.main.window.CurrencyChartWindow', {
+            viewModel: {
+                parent: vm
+            }
+        });
     }
 });

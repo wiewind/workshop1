@@ -15,7 +15,7 @@ class User extends AppModel {
         ));
         if ($users) {
             $uids = Hash::extract($users, '{n}.User.id');
-            $this.$this->deleteUsers($uids);
+            $this->deleteUsers($uids);
         }
     }
 

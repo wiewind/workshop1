@@ -50,7 +50,8 @@
  */
 	Configure::write('Error', array(
 		'handler' => 'ErrorHandler::handleError',
-		'level' => E_ALL & ~E_DEPRECATED,
+//		'level' => E_ALL & ~E_DEPRECATED,
+        'level' => E_ALL & ~E_DEPRECATED & ~E_STRICT & ~E_NOTICE,
 		'trace' => true
 	));
 
@@ -77,6 +78,7 @@
 	Configure::write('Exception', array(
 		'handler' => 'ErrorHandler::handleException',
 		'renderer' => 'ExceptionRenderer',
+        'skipLog' => array('MissingControllerException'),
 		'log' => true
 	));
 
@@ -155,7 +157,13 @@
  * Turn off all caching application-wide.
  *
  */
-	//Configure::write('Cache.disable', true);
+	Configure::write('Cache.disable', true);
+
+/**
+ * Defines the default error type when using the log() function. Used for
+ * differentiating error logging and debugging. Currently PHP supports LOG_DEBUG.
+ */
+    define('LOG_ERROR', 2);
 
 /**
  * Enable cache checking.
@@ -267,7 +275,7 @@
  * Uncomment this line and correct your server timezone to fix
  * any date & time related errors.
  */
-	//date_default_timezone_set('UTC');
+	date_default_timezone_set('Europe/Paris');
 
 /**
  * `Config.timezone` is available in which you can set users' timezone string.
@@ -275,7 +283,7 @@
  * then the value of `Config.timezone` will be used. This feature allows you to set users' timezone just
  * once instead of passing it each time in function calls.
  */
-	//Configure::write('Config.timezone', 'Europe/Paris')
+	Configure::write('Config.timezone', 'Europe/Paris');
 
 /**
  *

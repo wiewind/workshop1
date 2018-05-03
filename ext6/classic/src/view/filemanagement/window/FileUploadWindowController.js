@@ -116,7 +116,7 @@ Ext.define('WWS.view.filemanagement.window.FileUploadWindowController', {
         }
         fd.append('folderId', folderId);
 
-        Glb.common.mask(T.__("Uploading your file(s)..."));
+        Glb.common.mask(T.__("Uploading your file(s)..."), view);
         $.ajax({
             type: "POST",
             url: Cake.api.path + '/filemanagement/json/filesUpload',
@@ -132,15 +132,14 @@ Ext.define('WWS.view.filemanagement.window.FileUploadWindowController', {
             timeout: 60000,
             success: function (data, status, xhr) {
                 var res = JSON.parse(data);
-                Glb.common.unmask();
+                Glb.common.unmask(view);
                 if (res.success) {
                     FMF.refreshAll();
                     view.close();
                 }
             },
             error: function (xhr, status, error) {
-                console.log(xhr, status, eror);
-                Glb.common.unmask();
+                Glb.common.unmask(view);
             }
         });
     },

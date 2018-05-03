@@ -10,6 +10,9 @@ Ext.define('WWS.view.main.Main', {
     xtype: 'app-main',
 
     requires: [
+        'Ext.chart.*',
+
+
         'WWS.overrides.form.field.Base',
         'WWS.overrides.button.Button',
 

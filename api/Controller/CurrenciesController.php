@@ -139,4 +139,49 @@ class CurrenciesController extends AppController {
         }
         return $data;
     }
+
+    public function getChartRates () {
+        $from = $this->request->data['from'];
+        $to = $this->request->data['to'];
+        $during = $this->request->data['during'];
+
+        $fieldDate = '';
+        switch ($during) {
+            case 'day':
+                $fieldDate = 'DATE_FORMAT(time, "%Y-%m-%d")';
+                break;
+            case 'month':
+                $fieldDate = 'DATE_FORMAT(time, "%Y-%m")';
+                break;
+            case 'year':
+                $fieldDate = 'DATE_FORMAT(time, "%Y")';
+                break;
+        }
+
+        $data = $this->CurrencyRate->find('all', [
+            'fields' => [
+                $fieldDate . ' as date',
+                'sum(rate) / count(id) as rate'
+            ],
+            'conditions' => [
+                'CurrencyRate.from' => $from,
+                'CurrencyRate.to' => $to,
+
+            ],
+            'group' => [
+                'date', 'CurrencyRate.from', 'CurrencyRate.to'
+            ],
+            'order' => 'date DESC',
+            'limit' => 30
+        ]);
+
+        if ($data) {
+            foreach ($data as $k => $d) {
+                $d[0]['rate'] = round($d[0]['rate'], 4);
+                $data[$k] = $d[0];
+            }
+        }
+
+        return array_reverse($data);
+    }
 }
