@@ -26,23 +26,23 @@ Ext.define('WWS.view.main.window.CurrencyChartWindow', {
     buttons: [
         T.__('View') + ': ',
         {
-            xtype: 'combobox',
-            name: 'during',
-            width: 100,
-            queryMode: 'local',
-            displayField: 'name',
-            valueField: 'value',
-            store: Ext.create('Ext.data.Store', {
-                fields: ['name', 'value'],
-                data: [
-                    {name: T.__('Day'), value: 'day'},
-                    {name: T.__('Month'), value: 'month'},
-                    {name: T.__('Year'), value: 'year'}
-                ]
-            }),
-            bind: {
-                value: '{during}'
+            xtype: 'segmentedbutton',
+            width: 180,
+            defaults: {
+                ui: 'default-toolbar'
             },
+            items: [
+                {
+                    text: T.__('Day'),
+                    pressed: true
+                },
+                {
+                    text: T.__('Month')
+                },
+                {
+                    text: T.__('Year')
+                }
+            ],
             listeners: {
                 change: 'onDuringChange'
             }
@@ -90,7 +90,7 @@ Ext.define('WWS.view.main.window.CurrencyChartWindow', {
                     text: 'Source: https://www.wiewind.com/',
                     fontSize: 10,
                     x: 12,
-                    y: 655
+                    y: 700
                 }
             ],
             axes: [
@@ -100,7 +100,12 @@ Ext.define('WWS.view.main.window.CurrencyChartWindow', {
                 },
                 {
                     type: 'category',
-                    position: 'bottom'
+                    position: 'bottom',
+                    label: {
+                        rotate: {
+                            degrees: 270
+                        }
+                    }
                 }
             ],
             series: [

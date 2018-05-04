@@ -34,9 +34,10 @@ Ext.define('WWS.view.main.window.CurrencyChartWindowController', {
     },
 
     onDuringChange: function (combo, newValue) {
-        var vm = this.getViewModel();
+        var vm = this.getViewModel(),
+            view = ['day', 'month', 'year'];
         vm.setData({
-            during: newValue
+            during: view[newValue]
         });
         vm.getStore('rates').reload();
     }

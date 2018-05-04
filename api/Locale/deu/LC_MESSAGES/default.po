@@ -1833,3 +1833,15 @@ msgstr "Einige Dateien entsprechen nicht den Upload-Regeln."
 
 msgid "Currency Chart"
 msgstr "Währungsdiagramm"
+
+msgid "Day"
+msgstr "Tag"
+
+msgid "Month"
+msgstr "Monat"
+
+msgid "Year"
+msgstr "Jahr"
+
+msgid "show chart"
+msgstr "Diagramm anzeigen"
