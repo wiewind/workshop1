@@ -26,6 +26,8 @@ Ext.define('WWS.view.filemanagement.window.FileUploadWindow', {
         layout: 'border',
         width: 600,
         height: 500,
+        modal: true,
+        bodyBorder: 0,
         autoShow: true
     },
 
