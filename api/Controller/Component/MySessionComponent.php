@@ -79,4 +79,15 @@ class MySessionComponent extends Component {
     public function flash () {
         $this->Session->flash();
     }
+
+
+    public function deleteUserSession () {
+        $this->delete('user');
+        $this->delete('customer');
+        $this->delete('userModules');
+        $this->delete('userMobileModules');
+        $this->delete('appLanguage');
+        $this->delete('loginFromCookie');
+        $this->delete('formatting');
+    }
 }

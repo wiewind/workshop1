@@ -32,7 +32,7 @@ class MyCookieComponent extends Component
     }
 
     public function deleteAll () {
-        $this->delete('keepLogged');
-        $this->delete('username');
+        $this->write('username', '');
+        $this->write('keepLogin', 0);
     }
 }

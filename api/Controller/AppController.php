@@ -130,8 +130,12 @@ class AppController extends Controller {
 
             // reset cookie
             if ($this->Login->checkCookieKeepLogged()) {
-                $this->MyCookie->write('keepLogged', $this->MyCookie->read('keepLogged'));
-                $this->MyCookie->write('username', $this->MySession->read('user.username'));
+                $this->MyCookie->write('keepLogin', $this->MyCookie->read('keepLogin'));
+                $username = $this->MySession->read('user.username');
+                if (!$username) {
+                    $username = $this->MyCookie->read('username');
+                }
+                $this->MyCookie->write('username', $username);
             }
         }
 

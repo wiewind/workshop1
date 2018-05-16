@@ -39,10 +39,10 @@ class LoginController extends AppController
 
         $keepLogged = isset($this->request->data['keepLogged']) && in_array($this->request->data['keepLogged'], ['true', '1', 'on', 1, true]);
         if ($keepLogged) {
-            $this->MyCookie->write('keepLogged', 1);
+            $this->MyCookie->write('keepLogin', 1);
             $this->MyCookie->write('username', $username);
         } else {
-            $this->MyCookie->delete('keepLogged');
+            $this->MyCookie->deleteAll();
         }
 
         $result['user'] = $this->MySession->read('user');
@@ -218,5 +218,13 @@ class LoginController extends AppController
             $result['directurl'] = $this->MySession->read('directurl');
             $this->MySession->delete('directurl');
         }
+    }
+
+    public function clearSession () {
+        $this->MySession->deleteUserSession();
+    }
+
+    public function clearCookie () {
+        $this->MyCookie->deleteAll();
     }
 }

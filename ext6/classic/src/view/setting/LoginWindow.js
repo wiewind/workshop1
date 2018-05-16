@@ -55,7 +55,7 @@ Ext.define ('WWS.view.setting.LoginWindow', {
                         name: 'keepLogged',
                         inputValue: 1,
                         uncheckedValue: 0,
-                        value: 1
+                        value: 0
                     },
                     {
                         xtype: 'component',

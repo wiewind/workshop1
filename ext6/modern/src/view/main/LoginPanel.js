@@ -59,7 +59,7 @@ Ext.define('WWS.view.main.LoginPanel', {
             boxLabel: T.__('Keep me logged in'),
             name: 'keepLogged',
             inputValue: '1',
-            checked: true,
+            checked: false,
             uncheckedValue: '0'
         },
         {

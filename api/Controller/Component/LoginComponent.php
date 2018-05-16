@@ -92,7 +92,7 @@ class LoginComponent extends Component {
     }
 
     public function checkCookieKeepLogged () {
-        if ($this->MyCookie->check('keepLogged') && intval($this->MyCookie->read('keepLogged')) === 1 && $this->MyCookie->check('username')) {
+        if ($this->MyCookie->check('keepLogin') && intval($this->MyCookie->read('keepLogin')) === 1 && $this->MyCookie->check('username')) {
             return true;
         }
         return false;
@@ -112,11 +112,7 @@ class LoginComponent extends Component {
     }
 
     public function logout () {
-        $this->MySession->delete('user');
-        $this->MySession->delete('customer');
-        $this->MySession->delete('userModules');
-        $this->MySession->delete('appLanguage');
-
+        $this->MySession->deleteUserSession();
         $this->MyCookie->deleteAll();
     }
 }
