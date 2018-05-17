@@ -1846,8 +1846,8 @@ msgstr "年"
 msgid "show chart"
 msgstr "显示图表"
 
-msgid ""
-msgstr ""
+msgid "The version number is invalid."
+msgstr "版本号无效。"
 
 msgid ""
 msgstr ""

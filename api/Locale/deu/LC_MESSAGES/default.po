@@ -1845,3 +1845,6 @@ msgstr "Jahr"
 
 msgid "show chart"
 msgstr "Diagramm anzeigen"
+
+msgid "The version number is invalid."
+msgstr "Die Versionsnummer ist ungültig."

@@ -67,11 +67,8 @@ Class SystemController extends AppController {
     }
 
     public function getVersion () {
-        $version = $this->Version->find('first', [
-            'order' => 'id desc'
-        ]);
-        $version['Version']['year'] = substr($version['Version']['date'], 0, 4);
-        return $version['Version'];
+        $version = $this->Version->getVersion();
+        return $version;
     }
 
     private function __setLanguage1 () {
