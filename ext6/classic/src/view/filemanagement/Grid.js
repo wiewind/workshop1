@@ -176,6 +176,8 @@ Ext.define('WWS.view.filemanagement.Grid', {
     ],
 
     listeners: {
+        activate: Glb.History.add,
+
         selectionchange: 'onSelectionchange',
 
         itemdblclick: 'itemDblClick',
@@ -188,5 +190,4 @@ Ext.define('WWS.view.filemanagement.Grid', {
 
         containermouseup: 'onContainerMouseUp'
     }
-
 });

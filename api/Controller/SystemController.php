@@ -177,4 +177,15 @@ Class SystemController extends AppController {
         }
         return true;
     }
+
+
+
+    public function mail () {
+        $Email = new CakeEmail();
+        $Email->from('info@wiewind.com');
+        $Email->to('zoubenying@gmail.com');
+        $Email->subject('test');
+
+        $Email->send("Hallo");
+    }
 }

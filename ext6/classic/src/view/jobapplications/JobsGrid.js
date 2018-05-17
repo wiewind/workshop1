@@ -148,6 +148,7 @@ Ext.define ('WWS.view.jobapplications.JobsGrid', {
     ],
 
     listeners: {
+        activate: Glb.History.add,
         select: 'onItemSelect',
         itemdblclick: 'onItemDblClick'
     }

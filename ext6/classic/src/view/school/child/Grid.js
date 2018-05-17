@@ -159,6 +159,7 @@ Ext.define ('WWS.view.school.child.Grid', {
     ],
 
     listeners: {
+        activate: Glb.History.add,
         select: 'onItemSelect',
         itemdblclick: 'onItemDblClick'
     }

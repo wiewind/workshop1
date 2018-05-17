@@ -24,6 +24,7 @@ Ext.define('WWS.view.jobapplications.JobapplicationsPanelController', {
                         }
                     }
                 ]);
+                Glb.History.add(view.items.items[0]);
             }
         });
     }

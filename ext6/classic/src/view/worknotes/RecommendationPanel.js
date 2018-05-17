@@ -143,5 +143,9 @@ Ext.define ('WWS.view.worknotes.RecommendationPanel', {
                 });
             });
         }
+    },
+
+    listeners: {
+        activate: Glb.History.add
     }
 });

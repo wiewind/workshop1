@@ -38,5 +38,9 @@ Ext.define ('WWS.view.admin.dbmanager.DbmanagerPanel', {
                 }
             ]
         }
-    ]
+    ],
+
+    listeners: {
+        activate: Glb.History.add
+    }
 });

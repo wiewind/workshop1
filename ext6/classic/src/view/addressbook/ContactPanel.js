@@ -279,5 +279,9 @@ Ext.define('WWS.view.addressbook.ContactPanel', {
                 }
             ]
         }
-    ]
+    ],
+
+    listeners: {
+        activate: Glb.History.add
+    }
 });

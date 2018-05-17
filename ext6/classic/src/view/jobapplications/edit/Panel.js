@@ -313,5 +313,9 @@ Ext.define ('WWS.view.jobapplications.edit.Panel', {
                 parent: vm
             }
         });
+    },
+
+    listeners: {
+        activate: Glb.History.add
     }
 });

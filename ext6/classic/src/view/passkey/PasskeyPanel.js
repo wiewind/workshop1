@@ -38,5 +38,9 @@ Ext.define ('WWS.view.passkey.PasskeyPanel', {
             }
         ];
         this.callParent();
+    },
+
+    listeners: {
+        activate: Glb.History.add
     }
 });

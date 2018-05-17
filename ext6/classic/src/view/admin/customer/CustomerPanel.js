@@ -46,5 +46,9 @@ Ext.define ('WWS.view.admin.customer.CustomerPanel', {
                 }
             ]
         }
-    ]
+    ],
+
+    listeners: {
+        activate: Glb.History.add
+    }
 });

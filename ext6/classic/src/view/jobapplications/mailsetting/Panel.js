@@ -90,5 +90,9 @@ Ext.define ('WWS.view.jobapplications.mailsetting.Panel', {
                 }
             }
         ];
+    },
+
+    listeners: {
+        activate: Glb.History.add
     }
 });

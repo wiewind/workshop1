@@ -39,9 +39,9 @@ Ext.define ('WWS.view.filemanagement.window.RenameWindow', {
                 name: 'oldname1',
                 fieldLabel: T.__("Current name"),
                 width: '100%',
-                bind: {
-                    value: '{name}'
-                },
+                // bind: {
+                //     value: '{name}'
+                // },
                 disabled: true
             },
             {

@@ -41,5 +41,9 @@ Ext.define('WWS.view.admin.backup.BackupPanel', {
                 handler: 'onClickRefresh'
             }
         ]
+    },
+
+    listeners: {
+        activate: Glb.History.add
     }
 });

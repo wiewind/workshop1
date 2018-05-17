@@ -33,6 +33,10 @@ Ext.define ('WWS.view.addressbook.AddressbookPanel', {
             xtype: 'tabpanel',
             region: 'center'
         }
-    ]
+    ],
+
+    listeners: {
+        activate: Glb.History.add
+    }
 });
 

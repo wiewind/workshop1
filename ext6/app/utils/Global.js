@@ -174,6 +174,11 @@ Ext.define('WWS.utils.Global', {
         tokenDelimiter: ':',
 
         add: function (p) {
+            if (p.addToHistory === false) {
+                p.addToHistory = true;
+                return;
+            }
+
             var tabs = [],
                 ownerCt = p.up(),
                 hasMain = false,
@@ -197,14 +202,14 @@ Ext.define('WWS.utils.Global', {
 
             newToken = tabs.reverse().join(Glb.History.tokenDelimiter);
 
-            oldToken = Ext.History.getToken();
+            oldToken = atob(Ext.History.getToken());
 
             if (oldToken === null || oldToken.search(newToken) === -1) {
-                Ext.History.add(newToken);
+                Ext.History.add(btoa(newToken));
             }
         },
 
-        onChange: function (token) {
+        onChangeModern: function (token) {
             var parts, length, i,
                 main = Ext.getCmp('appmain'),
                 viewPort = Ext.getCmp('ext-viewport');
@@ -230,6 +235,44 @@ Ext.define('WWS.utils.Global', {
             } else {
                 var p = main.items.items[1];
                 main.setActiveItem(p);
+            }
+        },
+
+        onChangeClassic: function (token) {
+            var parts, length, i,
+                main = Ext.getCmp('appmain');
+            if (token) {
+                parts = token.split(Glb.History.tokenDelimiter);
+                length = parts.length;
+
+                // setActiveTab in all nested tabs
+                for (i = 0; i < length - 1; i++) {
+                    var tabP = Ext.getCmp(parts[i]),
+                        childP = Ext.getCmp(parts[i + 1]);
+                    if (Ext.isEmpty(tabP) || Ext.isEmpty(childP)) {
+                        return;
+                    }
+                    if (tabP instanceof Ext.tab.Panel) {
+                        var parentP = childP.up();
+                        while (parentP && tabP != parentP) {
+                            childP = parentP;
+                            parentP = childP.up();
+                        }
+                        tabP.setActiveItem(childP);
+                    }
+                }
+            } else {
+                var p = main.items.items[1];
+                main.setActiveItem(p);
+            }
+        },
+
+        onChange: function (token) {
+            token = atob(token);
+            if (Ext.isClassic) {
+                Glb.History.onChangeClassic(token);
+            } else {
+                Glb.History.onChangeModern(token);
             }
         }
     },

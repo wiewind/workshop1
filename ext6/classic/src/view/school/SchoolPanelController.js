@@ -46,7 +46,8 @@ Ext.define('WWS.view.school.SchoolPanelController', {
                     semester: res.data.SchoolSemester
                 });
                 view.add(view.buildItems());
-            }
+                Glb.History.add(view.items.items[0]);
+        }
         });
     },
 

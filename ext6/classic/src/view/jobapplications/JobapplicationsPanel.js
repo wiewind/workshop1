@@ -28,5 +28,11 @@ Ext.define ('WWS.view.jobapplications.JobapplicationsPanel', {
         closable: true
     },
 
-    items: []
+    addToHistory: false,
+
+    items: [],
+
+    listeners: {
+        activate: Glb.History.add
+    }
 });

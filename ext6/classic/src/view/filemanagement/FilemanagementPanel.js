@@ -25,6 +25,8 @@ Ext.define ('WWS.view.filemanagement.FilemanagementPanel', {
     border: 0,
     bodyPadding: 10,
 
+    addToHistory: false,
+
     items: [
         {
             xtype: 'filemanagementnavipanel',
@@ -43,5 +45,9 @@ Ext.define ('WWS.view.filemanagement.FilemanagementPanel', {
                 }
             ]
         }
-    ]
+    ],
+
+    listeners: {
+        activate: Glb.History.add
+    }
 });

@@ -5,6 +5,8 @@ Ext.define ('WWS.view.school.SchoolPanel', {
     extend: 'Ext.tab.Panel',
     xtype: 'schoolpanel',
 
+    addToHistory: false,
+
     requires: [
         'WWS.view.school.Functions',
 
@@ -114,11 +116,6 @@ Ext.define ('WWS.view.school.SchoolPanel', {
         }
     ],
 
-    // initComponent: function () {
-    //     this.items = this.buildItems();
-    //     this.callParent();
-    // },
-
     buildItems: function () {
         var vm = this.getViewModel();
         return [
@@ -135,5 +132,9 @@ Ext.define ('WWS.view.school.SchoolPanel', {
                 }
             }
         ];
+    },
+
+    listeners: {
+        activate: Glb.History.add
     }
 });

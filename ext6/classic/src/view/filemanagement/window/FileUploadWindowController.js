@@ -7,6 +7,21 @@ Ext.define('WWS.view.filemanagement.window.FileUploadWindowController', {
     alias: 'controller.filemanagementwindowfileupload',
 
     afterRender: function () {
+        $(document).on({
+            dragleave:function(e){	//拖离
+                e.preventDefault();
+            },
+            drop:function(e){  //拖后放
+                e.preventDefault();
+            },
+            dragenter:function(e){	//拖进
+                e.preventDefault();
+            },
+            dragover:function(e){	//拖来拖去
+                e.preventDefault();
+            }
+        });
+
         var box = document.getElementById('drop_area');
         box.addEventListener("dragenter",function(e){
             box.style.background = '#eeeeee';
@@ -14,6 +29,8 @@ Ext.define('WWS.view.filemanagement.window.FileUploadWindowController', {
         box.addEventListener("dragleave",function(e){
             box.style.background = '#ffffff';
         });
+
+
         box.addEventListener("drop", this.onDrop, false);
     },
 

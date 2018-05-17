@@ -60,5 +60,9 @@ Ext.define ('WWS.view.worknotes.show.ContainerPanel', {
                 }
             });
         }
+    },
+
+    listeners: {
+        activate: Glb.History.add
     }
 });

@@ -106,5 +106,9 @@ Ext.define ('WWS.view.search.SearchPanel', {
         });
 
         return pageItems;
+    },
+
+    listeners: {
+        activate: Glb.History.add
     }
 });

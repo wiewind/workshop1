@@ -25,6 +25,7 @@ Ext.define ('WWS.view.worknotes.WorknotesPanel', {
         bodyPadding: 10,
         border: 0
     },
+    addToHistory: false,
 
     initComponent: function () {
         this.buildItems();
@@ -47,5 +48,9 @@ Ext.define ('WWS.view.worknotes.WorknotesPanel', {
                 ]
             }
         ];
+    },
+
+    listeners: {
+        activate: Glb.History.add
     }
 });

@@ -94,5 +94,9 @@ Ext.define ('WWS.view.school.plan.Table', {
         });
 
         this.callParent();
+    },
+
+    listeners: {
+        activate: Glb.History.add
     }
 });

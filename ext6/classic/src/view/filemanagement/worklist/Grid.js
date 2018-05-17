@@ -121,17 +121,11 @@ Ext.define('WWS.view.filemanagement.worklist.Grid', {
     ],
 
     listeners: {
+        activate: Glb.History.add,
+
         selectionchange: 'onSelectionchange',
 
-        itemdblclick: 'itemDblClick',
-
-        // itemmouseenter: 'itemMouseEnter',
-        //
-        // itemmousedown: 'itemMouseDown',
-        //
-        // itemmouseup: 'itemMouseUp',
-        //
-        // containermouseup: 'containerMouseUp'
+        itemdblclick: 'itemDblClick'
     }
 
 });
