@@ -6,7 +6,7 @@
 
 
 Ext.define ('WWS.view.main.HeaderPanel', {
-    extend: 'Ext.panel.Panel',
+    extend: 'Ext.form.Panel',
     xtype: 'appheader',
 
     requires: [

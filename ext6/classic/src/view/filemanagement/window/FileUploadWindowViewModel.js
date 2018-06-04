@@ -12,7 +12,7 @@ Ext.define('WWS.view.filemanagement.window.FileUploadWindowViewModel', {
 
     stores: {
         uploadFiles: {
-            filds: [
+            fields: [
                 {name: 'fid'},
                 {name: 'name'},
                 {name: 'size'},

@@ -126,7 +126,7 @@ Ext.define('WWS.utils.Global', {
             if (!component) {
                 component = Ext.getCmp('appmain');
             }
-            if (component && component.wtype === 'classic') component.mask(msg);
+            if (component && Ext.isClassic) component.mask(msg);
         },
 
         unmask: function (component) {
