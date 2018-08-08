@@ -20,6 +20,7 @@ Ext.define ('WWS.view.worknotes.show.ContainerPanelController', {
                 title: T.__("Release"),
                 iconCls: 'x-fa fa-star',
                 region: 'east',
+                collapsible: true,
                 layout: 'border',
                 width: 300,
                 margin: 5,

@@ -16,6 +16,10 @@ Ext.define('WWS.view.worknotes.show.EditPanelViewModel', {
             var date = get('date');
             if (!date) date = new Date();
             return date;
+        },
+
+        hiddenSaveButton: function (get) {
+            return get('id') == 0
         }
     }
 });

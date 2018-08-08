@@ -1848,3 +1848,6 @@ msgstr "Diagramm anzeigen"
 
 msgid "The version number is invalid."
 msgstr "Die Versionsnummer ist ungültig."
+
+msgid "Save and Close"
+msgstr "Speichern und Schließen"

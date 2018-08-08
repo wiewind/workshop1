@@ -15,6 +15,8 @@ Ext.define('WWS.utils.Global', {
         cancelIconCls: 'x-fa fa-ban',
         saveText: T.__("Save"),
         saveIconCls: 'x-fa fa-save',
+        saveAndCloseText: T.__("Save and Close"),
+        saveAndCloseIconCls: 'x-fa fa-save',
         closeText: T.__("Close"),
         closeIconCls: 'x-fa fa-power-off',
         newText: T.__("New"),

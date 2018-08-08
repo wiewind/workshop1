@@ -34,16 +34,30 @@ Ext.define ('WWS.view.worknotes.show.EditPanelController', {
             view.up('worknotesshowcontainerpanel').setTitle(T.__('New Worknote'));
             view.buildCkeditor();
         }
+    },
 
+    onSubmitAndClose: function () {
+        this.closeAfterSave = 1;
+        this.onSubmit()
+    },
+
+    onSubmitNotClose: function () {
+        this.closeAfterSave = 0;
+        this.onSubmit()
     },
 
     submitSuccess: function (form, action) {
         var id = this.getViewModel().get('id'),
             newId = Ext.decode(action.response.responseText).data;
-        if (id != newId) {
-            WNF.close(id);
+
+        if (this.closeAfterSave) {
+            if (id != newId) {
+                WNF.close(id);
+            }
+            WNF.showWorknote(newId, 'detail');
+        } else {
+            this.getViewModel().set({id: newId})
         }
-        WNF.showWorknote(newId, 'detail');
         Ext.ComponentQuery.query('worknotesnavipanel')[0].getStore().reload();
         Ext.ComponentQuery.query('worknotesrecommendationpanel')[0].getViewModel().getStore('newNotes').reload();
     },

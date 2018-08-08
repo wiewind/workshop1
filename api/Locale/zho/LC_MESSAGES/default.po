@@ -1849,8 +1849,8 @@ msgstr "显示图表"
 msgid "The version number is invalid."
 msgstr "版本号无效。"
 
-msgid ""
-msgstr ""
+msgid "Save and Close"
+msgstr "保存并关闭"
 
 msgid ""
 msgstr ""

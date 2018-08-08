@@ -27,12 +27,22 @@ Ext.define ('WWS.view.worknotes.show.EditPanel', {
                 text: Glb.btnSetting.saveText,
                 tooltip: Glb.btnSetting.saveText,
                 iconCls: Glb.btnSetting.saveIconCls,
-                handler: 'onSubmit'
+                bind: {
+                    hidden: '{hiddenSaveButton}'
+                },
+                handler: 'onSubmitNotClose'
+            },
+            '->',
+            {
+                text: Glb.btnSetting.saveAndCloseText,
+                tooltip: Glb.btnSetting.saveAndCloseText,
+                iconCls: Glb.btnSetting.saveAndCloseIconCls,
+                handler: 'onSubmitAndClose'
             },
             {
-                text: Glb.btnSetting.cancelText,
-                tooltip: Glb.btnSetting.cancelText,
-                iconCls: Glb.btnSetting.cancelIconCls,
+                text: Glb.btnSetting.closeText,
+                tooltip: Glb.btnSetting.closeText,
+                iconCls: Glb.btnSetting.closeIconCls,
                 handler: 'onClickCancel'
             }
         ]
