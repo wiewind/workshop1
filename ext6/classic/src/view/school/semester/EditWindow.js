@@ -14,7 +14,7 @@ Ext.define ('WWS.view.school.semester.EditWindow', {
         type: 'schoolsemestereditwindow'
     },
 
-    input: {
+    setting: {
         url: Cake.api.path + '/school/json/saveSemester'
     },
 
