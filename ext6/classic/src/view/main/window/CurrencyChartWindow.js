@@ -78,7 +78,7 @@ Ext.define('WWS.view.main.window.CurrencyChartWindow', {
             sprites: [
                 {
                     type: 'text',
-                    text: '1 ' + vm.get('from') + ' = ? ' + vm.get('to'),
+                    text: vm.get('from') + ' => ' + vm.get('to'),
                     fontSize: 22,
                     width: 100,
                     height: 30,
