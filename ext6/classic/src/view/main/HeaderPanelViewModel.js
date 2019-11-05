@@ -7,7 +7,7 @@ Ext.define('WWS.view.main.HeaderPanelViewModel', {
 
     data: {
         from: 'EUR',
-        to: 'CNH',
+        to: 'CNY',
         menge: 1,
         result: '?'
     },

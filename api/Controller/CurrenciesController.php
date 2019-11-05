@@ -11,7 +11,7 @@ class CurrenciesController extends AppController {
         'CurrencyRate'
     );
 
-    public $apikey = "YVDXhR7N4Q5zHTEqZwfnDXKx5DThNWG3";
+    public $apikey = "f43f0b8836bd233aa9a5693e97107cf4";
 
     public function update () {
         $cdata = $this->CurrencyRate->find('first', [
@@ -40,21 +40,17 @@ class CurrenciesController extends AppController {
         }
 
         $data = json_decode($json);
-        if (is_array($data)) {
-            foreach ($data as $d) {
-                if (isset($d->symbol)) {
-                    $from = substr($d->symbol, 0, 3);
-                    $to = substr($d->symbol, 3);
-
-                    $rate = [
+        $from = 'EUR';
+        if (isset($data->rates)) {
+            foreach ($data->rates as $to => $rate) {
+                if ($from != $to) {
+                    $this->CurrencyRate->create();
+                    $this->CurrencyRate->save([
                         'from' => $from,
                         'to' => $to,
-                        'rate' => $d->price,
-                        'source' => 'forex'
-                    ];
-
-                    $this->CurrencyRate->create();
-                    $this->CurrencyRate->save($rate);
+                        'rate' => $rate,
+                        'source' => 'fixer'
+                    ]);
                 }
             }
         }
@@ -64,22 +60,25 @@ class CurrenciesController extends AppController {
 
     private function __getChangeTerms () {
         $cdata = $this->getAllCurrencies();
-        $terms = [];
-        if ($cdata) {
-            for ($i=0; $i<count($cdata) - 1; $i++) {
-                for ($j=$i+1; $j<count($cdata); $j++) {
-                    $c1 = $cdata[$i]['Currency']['code'];
-                    $c2 = $cdata[$j]['Currency']['code'];
-                    $terms[] = $c1.$c2;
-                    $terms[] = $c2.$c1;
-                }
-            }
-        }
-        return $terms;
+        return Set::Extract('/Currency/code', $cdata);
+
+
+//        $terms = [];
+//        if ($cdata) {
+//            for ($i=0; $i<count($cdata) - 1; $i++) {
+//                for ($j=$i+1; $j<count($cdata); $j++) {
+//                    $c1 = $cdata[$i]['Currency']['code'];
+//                    $c2 = $cdata[$j]['Currency']['code'];
+//                    $terms[] = $c1.$c2;
+//                    $terms[] = $c2.$c1;
+//                }
+//            }
+//        }
+//        return $terms;
     }
 
     private function __getRates ($changeTerms) {
-        $url = "https://forex.1forge.com/1.0.3/quotes?pairs=".implode(',', $changeTerms)."&api_key=" . $this->apikey;
+        $url = "http://data.fixer.io/api/latest?access_key=" . $this->apikey . '&base=EUR&symbols=' . implode(',', $changeTerms);
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -94,7 +93,6 @@ class CurrenciesController extends AppController {
     public function getRate () {
         // 没有task设置，只能在这里更新数据库。这不是个好办法，但也没其他更好的办法了。
         $this->update();
-        //
 
         $from = $this->request->data['from'];
         $to = $this->request->data['to'];
