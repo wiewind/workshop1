@@ -25,7 +25,7 @@ class CurrenciesController extends AppController {
 
         }
         // 120分钟内不更新
-        if (($now - $lasttime) < (60*30)) {
+        if (($now - $lasttime) < (60*120)) {
             return;
         }
 
