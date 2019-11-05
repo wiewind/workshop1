@@ -24,7 +24,7 @@ class CurrenciesController extends AppController {
             $lasttime = strtotime($cdata['CurrencyRate']['time']);
 
         }
-        // 30分钟内不更新
+        // 120分钟内不更新
         if (($now - $lasttime) < (60*30)) {
             return;
         }
@@ -42,15 +42,17 @@ class CurrenciesController extends AppController {
         $data = json_decode($json);
         $from = 'EUR';
         if (isset($data->rates)) {
-            foreach ($data->rates as $to => $rate) {
-                if ($from != $to) {
-                    $this->CurrencyRate->create();
-                    $this->CurrencyRate->save([
-                        'from' => $from,
-                        'to' => $to,
-                        'rate' => $rate,
-                        'source' => 'fixer'
-                    ]);
+            foreach ($data->rates as $from => $ratefrom) {
+                foreach ($data->rates as $to => $rateto) {
+                    if ($from != $to) {
+                        $this->CurrencyRate->create();
+                        $this->CurrencyRate->save([
+                            'from' => $from,
+                            'to' => $to,
+                            'rate' => $rateto / $ratefrom,
+                            'source' => 'fixer'
+                        ]);
+                    }
                 }
             }
         }
