@@ -126,7 +126,7 @@ Ext.define('WWS.view.filemanagement.window.FileUploadWindowController', {
 
         for (var i=0; i<files.length; i++) {
             if (files[i].message) {
-                ABox.error(T.__('Some files do not conform to the upload rules.'));
+                ABox.error(T.__('Some files do not confirm to the upload rules.'));
                 return;
             }
             fd.append('documents[]', files[i]);
